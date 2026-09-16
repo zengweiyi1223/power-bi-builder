@@ -21,3 +21,5 @@ V0/
 ```
 
 正式运行统一使用 `V0/runs/<run-id>/`，其中包含 `project/`、`logs/`、`evidence/`、`expected-results.json` 和 `VALIDATION.md`。运行时从 `seed/` 复制种子，不直接修改种子文件。
+
+正式运行证据默认纳入 Git；可重建中间文件只放入 `.work/`，由脚本按需创建且不得作为验收证据。制品范围、体积限制和 Power BI 文件换行策略以 `V0/REQUIREMENTS.md` 为准。

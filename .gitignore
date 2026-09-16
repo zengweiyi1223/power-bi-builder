@@ -1,6 +1,13 @@
 # Power BI machine-local state
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+**/.pbi/cache.*
+**/.pbi/AutoRecovery/
+**/.pbi/autorecovery/
+*.pbix.autorecover
+*.pbip.autorecover
+~$*.pbix
+~$*.pbip
 
 # Python bytecode and tool caches
 __pycache__/
@@ -20,6 +27,8 @@ ENV/
 
 # Disposable V0 workspace
 V0/.work/
+
+# Formal V0 runs are intentionally tracked; do not ignore V0/runs/.
 
 # Windows and common OS metadata
 Thumbs.db
