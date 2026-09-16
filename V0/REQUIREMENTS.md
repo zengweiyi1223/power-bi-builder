@@ -213,18 +213,22 @@ V0 的全部文件统一存放在本目录：
 ```text
 V0/
 ├─ REQUIREMENTS.md
+├─ .work/
 ├─ data/
 ├─ seed/
 ├─ scripts/
 └─ runs/
    └─ <run-id>/
       ├─ project/
-      ├─ expected-results.*
       ├─ logs/
+      ├─ evidence/
+      ├─ expected-results.json
       └─ VALIDATION.md
 ```
 
+- `data/` 保存固定输入数据，`scripts/` 保存基准计算和验证脚本。
 - `seed/` 保留不可变种子；每次实验复制到独立 `runs/<run-id>/` 后操作。
+- `.work/` 仅保存可删除的中间文件，并由 Git 忽略。
 - 记录种子 Git 提交或哈希、运行标识和关键工具版本。
 - `VALIDATION.md` 至少包含：环境指纹、MCP 能力矩阵、对象回读、DAX 基准对比、PBIR 校验、保存前后差异、Desktop 打开与交互证据、最终分级及已知限制。
 - 验证通过的关键阶段应形成 Git 提交，保证可比较和可回滚。

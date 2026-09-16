@@ -1,0 +1,41 @@
+# Power BI machine-local state
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Disposable V0 workspace
+V0/.work/
+
+# Windows and common OS metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Temporary, backup, and editor swap files
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+.#*
+\#*#

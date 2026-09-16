@@ -1,0 +1,25 @@
+# Normalize text in the repository. Explicit LF is limited to files authored outside Desktop.
+* text=auto
+
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.gitkeep text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+*.py text eol=lf
+
+# Power BI project metadata is text, but its working-tree EOL is not forced yet.
+# Revisit after the pinned Power BI Desktop version generates the real seed.
+*.json text
+*.tmdl text
+*.pbir text
+*.pbip text
+*.pbism text
+
+# Known binary artifacts
+*.abf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
