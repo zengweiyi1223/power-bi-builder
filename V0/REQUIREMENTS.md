@@ -20,7 +20,7 @@
 - 种子仅包含有效工程结构、空白语义模型和唯一的空白 `Overview` 页面，不预置目标表、度量值或视觉对象。
 - 种子保存到 `V0/seed/`，纳入 Git 后视为不可变；所有实验先复制到 `V0/runs/<run-id>/project/`，后续操作仅针对运行副本。
 - 种子必须保留报告对语义模型的相对 `byPath` 引用。
-- Auto date/time 关闭状态以人工检查 Current File 设置及截图为主要证据；模型创建、刷新和重开后，再通过 MCP 表清单、模型元数据或受支持的 DMV 查询确认未出现自动日期表，作为辅助证据。隐藏表不存在不能单独证明该设置已关闭。
+- Auto date/time 关闭状态以人工确认 Desktop 的 Current File 设置，并核对保存后 `model.tmdl` 中 `__PBI_TimeIntelligenceEnabled = 0` 为主要证据；截图可选。模型创建、刷新和重开后，再通过 MCP 表清单、模型元数据或受支持的 DMV 查询确认未出现自动日期表，作为辅助证据。隐藏表不存在不能单独证明该设置已关闭。
 - Power BI Service、浏览器报表编辑和 Fabric 发布不属于本地 PBIP 验证链路。
 - 零种子、零模板创建整个 PBIP 工程壳不属于 V0。
 
