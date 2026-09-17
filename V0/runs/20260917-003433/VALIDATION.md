@@ -1,6 +1,6 @@
 # V0 验收记录 — 20260917-003433
 
-状态：阶段 1–3 已通过；MCP 建模、刷新与 Power BI Demo 验收尚未执行。本记录只记载已核实事实，不代表 Demo 成功。
+状态：阶段 1–6 已通过；模型磁盘持久化、PBIR 与 Desktop 验收尚未执行。本记录只记载已核实事实，不代表 Demo 成功。
 
 ## 环境与基线
 
@@ -27,12 +27,15 @@
 | 1. Git 回滚点、种子与运行副本 | 已通过 | 种子独立提交；运行副本逐文件一致；Auto date/time 证据已核对。 |
 | 2. Modeling MCP 连接与能力矩阵 | 可用性预检通过 | 原生工具可见；已连接运行副本并回读空白模型。实际写入、刷新及 DAX 在对应阶段验证，失败即停。 |
 | 3. 固定 CSV 与独立基准 | 已通过 | 固定 15 行 CSV、独立 Python 脚本和本次运行的预期结果已生成并核对。 |
-| 4–11. 建模、刷新、DAX、持久化、PBIR、Desktop 验收 | 待执行 | 未启动 Demo。 |
+| 4. M/Partition 创建和数据刷新 | 已通过 | 3 个 Import/M Partition 均为 Ready，行数为 15、5、88。 |
+| 5. 模型、关系、属性与度量值回读 | 已通过 | 3 表、2 条活动单向关系、5 个度量值及关键属性均已回读。 |
+| 6. DAX 与独立基准对比 | 已通过 | 总计、4 个月、4 个品类、Technology 和零分母场景均一致。 |
+| 7–11. 磁盘持久化、PBIR 与 Desktop 验收 | 待执行 | 不将运行中模型误判为已保存项目。 |
 
 ## 待补证据
 
-- 各必要 MCP 写入、刷新及 DAX 能力的实际操作和回读结果。
-- 后续阶段的日志、数值比对、项目与 PBIR 校验、两次持久化回读、交互截图和人工视觉确认。
+- Desktop 保存后磁盘文件快照、重开回读及代表性 DAX。
+- 后续项目与 PBIR 校验、最终持久化回读、交互截图和人工视觉确认。
 
 ## MCP 服务端预检
 
@@ -60,6 +63,17 @@
 - 独立总计：销售额 `9356.75`、销量 `74`、成本 `6344.80`、毛利额 `3011.95`、毛利率 `0.3219013011996687`。月度销售额和品类销售额分别汇总到总计；`ZeroSales` 销售额为 `0`，毛利率为 `null`，对应 DAX `BLANK`。
 - 这些数值是待与 MCP DAX 查询比较的基准，尚不能证明模型或报表正确。
 
+## MCP 建模、刷新和数值验证
+
+- 连接目标始终是运行副本的 Desktop 本地模型 `localhost:51759`；未连接离线 PBIP，也未直接编辑 TMDL。
+- MCP 创建 `DataFilePath` Power Query 参数，值为当前环境的 `E:\AIWorkspace\01_Projects\power-bi-builder\V0\data\sales.csv`；共享 M 表达式 `SalesSource` 显式指定 UTF-8、逗号分隔、7 列、`en-US` 类型转换。两者经 MCP `Get` 回读。
+- MCP 创建 `FactSales`（`SalesSource`）、`DimProduct`（源表投影去重）及 `DimDate`（源数据日期最小至最大值的连续日期，并派生 `Year`、`MonthNumber`、英文 `MonthName`、`YearMonth`）。每表有一个 Import/M Partition。刷新接口的单次调用实际只处理首个表，故对另外两表逐表刷新；最终三者均为 `Ready`。
+- DAX 行数检查：`FactSales=15`、`DimProduct=5`、`DimDate=88`；维度唯一键数分别为 5 和 88，事实键未发现孤儿值。三表包含 MCP/引擎自动生成的隐藏 `RowNumber-*` 内部列，不作为业务 Schema。
+- MCP 回读两条活动、多对一、单向关系：`FactSales[SaleDate] → DimDate[Date]` 和 `FactSales[ProductKey] → DimProduct[ProductKey]`。`DimDate` 的 `dataCategory=Time`；`MonthName.sortByColumn=MonthNumber`。五个度量值的精确名称、表达式和格式字符串均与需求契约一致。
+- 建立关系后首次月度 DAX 提示关系需要重新计算；通过 MCP 对三个 Partition 执行标准 `Calculate` 后查询成功。此过程未修改 CSV、需求或模型定义，也未绕过 MCP。
+- DAX 对比独立基准：总计销售额 `9356.75`、销量 `74`、成本 `6344.80`、毛利额 `3011.95`、毛利率 `0.3219013011996687`；4 个月和 4 个品类的销售额/毛利额逐项一致；`Technology` 五项结果一致；`ZeroSales` 毛利率为 `null`，即 DAX `BLANK`。金额、销量、比率均在规定容差内。
+- 以上仅证明当前 Desktop 运行中模型；尚未验证磁盘持久化。
+
 ## 当前结论
 
-确认种子与运行副本准备完成，MCP 连接及可用性预检通过，固定 CSV 与独立基准已生成；写入、刷新、DAX 和端到端结果尚未判定。下一步逐项验证 MCP 实际操作；任一必要能力失败即停。
+确认运行中模型的输入、刷新、关系、度量值及 DAX 数值已通过；尚未确认 Desktop 保存到磁盘，故不得进入 PBIR 阶段。下一步按独立持久化闸门人工保存、关闭、重开并重新连接回读。
