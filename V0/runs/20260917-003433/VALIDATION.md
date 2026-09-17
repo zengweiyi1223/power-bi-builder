@@ -25,13 +25,13 @@
 | 阶段 | 状态 | 记录 |
 | --- | --- | --- |
 | 1. Git 回滚点、种子与运行副本 | 已通过 | 种子独立提交；运行副本逐文件一致；Auto date/time 证据已核对。 |
-| 2. Modeling MCP 连接与能力矩阵 | 工具可见，模型能力待测 | 官方服务端已注册；原生工具及静态接口核对成功，未连接 Desktop 模型。 |
+| 2. Modeling MCP 连接与能力矩阵 | 可用性预检通过 | 原生工具可见；已连接运行副本并回读空白模型。实际写入、刷新及 DAX 在对应阶段验证，失败即停。 |
 | 3. 固定 CSV 与独立基准 | 待执行 | `expected-results.json` 尚未生成，避免虚假结果。 |
 | 4–11. 建模、刷新、DAX、持久化、PBIR、Desktop 验收 | 待执行 | 未启动 Demo。 |
 
 ## 待补证据
 
-- MCP 对运行副本 Desktop 模型的实际连接，以及各必要能力的操作和回读结果。
+- 各必要 MCP 写入、刷新及 DAX 能力的实际操作和回读结果。
 - 后续阶段的日志、数值比对、项目与 PBIR 校验、两次持久化回读、交互截图和人工视觉确认。
 
 ## MCP 服务端预检
@@ -42,8 +42,16 @@
 - 重启后上述原生 MCP 工具已在当前 Codex 任务中出现，`Help` 调用成功；静态接口包含 `MarkAsDateTable`、列 `sortByColumn`、度量值 `formatString`、刷新、关系及 DAX 操作。
 - `ListLocalInstances` 返回 0 个实例；检查时 Desktop 保持关闭，未建立模型连接。
 - 日期表属性、`sortByColumn`、`formatString`、刷新及保存后回读等是否在当前版本和 Desktop 目标上可实际执行，仍需后续逐项验证；工具组存在不等于能力通过。
-- 当前任务未连接模型、未执行 DAX、未修改语义模型或 PBIR。
+- 本次预检未执行 DAX、未修改语义模型或 PBIR。
+
+## Desktop 运行副本只读连接
+
+- 用户打开的 Desktop 进程启动参数指向 `V0/runs/20260917-003433/project/PowerBIBuilderV0Seed.pbip`，不是 `V0/seed/` 原件。
+- MCP 发现本地实例 `localhost:51759`，成功建立连接 `PBIDesktop-PowerBIBuilderV0Seed-51759`。
+- MCP `Get` 回读模型 `Model`，注释 `__PBI_TimeIntelligenceEnabled = 0`；表、关系、度量值、Named Expression、Partition 的 `List` 结果均为 0。
+- Desktop 打开后，Git 检查未发现种子或运行副本已追踪文件的变更。
+- 能力矩阵判定：连接、原生工具调用及只读对象回读已实测通过；M/Partition 创建、关系、度量值、日期表标记、列排序、格式、刷新和 DAX 已在当前工具接口中声明，实际操作留待后续相应阶段验收。
 
 ## 当前结论
 
-确认种子与运行副本准备完成，MCP 服务端预检和原生工具可见性通过；完整 MCP 能力闸门及端到端结果尚未判定。下一步打开运行副本并逐项验证实际连接与操作，未通过则按需求文档停止并记录。
+确认种子与运行副本准备完成，MCP 连接及可用性预检通过；写入、刷新、DAX 和端到端结果尚未判定。下一步准备固定 CSV 与独立基准，随后逐项验证 MCP 实际操作；任一必要能力失败即停。
