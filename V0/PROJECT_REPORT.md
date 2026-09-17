@@ -36,6 +36,7 @@ V0 目录按用途分开：
 | [`seed/`](seed/) | 人工创建的空白 PBIP/PBIR 种子；保留原件，不在其上实施 Demo。 |
 | [`scripts/calc_expected.py`](scripts/calc_expected.py) | 从 CSV 独立计算 DAX 对照基准。 |
 | [`scripts/validate_pbir.py`](scripts/validate_pbir.py)、[`requirements.txt`](scripts/requirements.txt) | PBIP/PBIR 离线校验及其依赖版本。 |
+| [`presentation/ai-powerbi-production-flow.html`](presentation/ai-powerbi-production-flow.html) | 面向演示的实际应用流程图，说明 AI 直出能力与人工操作边界。 |
 | [`runs/20260917-003433/project/PowerBIBuilderV0Seed.pbip`](runs/20260917-003433/project/PowerBIBuilderV0Seed.pbip) | **可直接用 Desktop 打开的最终 Demo 入口。** 同目录的 `PowerBIBuilderV0Seed.Report/` 是 PBIR 页面与 6 个视觉对象，`PowerBIBuilderV0Seed.SemanticModel/` 是 TMDL 模型、M 表达式、关系和度量值；这些目录必须与 `.pbip` 一起保留。 |
 | [`runs/20260917-003433/expected-results.json`](runs/20260917-003433/expected-results.json) | 本次运行的独立预期值。 |
 | [`runs/20260917-003433/VALIDATION.md`](runs/20260917-003433/VALIDATION.md) | 逐阶段验收、环境、Git 快照、PBIR diff 和已知限制。 |

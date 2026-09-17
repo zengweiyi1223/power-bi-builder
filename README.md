@@ -16,6 +16,7 @@ V0/
 ├─ data/             # 固定输入数据
 ├─ seed/             # 不可直接修改的空白 PBIP 种子
 ├─ scripts/          # 基准计算和验证脚本
+├─ presentation/     # 面向演示的 HTML 流程图
 ├─ runs/             # 每次正式实验的独立运行目录
 └─ .work/            # 可删除的中间文件，不提交 Git
 ```

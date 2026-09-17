@@ -9,6 +9,7 @@
 *.log text eol=lf
 *.csv text eol=lf
 *.py text eol=lf
+*.html text eol=lf
 *.json text eol=lf
 
 # Pinned Desktop 2.157.1354.0 samples (2026-09-17): PBIR JSON and TMDL were
