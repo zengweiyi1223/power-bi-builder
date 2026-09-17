@@ -91,11 +91,41 @@
     .dot.human { background: var(--human); }
     .dot.output { background: var(--output); }
 
+    .prerequisite {
+      margin-top: 21px;
+      min-height: 72px;
+      display: grid;
+      grid-template-columns: 185px 1.15fr 1fr;
+      align-items: center;
+      gap: 22px;
+      padding: 13px 19px;
+      background: linear-gradient(90deg, var(--human-soft), var(--white) 36%, var(--ai-soft));
+      border-left: 5px solid var(--human);
+      border-radius: 10px;
+      box-shadow: 0 6px 22px rgba(30, 47, 78, 0.06);
+    }
+
+    .prerequisite h2 {
+      margin: 0;
+      color: var(--human);
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .prerequisite p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .prerequisite strong { color: var(--ink); }
+
     .pipeline {
       display: grid;
       grid-template-columns: 1fr 34px 1.06fr 34px 1.15fr 34px 1.13fr 34px 1.08fr 34px 1.06fr;
       align-items: stretch;
-      margin-top: 38px;
+      margin-top: 22px;
     }
 
     .step {
@@ -251,6 +281,7 @@
       .slide { aspect-ratio: auto; min-height: 100vh; padding: 34px 28px 90px; overflow: visible; }
       header { display: block; }
       .legend { justify-content: flex-start; margin-top: 18px; }
+      .prerequisite { grid-template-columns: 1fr; gap: 8px; }
       .pipeline { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
       .step { min-height: 0; }
       .arrow { transform: rotate(90deg); height: 22px; }
@@ -278,6 +309,12 @@
         <span><i class="dot output"></i>可直接交付</span>
       </div>
     </header>
+
+    <section class="prerequisite" aria-label="一次性前置准备">
+      <h2>一次性前置准备<br>人工建立标准种子</h2>
+      <p><strong>首次搭建：</strong>在 Power BI Desktop 创建并保存空白 PBIP/PBIR，启用所需功能与当前文件设置，作为版本化标准种子。</p>
+      <p><strong>日常使用：</strong>AI 每次复制种子后开始生成，无需人工重复新建。后续探索从零自动创建完整 PBIP 工程壳。</p>
+    </section>
 
     <section class="pipeline" aria-label="Power BI 报表生产流程">
       <article class="step human">
