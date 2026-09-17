@@ -3,6 +3,13 @@
   "name": "8fb40e89e07700078d07",
   "displayName": "Overview",
   "displayOption": "FitToPage",
-  "height": 1080,
-  "width": 1920
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    { "source": "0e6c28b4a91d5f307c82", "target": "4e0c77a8941f2b6d3901", "type": "DataFilter" },
+    { "source": "0e6c28b4a91d5f307c82", "target": "8a3f61d42c097be540ad", "type": "DataFilter" },
+    { "source": "0e6c28b4a91d5f307c82", "target": "c6d2918a0b7e4f35d129", "type": "DataFilter" },
+    { "source": "0e6c28b4a91d5f307c82", "target": "2f9b0c61a73e485d20ac", "type": "DataFilter" },
+    { "source": "0e6c28b4a91d5f307c82", "target": "7d4a902e1bcf6358a0d2", "type": "DataFilter" }
+  ]
 }

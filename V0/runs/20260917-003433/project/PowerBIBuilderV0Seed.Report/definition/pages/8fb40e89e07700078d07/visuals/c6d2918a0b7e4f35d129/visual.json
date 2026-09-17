@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "c6d2918a0b7e4f35d129",
+  "position": {
+    "x": 624,
+    "y": 24,
+    "z": 3000,
+    "height": 116,
+    "width": 280,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactSales"
+                    }
+                  },
+                  "Property": "毛利率"
+                }
+              },
+              "queryRef": "FactSales.毛利率",
+              "nativeQueryRef": "毛利率"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

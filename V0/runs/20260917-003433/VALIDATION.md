@@ -30,8 +30,9 @@
 | 4. M/Partition 创建和数据刷新 | 已通过 | 3 个 Import/M Partition 均为 Ready，行数为 15、5、88。 |
 | 5. 模型、关系、属性与度量值回读 | 已通过 | 3 表、2 条活动单向关系、5 个度量值及关键属性均已回读。 |
 | 6. DAX 与独立基准对比 | 已通过 | 总计、4 个月、4 个品类、Technology 和零分母场景均一致。 |
-| 7. 模型持久化闸门 | 回读通过，待再次关闭 | 重开运行副本后，MCP 对象和属性回读及代表性 DAX 均通过。 |
-| 8–11. PBIR 与 Desktop 验收 | 待执行 | 持久化闸门通过前不改 PBIR。 |
+| 7. 模型持久化闸门 | 已通过 | 重开运行副本后，MCP 对象和属性回读及代表性 DAX 均通过；执行者已再次关闭 Desktop。 |
+| 8. PBIR 生成与离线校验 | 已通过，待 Desktop 实测 | 唯一 Overview 页含 6 个视觉对象；项目入口、官方 JSON Schema、布局、字段绑定及交互配置均通过预检。 |
+| 9–11. Desktop 打开、交互、保存重开与最终回读 | 待执行 | 离线 Schema 通过不等同于 Desktop 成功。 |
 
 ## 待补证据
 
@@ -88,8 +89,16 @@
 - MCP 回读 3 张表、3 个 `Ready` Import/M Partition、2 条活动单向多对一关系、5 个精确命名的度量值，以及 `DataFilePath`、`SalesSource` 两个 M 表达式。五个度量值的表达式和格式字符串均未漂移。
 - `DimDate.dataCategory=Time`、`DimDate[Date]` 唯一、`DimDate[MonthName].sortByColumn=MonthNumber` 在重开后保持不变。
 - 重开后代表性 DAX 成功：三表行数 `15/5/88`；总计销售额 `9356.75`、销量 `74`、成本 `6344.80`、毛利额 `3011.95`、毛利率 `0.3219013011996687`；`Technology` 销售额 `7690`，`2026-04` 销售额 `0`。均与独立基准一致。
-- 因此模型已通过磁盘定义和重开运行验证；按流程仍待执行者再次关闭 Desktop，之后才编辑 PBIR。
+- 因此模型已通过磁盘定义和重开运行验证；执行者随后再次关闭 Desktop，才开始 PBIR 编辑。
+
+## PBIR 生成与离线预检
+
+- 执行者再次关闭 Desktop；进程检查未发现 `PBIDesktop` 或 `msmdsrv`。模型持久化闸门至此完成，随后才开始 PBIR 编辑。
+- 仅修改运行副本唯一 `Overview` 的 `page.json`（1280 × 720）并新增 6 个 `visual.json`：3 个独立 `cardVisual`（销售额、毛利额、毛利率）、1 个 `lineChart`（`DimDate[YearMonth]` × 销售额）、1 个 `clusteredColumnChart`（品类 × 销售额）、1 个品类 `Dropdown` slicer。页面显式配置 slicer 对其他 5 个对象的 `DataFilter` 交互。
+- `V0/scripts/validate_pbir.py` 对根 `.pbip`、PBIR JSON 使用微软公开 Schema 验证，并检查项目路径、`definition.pbir` 不变性、唯一页面、6 个类型与字段绑定、画布边界、对象不重叠及 5 条交互。脚本从微软公开地址读取 10 份 Schema，全部通过；`jsonschema==4.26.0` 临时安装在被忽略的 `V0/.work/`，未纳入正式产物。
+- 微软公开的 `visualConfiguration/2.3.0/schema-embedded.json` 内 `$id` 使用未实际发布的 `schema.embedded.json`；验证脚本只为这一已核实地址做别名映射，不跳过任何 Schema 规则。
+- `.pbip` 及 `definition.pbir` 内容与种子逐字节一致；未编辑 `report.json`、`pages.json`、`version.json`、主题或其他外围文件。尚未用 Desktop 实际打开生成后的 PBIR，不能判定视觉或交互验收通过。
 
 ## 当前结论
 
-确认运行中模型与重开后的 MCP/DAX 一致，磁盘持久化回读已通过。待 Desktop 再次关闭并确认项目文件未意外变化后，进入 PBIR 阶段。
+确认模型持久化闸门和 PBIR 离线预检已通过；下一步在 Desktop 打开运行副本，观察是否存在修复提示，并进行页面、数值和切片器交互验收。
