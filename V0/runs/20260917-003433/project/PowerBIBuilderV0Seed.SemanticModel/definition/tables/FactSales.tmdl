@@ -1,0 +1,62 @@
+table FactSales
+	lineageTag: fffa55e4-ce35-4537-804c-2cf3766dec40
+
+	measure 销售额 = SUMX ( FactSales, FactSales[Quantity] * FactSales[UnitPrice] )
+		formatString: #,0.00
+		lineageTag: 4db23eb9-cfb1-4e80-94ef-86eecca98513
+
+	measure 销量 = SUM ( FactSales[Quantity] )
+		formatString: #,0
+		lineageTag: 0ecca2f5-68cc-4f2b-8f32-e6a9eb69bb71
+
+	measure 成本 = SUMX ( FactSales, FactSales[Quantity] * FactSales[UnitCost] )
+		formatString: #,0.00
+		lineageTag: 88b1f0bb-52b9-458a-bece-3304591b2b05
+
+	measure 毛利额 = [销售额] - [成本]
+		formatString: #,0.00
+		lineageTag: 5beeb22c-9028-425a-918a-70db939a9b11
+
+	measure 毛利率 = DIVIDE ( [毛利额], [销售额] )
+		formatString: 0.0%
+		lineageTag: 21a6aa32-2220-4725-b8c5-74b3c98c4f80
+
+	column SaleDate
+		dataType: dateTime
+		lineageTag: 6cfa16f7-8fb4-4ada-842b-7c7b477a477c
+		sourceColumn: SaleDate
+
+	column ProductKey
+		dataType: int64
+		lineageTag: 8ded5db4-be58-4a41-8a8b-925705bb5c01
+		sourceColumn: ProductKey
+
+	column Product
+		dataType: string
+		lineageTag: 55d0efd9-6aa9-468a-8095-6b4d50a3e847
+		sourceColumn: Product
+
+	column Category
+		dataType: string
+		lineageTag: b9601d21-ed27-46ee-a93a-d0c83049df52
+		sourceColumn: Category
+
+	column Quantity
+		dataType: int64
+		lineageTag: 41540636-6334-4c2c-84e8-7f8d5440f1d1
+		sourceColumn: Quantity
+
+	column UnitPrice
+		dataType: decimal
+		lineageTag: be1ed6ef-469c-4ea9-a606-a97a18f44af4
+		sourceColumn: UnitPrice
+
+	column UnitCost
+		dataType: decimal
+		lineageTag: 12188c54-5a3f-4ba6-ae7f-67cfce4d25b0
+		sourceColumn: UnitCost
+
+	partition FactSales = m
+		mode: import
+		source = SalesSource
+

@@ -1,0 +1,27 @@
+expression DataFilePath = "E:\AIWorkspace\01_Projects\power-bi-builder\V0\data\sales.csv" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 4ef3b2f4-4fc0-4966-a1ae-887f9b53639d
+
+expression SalesSource =
+		let
+		    Source = Csv.Document(
+		        File.Contents(DataFilePath),
+		        [Delimiter = ",", Columns = 7, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+		    ),
+		    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+		    Typed = Table.TransformColumnTypes(
+		        Headers,
+		        {
+		            {"SaleDate", type date},
+		            {"ProductKey", Int64.Type},
+		            {"Product", type text},
+		            {"Category", type text},
+		            {"Quantity", Int64.Type},
+		            {"UnitPrice", Currency.Type},
+		            {"UnitCost", Currency.Type}
+		        },
+		        "en-US"
+		    )
+		in
+		    Typed
+	lineageTag: 809b13b3-925c-4aa2-ae35-f91f75f4915e
+

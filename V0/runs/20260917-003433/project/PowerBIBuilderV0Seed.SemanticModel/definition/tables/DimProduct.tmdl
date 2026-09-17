@@ -1,0 +1,22 @@
+table DimProduct
+	lineageTag: 10d9fc1a-22ba-4d4f-990c-762143a23d01
+
+	column ProductKey
+		dataType: int64
+		lineageTag: f8a37894-e276-4e86-a977-d0879b609948
+		sourceColumn: ProductKey
+
+	column Product
+		dataType: string
+		lineageTag: 62f80751-8ae1-49f5-baf6-66cc0d9414eb
+		sourceColumn: Product
+
+	column Category
+		dataType: string
+		lineageTag: 6978749e-63de-462c-a63e-f83a0d776392
+		sourceColumn: Category
+
+	partition DimProduct = m
+		mode: import
+		source = Table.Distinct(Table.SelectColumns(SalesSource, {"ProductKey", "Product", "Category"}))
+

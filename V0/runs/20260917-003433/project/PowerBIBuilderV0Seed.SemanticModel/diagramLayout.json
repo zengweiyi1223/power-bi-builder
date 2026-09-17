@@ -7,7 +7,47 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "FactSales",
+          "nodeLineageTag": "fffa55e4-ce35-4537-804c-2cf3766dec40",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 48
+          },
+          "nodeIndex": "DimProduct",
+          "nodeLineageTag": "10d9fc1a-22ba-4d4f-990c-762143a23d01",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 24
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "b949e86a-bfb9-423b-a2e1-32b177e6a714",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
       "name": "所有表",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,
