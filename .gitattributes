@@ -11,8 +11,9 @@
 *.py text eol=lf
 *.json text eol=lf
 
-# Do not normalize Power BI project sources before observing Desktop output.
-# Revisit in a separate commit after the pinned Desktop version creates the seed.
+# Pinned Desktop 2.157.1354.0 samples (2026-09-17): PBIR JSON and TMDL were
+# UTF-8 without BOM and used CRLF; Desktop may omit the final JSON newline.
+# Preserve Power BI source bytes; Desktop can also reserialize JSON on save.
 V0/seed/**/*.json -text !eol
 V0/runs/**/project/**/*.json -text !eol
 *.tmdl -text !eol
