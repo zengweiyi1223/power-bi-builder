@@ -30,7 +30,7 @@
 | 4. M/Partition 创建和数据刷新 | 已通过 | 3 个 Import/M Partition 均为 Ready，行数为 15、5、88。 |
 | 5. 模型、关系、属性与度量值回读 | 已通过 | 3 表、2 条活动单向关系、5 个度量值及关键属性均已回读。 |
 | 6. DAX 与独立基准对比 | 已通过 | 总计、4 个月、4 个品类、Technology 和零分母场景均一致。 |
-| 7. 模型持久化闸门 | 进行中 | Desktop 已保存并退出；磁盘 TMDL 已核查并提交重开前快照，尚待重开 MCP 回读。 |
+| 7. 模型持久化闸门 | 回读通过，待再次关闭 | 重开运行副本后，MCP 对象和属性回读及代表性 DAX 均通过。 |
 | 8–11. PBIR 与 Desktop 验收 | 待执行 | 持久化闸门通过前不改 PBIR。 |
 
 ## 待补证据
@@ -82,6 +82,14 @@
 - 根 `.pbip` SHA-256 仍为 `AF67AAF1A650845C67975103E6F2079E414A9E51BB841A097DC51AD518362FD9`，与种子一致；`definition.pbir` 未发生 Git 变更。运行目录总大小约 148 KB，未触及制品体积阈值。
 - Desktop 原生 TMDL/JSON 保留原始 CRLF；`git diff --check` 因 CRLF 对新增行报尾空格，不据此转换 Power BI 文件。重开前原样 Git 快照提交为 `b01d551938f7f9f4926a437fa8eab5002949228e`，可用于后续结构 diff 和回滚。
 
+## 模型持久化闸门：重开后 MCP 回读
+
+- 用户重新打开运行副本；Desktop 进程启动参数明确指向 `V0/runs/20260917-003433/project/PowerBIBuilderV0Seed.pbip`，不是种子。新引擎 PID `23532`，端口 `localhost:54545`；MCP 新连接 `PBIDesktop-PowerBIBuilderV0Seed-54545`。
+- MCP 回读 3 张表、3 个 `Ready` Import/M Partition、2 条活动单向多对一关系、5 个精确命名的度量值，以及 `DataFilePath`、`SalesSource` 两个 M 表达式。五个度量值的表达式和格式字符串均未漂移。
+- `DimDate.dataCategory=Time`、`DimDate[Date]` 唯一、`DimDate[MonthName].sortByColumn=MonthNumber` 在重开后保持不变。
+- 重开后代表性 DAX 成功：三表行数 `15/5/88`；总计销售额 `9356.75`、销量 `74`、成本 `6344.80`、毛利额 `3011.95`、毛利率 `0.3219013011996687`；`Technology` 销售额 `7690`，`2026-04` 销售额 `0`。均与独立基准一致。
+- 因此模型已通过磁盘定义和重开运行验证；按流程仍待执行者再次关闭 Desktop，之后才编辑 PBIR。
+
 ## 当前结论
 
-确认运行中模型的输入、刷新、关系、度量值及 DAX 数值已通过；磁盘文件已保存并留有重开前快照。持久化闸门尚待 Desktop 重开、MCP 重新连接及 DAX 回读，故仍不得进入 PBIR 阶段。
+确认运行中模型与重开后的 MCP/DAX 一致，磁盘持久化回读已通过。待 Desktop 再次关闭并确认项目文件未意外变化后，进入 PBIR 阶段。
