@@ -4,9 +4,9 @@ Power BI Builder 用于验证 Codex 能否结合 Microsoft Power BI Modeling MCP
 
 ## 当前状态
 
-- 项目处于 V0 最小可行实验阶段。
-- [`V0/REQUIREMENTS.md`](V0/REQUIREMENTS.md) 是后续执行与验收的唯一基线。
-- Power BI Demo 尚未执行，当前没有正式运行结果。
+- V0 最小可行实验已完成：报表可在 Power BI Desktop 打开、交互、保存重开，最终模型回读与 DAX 基准一致。
+- [`V0/REQUIREMENTS.md`](V0/REQUIREMENTS.md) 是执行与验收基线；[项目报告](V0/PROJECT_REPORT.md)概述结果、文件和已知限制。
+- 正式运行及证据位于 [`V0/runs/20260917-003433/`](V0/runs/20260917-003433/)；最终保存后的切片器 2.12.0 Schema 精确校验仍待公开文件补证，不影响已验证的 Desktop 使用。
 
 ## 目录
 
