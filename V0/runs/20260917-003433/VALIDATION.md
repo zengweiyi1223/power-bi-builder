@@ -1,6 +1,6 @@
 # V0 验收记录 — 20260917-003433
 
-状态：阶段 1–9 已通过；保存重开与最终模型回读尚未执行。本记录只记载已核实事实，不代表 Demo 完整成功。
+状态：阶段 1–11 已通过；V0 Demo 完整成功。已知校验限制见文末。
 
 ## 环境与基线
 
@@ -25,7 +25,7 @@
 | 阶段 | 状态 | 记录 |
 | --- | --- | --- |
 | 1. Git 回滚点、种子与运行副本 | 已通过 | 种子独立提交；运行副本逐文件一致；Auto date/time 证据已核对。 |
-| 2. Modeling MCP 连接与能力矩阵 | 可用性预检通过 | 原生工具可见；已连接运行副本并回读空白模型。实际写入、刷新及 DAX 在对应阶段验证，失败即停。 |
+| 2. Modeling MCP 连接与能力矩阵 | 已通过 | 官方 MCP 已连接 Desktop 本地模型；建模、刷新、属性修改、回读和 DAX 均在后续阶段实测通过。 |
 | 3. 固定 CSV 与独立基准 | 已通过 | 固定 15 行 CSV、独立 Python 脚本和本次运行的预期结果已生成并核对。 |
 | 4. M/Partition 创建和数据刷新 | 已通过 | 3 个 Import/M Partition 均为 Ready，行数为 15、5、88。 |
 | 5. 模型、关系、属性与度量值回读 | 已通过 | 3 表、2 条活动单向关系、5 个度量值及关键属性均已回读。 |
@@ -33,13 +33,15 @@
 | 7. 模型持久化闸门 | 已通过 | 重开运行副本后，MCP 对象和属性回读及代表性 DAX 均通过；执行者已再次关闭 Desktop。 |
 | 8. PBIR 生成与离线校验 | 已通过 | 唯一 Overview 页含 6 个视觉对象；项目入口、官方 JSON Schema、布局、字段绑定及交互配置均通过预检，随后在 Desktop 实际渲染。 |
 | 9. Desktop 打开、渲染与交互 | 已通过 | 无错误或自动修复提示；Technology 筛选与基准一致，清除后恢复；执行者确认页面清晰可读。 |
-| 10. Desktop 保存、关闭和重开 | 进行中 | 执行者已在清除切片器后保存并关闭，无提示；磁盘差异已核对，待重开验收。 |
-| 11. 最终持久化回读 | 待执行 | 不以首次渲染或离线检查代替重开后的 MCP 回读。 |
+| 10. Desktop 保存、关闭和重开 | 已通过 | 保存关闭无提示；磁盘差异无业务语义漂移；重开无错误/自动修复，六个视觉对象及未筛选 KPI 正常。 |
+| 11. 最终持久化回读 | 已通过 | 新 MCP 连接回读 3 表、2 关系、3 个 Ready 分区、5 度量值及关键属性；代表性 DAX 与独立基准一致。 |
 
-## 待补证据
+## 关键验收证据
 
-- Desktop 保存后磁盘文件快照、重开回读及代表性 DAX。
-- 后续项目与 PBIR 校验、最终持久化回读、交互截图和人工视觉确认。
+- 固定输入与独立基准：`V0/data/sales.csv`、本运行的 `expected-results.json`。
+- 保存前、保存后快照：Git 提交 `535a0c7`、`c7a4579`；`git diff 535a0c7 c7a4579 -- V0/runs/20260917-003433/project/` 可复查原始差异。
+- Desktop 视觉/交互：`evidence/overview-unfiltered.png`、`evidence/overview-technology.png`，以及执行者的清除筛选和最终重开确认。
+- 最终模型与查询：`logs/final-mcp-readback.json`。
 
 ## MCP 服务端预检
 
@@ -57,7 +59,7 @@
 - MCP 发现本地实例 `localhost:51759`，成功建立连接 `PBIDesktop-PowerBIBuilderV0Seed-51759`。
 - MCP `Get` 回读模型 `Model`，注释 `__PBI_TimeIntelligenceEnabled = 0`；表、关系、度量值、Named Expression、Partition 的 `List` 结果均为 0。
 - Desktop 打开后，Git 检查未发现种子或运行副本已追踪文件的变更。
-- 能力矩阵判定：连接、原生工具调用及只读对象回读已实测通过；M/Partition 创建、关系、度量值、日期表标记、列排序、格式、刷新和 DAX 已在当前工具接口中声明，实际操作留待后续相应阶段验收。
+- 能力矩阵预检时：连接、原生工具调用及只读对象回读已实测通过；M/Partition 创建、关系、度量值、日期表标记、列排序、格式、刷新和 DAX 在当时留待相应阶段验证，现均已通过。
 
 ## 固定数据与独立基准
 
@@ -117,10 +119,18 @@
 ## Desktop 保存后磁盘差异（重开前）
 
 - 执行者在清除切片器后点击 Desktop“保存”并关闭；关闭时未出现额外保存、错误或自动修复提示。进程检查未发现 `PBIDesktop` 或 `msmdsrv`。
-- 保存前 PBIR 快照为提交 `535a0c7`，与首次加载前的 `c0cbb92` 相比 PBIR 文件未变；保存后仅有 Overview 的 `page.json` 和 6 个 `visual.json` 被 Desktop 写回。根 `.pbip`、`definition.pbir`、模型、`pages.json` 及外围文件未变。原始差异由该快照与后续保存快照之间的 Git diff 保留。
+- 保存前 PBIR 快照为提交 `535a0c7`，与首次加载前的 `c0cbb92` 相比 PBIR 文件未变；保存后快照为 `c7a4579`。仅有 Overview 的 `page.json` 和 6 个 `visual.json` 被 Desktop 写回。根 `.pbip`、`definition.pbir`、模型、`pages.json` 及外围文件未变。原始差异可由两次快照的 Git diff 复查。
 - 解析后比较：页面 JSON 和 5 个非切片器视觉对象均完全等价，仅序列化格式、换行符和文件末尾状态变化；切片器增加空的 `visual.objects.general[0].properties`，其 `$schema` 由 `visualContainer/2.9.0` 更新为 Desktop 写出的 `2.12.0`。切片器的品类字段、下拉模式、位置与尺寸未变，未保存 `Technology` 筛选。
-- 保存后的根 `.pbip`、项目路径、`byPath`、唯一 Overview、6 个视觉对象与类型、字段绑定、布局和 5 条显式筛选交互均通过离线检查。当前微软公开的 `visualContainer/2.12.0/schema.json` 地址返回 HTTP 404，因此**无法声称按 2.12.0 原版本完成 Schema 校验**；仅对内存副本使用公开的 2.9.0 Schema 作兼容性校验（通过），磁盘上的 Desktop 产物未被改写。此限制待 Desktop 重开实际验收，不以兼容性校验替代。
+- 保存后的根 `.pbip`、项目路径、`byPath`、唯一 Overview、6 个视觉对象与类型、字段绑定、布局和 5 条显式筛选交互均通过离线检查。当前微软公开的 `visualContainer/2.12.0/schema.json` 地址返回 HTTP 404，因此**无法声称按 2.12.0 原版本完成 Schema 校验**；仅对内存副本使用公开的 2.9.0 Schema 作兼容性校验（通过），磁盘上的 Desktop 产物未被改写。随后 Desktop 重开实际验收通过；兼容性校验不被冒充为精确 2.12.0 校验。
+
+## 最终重开与 MCP 持久化回读
+
+- 执行者重新打开运行副本，确认无错误或自动修复提示；唯一 Overview 仍显示 6 个视觉对象，未筛选的 3 张卡片约为 `9.36 千`、`3.01 千`、`32.2%`。重开后 Git 工作区保持清洁，未发现额外磁盘重写。
+- Desktop 启动参数指向本运行目录 `.pbip`；新本地模型实例为 `localhost:51177`，MCP 连接名 `PBIDesktop-PowerBIBuilderV0Seed-51177`。
+- MCP 回读 `FactSales`、`DimProduct`、`DimDate` 三表；三个 Import/M 分区均为 `Ready`，`DataFilePath` 和 `SalesSource` 两个 M 命名表达式仍在。两条关系均为活动、单向、多对一；五个度量值名称、表达式和格式字符串均未漂移。
+- `DimDate.dataCategory=Time`、`DimDate[MonthName].sortByColumn=MonthNumber` 保持不变。
+- 代表性 DAX 返回三表行数 `15/5/88`，销售额 `9356.75`、销量 `74`、成本 `6344.8`、毛利额 `3011.95`、毛利率 `0.3219013011996687`；Technology 销售额 `7690`、毛利额 `2314`；ZeroSales 毛利率为 `BLANK`。均与独立 Python 基准一致。结构化结果见 `logs/final-mcp-readback.json`。
 
 ## 当前结论
 
-确认模型持久化闸门、PBIR 离线预检和 Desktop 首次视觉/交互验收已通过；保存后磁盘结构无业务语义漂移，唯 Desktop 新写出的 2.12.0 视觉对象 Schema 暂无可访问公开文件。下一步重开项目、确认视觉仍正常并完成最终 MCP 回读；当前尚不能判定 V0 完整成功。
+**完整成功。** 自然语言需求 → 官方 Modeling MCP → Power Query/语义模型/DAX → Codex 生成 PBIR → PBIP → Desktop 打开、交互、保存重开 → 最终 MCP 回读的 V0 链路已跑通。唯一已知校验限制是 Desktop 保存后将切片器 `$schema` 更新到 2.12.0，而对应公开 Schema 地址暂不可访问；生成时的公开 2.9.0 Schema 校验、保存后的结构/语义对比和 Desktop 实际重开均通过。V0 未验证跨机器迁移或 Power BI Service 发布。

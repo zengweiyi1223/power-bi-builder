@@ -1,0 +1,32 @@
+{
+  "observedAtUtc": "2026-09-17T11:26:30Z",
+  "target": "V0/runs/20260917-003433/project/PowerBIBuilderV0Seed.pbip",
+  "connection": "PBIDesktop-PowerBIBuilderV0Seed-51177",
+  "tables": ["FactSales", "DimProduct", "DimDate"],
+  "partitions": {
+    "FactSales": "Import/M/Ready",
+    "DimProduct": "Import/M/Ready",
+    "DimDate": "Import/M/Ready"
+  },
+  "relationships": [
+    "FactSales[SaleDate] Many -> One DimDate[Date]; active; OneDirection",
+    "FactSales[ProductKey] Many -> One DimProduct[ProductKey]; active; OneDirection"
+  ],
+  "namedExpressions": ["DataFilePath", "SalesSource"],
+  "dateTableDataCategory": "Time",
+  "monthNameSortByColumn": "MonthNumber",
+  "measures": {
+    "销售额": "#,0.00",
+    "销量": "#,0",
+    "成本": "#,0.00",
+    "毛利额": "#,0.00",
+    "毛利率": "0.0%"
+  },
+  "dax": {
+    "rowCounts": {"FactSales": 15, "DimProduct": 5, "DimDate": 88},
+    "totals": {"销售额": 9356.75, "销量": 74, "成本": 6344.8, "毛利额": 3011.95, "毛利率": 0.3219013011996687},
+    "technology": {"销售额": 7690, "毛利额": 2314},
+    "zeroSalesGrossMargin": null
+  },
+  "matchesIndependentBaseline": true
+}
