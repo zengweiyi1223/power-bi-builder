@@ -1,5 +1,6 @@
 # Power BI machine-local state
 **/.pbi/localSettings.json
+**/.pbi/editorSettings.json
 **/.pbi/cache.abf
 **/.pbi/cache.*
 **/.pbi/AutoRecovery/
