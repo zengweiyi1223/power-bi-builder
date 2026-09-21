@@ -9,6 +9,9 @@ const { chromium } = require('playwright');
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const outputDir = path.join(scriptDir, 'jpg');
 await fs.mkdir(outputDir, { recursive: true });
+const oldImages = (await fs.readdir(outputDir, { withFileTypes: true }))
+  .filter((entry) => entry.isFile() && /\\.jpe?g$/i.test(entry.name));
+await Promise.all(oldImages.map((entry) => fs.rm(path.join(outputDir, entry.name))));
 
 const browser = await chromium.launch({
   headless: true,
