@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用 Codex、Power BI Modeling MCP 和 PBIP/PBIR，从自然语言需求生成可由 Power BI Desktop 打开的项目。">
+  <title>用 Codex 生成可直接打开的 Power BI 项目</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23315eea'/%3E%3Cpath d='M16 44V28h8v16zm12 0V18h8v26zm12 0V10h8v34z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到正文</a>
+  <div class="mobile-menu"><a href="#top">Codex × Power BI</a><span>完整实战教程</span></div>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">PBI</span><span>Codex × Power BI</span></div>
+      <small>从自然语言需求到可打开的 PBIP 项目</small>
+      <nav aria-label="章节导航">
+        <a href="#result">先看结论</a>
+        <a href="#paths">三个路径</a>
+        <a href="#setup">一次性配置</a>
+        <a href="#mcp">安装 MCP</a>
+        <a href="#seed">创建种子</a>
+        <a href="#flow">八步生成流程</a>
+        <a href="#desktop">打开/关闭时间线</a>
+        <a href="#handoff">AI 与人工边界</a>
+        <a href="#delivery">最终交付文件</a>
+        <a href="#faq">常见问题</a>
+      </nav>
+      <div class="side-note"><strong>当前边界</strong><br>本教程交付本地 PBIP。Power BI Service 发布、网关和计划刷新属于后续部署流程。</div>
+    </aside>
+
+    <main id="content">
+      <header class="hero" id="top">
+        <span class="eyebrow">POWER BI MODELING MCP · PBIP · PBIR</span>
+        <h1>用 Codex 生成可直接打开的 Power BI 项目</h1>
+        <p class="hero-lead">一份基于真实 V0 实验整理的图文教程：哪些可以由 AI 直出，哪些必须人工打开、保存和关闭，以及 MCP、语义模型和 PBIR 如何在同一条链路中协作。</p>
+        <div class="hero-grid">
+          <div class="hero-card"><strong>自然语言 → 模型</strong><span>Power Query、表关系、日期表与 DAX</span></div>
+          <div class="hero-card"><strong>模型 → 报表页面</strong><span>PBIR 视觉对象、绑定、交互与布局</span></div>
+          <div class="hero-card"><strong>页面 → PBIP 交付</strong><span>Desktop 可打开、保存并继续编辑</span></div>
+        </div>
+      </header>
+
+      <section class="section" id="result">
+        <div class="section-head"><p class="kicker">01 · RESULT</p><h2>结论先说：能生成，但不是完全无人值守</h2><p>Codex 可以完成绝大部分工程工作；Power BI Desktop 的生命周期、安全确认和业务签字仍由人负责。</p></div>
+        <div class="role-grid">
+          <div class="panel"><h3>AI 可直接完成</h3><ul class="checklist"><li>把需求转成模型和页面规格</li><li>Power Query/M 与 Import Partition</li><li>表、关系、日期表和 DAX</li><li>PBIR 页面、视觉绑定和交互</li><li>整理完整 PBIP 项目目录</li></ul></div>
+          <div class="panel"><h3>人工仍需参与</h3><ul class="checklist"><li>确认业务口径与数据权限</li><li>首次创建标准 PBIP 种子</li><li>打开、保存、关闭和重开 Desktop</li><li>处理确认、凭据和隐私弹窗</li><li>最终确认页面符合业务预期</li></ul></div>
+        </div>
+        <div class="callout green" style="margin-top:20px"><p><strong>本次实测结果：</strong>3 张模型表、2 条关系、5 个 DAX 度量值和 6 个视觉对象均成功进入 PBIP；Desktop 可以打开、筛选、保存和重开。</p></div>
+      </section>
+
+      <section class="section" id="paths">
+        <div class="section-head"><p class="kicker">02 · PATHS</p><h2>先分清三个路径</h2><p>很多配置问题来自把 MCP 程序、Power BI 项目和数据源放在同一个概念里。</p></div>
+        <div class="three-paths">
+          <article class="panel"><span class="path-number">1</span><h3>MCP 安装目录</h3><p class="muted">存放 MCP 可执行文件。适合放在稳定、版本化的用户工具目录，不纳入业务项目 Git。</p></article>
+          <article class="panel"><span class="path-number">2</span><h3>PBIP 项目目录</h3><p class="muted">每个报表自己的 `.pbip`、`.Report/` 和 `.SemanticModel/`。它可以位于任意正常工作目录。</p></article>
+          <article class="panel"><span class="path-number">3</span><h3>数据源路径</h3><p class="muted">CSV、Excel 或数据库连接地址。由 Power Query/M 引用，换机器时可能需要重新绑定。</p></article>
+        </div>
+        <div class="code-card">Codex
+  │  根据配置启动 MCP exe
+  ▼
+Power BI Modeling MCP
+  │  连接当前打开的本地模型
+  ▼
+Power BI Desktop ──读取/保存── PBIP 项目
+  │
+  └── Power Query/M ──读取── 数据源</div>
+      </section>
+
+      <section class="section" id="setup">
+        <div class="section-head"><p class="kicker">03 · ONE-TIME SETUP</p><h2>一次性配置 Power BI Desktop</h2><p>前两项决定项目是否以可外部编辑的 PBIP/PBIR 保存；Auto date/time 设置用于避免隐藏日期表干扰显式日期模型。</p></div>
+        <div class="settings-grid">
+          <article class="panel"><h3>必须勾选</h3><p>Power BI Project `.pbip` 保存选项。</p><p>使用增强的元数据格式存储报表（PBIR）。</p></article>
+          <article class="panel"><h3>必须取消</h3><p>标准种子“当前文件”中的 Auto date/time。</p><p class="muted">保存种子前再次确认。</p></article>
+          <article class="panel"><h3>建议取消</h3><p>全局“新文件的自动日期/时间”。</p><p class="muted">避免以后创建新种子时重复踩坑。</p></article>
+        </div>
+        <div class="callout orange" style="margin-top:20px"><p><strong>设置预览功能后重启 Desktop。</strong>“当前文件”和“全局新文件”是两个设置位置；只改全局设置不能替代对当前种子的检查。</p></div>
+        <div class="figure-grid">
+          <figure><div class="shot"><img src="assets/screenshots/01-enable-pbir.png" alt="Power BI 中勾选增强元数据 PBIR 格式"></div><figcaption><strong>勾选 PBIR。</strong>保存项目后，报告页面与视觉对象会落到 Report/definition 文本文件中。</figcaption></figure>
+          <figure><div class="shot"><img src="assets/screenshots/02-auto-date-off.png" alt="Power BI 中取消新文件自动日期时间"></div><figcaption><strong>取消新文件 Auto date/time。</strong>这张图是全局设置；当前文件仍需单独确认。</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section" id="mcp">
+        <div class="section-head"><p class="kicker">04 · MCP</p><h2>安装并注册 Modeling MCP</h2><p>MCP 是 Codex 与 Power BI 模型之间的本地工具桥。它不属于某个 PBIP，也不需要复制到每个项目。</p></div>
+        <div class="callout"><p><strong>本次实测：</strong>微软官方 Windows x64 包 <span class="inline-code">0.5.0-beta.13</span> 安装到版本化用户目录。下次只要 exe 路径和 Codex 注册不变，就可以直接复用。</p></div>
+        <div class="code-card">%LOCALAPPDATA%\Programs\PowerBIModelingMCP\0.5.0-beta.13\
+└─ dist\powerbi-modeling-mcp.exe</div>
+        <div class="role-grid">
+          <div class="panel"><h3>安装原则</h3><ol><li>从微软官方源获取。</li><li>固定版本，不把 `latest` 当作可复现基线。</li><li>放在稳定工具目录，不提交到业务 Git。</li><li>不同版本先运行 `--help` 核对参数。</li></ol></div>
+          <div class="panel"><h3>Codex 注册</h3><ol><li>设置 → MCP 服务器 → 添加服务器。</li><li>类型选 STDIO。</li><li>命令填 exe 绝对路径。</li><li>保存后重启 Codex。</li><li>确认 MCP 工具出现在新任务中。</li></ol></div>
+        </div>
+        <div class="code-card">[mcp_servers.powerbi-modeling-mcp]
+command = "C:\\Users\\&lt;用户名&gt;\\AppData\\Local\\Programs\\PowerBIModelingMCP\\0.5.0-beta.13\\dist\\powerbi-modeling-mcp.exe"
+args = ["--start", "--require-confirmation"]</div>
+        <p class="muted">以上参数是本次锁定版本的实测配置。其他版本以该版本自己的帮助信息为准。初次使用建议保留写操作确认。</p>
+      </section>
+
+      <section class="section" id="seed">
+        <div class="section-head"><p class="kicker">05 · SEED</p><h2>一次性创建标准 PBIP 种子</h2><p>当前稳定路线仍需要一个由 Desktop 正式保存的空白工程壳。以后每个项目复制它，不再重复新建。</p></div>
+        <div class="steps">
+          <article class="step human"><span class="step-number">01</span><div><h3>新建空白文件</h3><p>不加载业务数据；保留唯一空白页面并命名为 <span class="inline-code">Overview</span>。</p></div><span class="owner">人工</span></article>
+          <article class="step human"><span class="step-number">02</span><div><h3>确认当前文件设置</h3><p>确认 PBIR 已启用，当前文件 Auto date/time 已关闭。</p></div><span class="owner">人工</span></article>
+          <article class="step human"><span class="step-number">03</span><div><h3>另存为 PBIP</h3><p>保存类型选择“Power BI 项目文件 (*.pbip)”，然后关闭 Desktop。</p></div><span class="owner">人工</span></article>
+          <article class="step output"><span class="step-number">04</span><div><h3>锁定种子</h3><p>将完整目录纳入 Git，后续只复制，不直接修改种子原件。</p></div><span class="owner">一次完成</span></article>
+        </div>
+        <div class="figure-grid">
+          <figure><div class="shot"><img src="assets/screenshots/03-save-as-pbip.png" alt="Power BI 另存为项目文件 PBIP"></div><figcaption><strong>保存类型选择 PBIP。</strong>不是 `.pbix`，也不是 `.pbit`。</figcaption></figure>
+          <figure><div class="shot"><img src="assets/screenshots/04-blank-seed.png" alt="包含空白 Overview 页面的 Power BI 种子"></div><figcaption><strong>种子只保留空白 Overview。</strong>标题栏显示项目名称，数据窗格仍为空。</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section" id="flow">
+        <div class="section-head"><p class="kicker">06 · PER REPORT</p><h2>每个报表的八步生成流程</h2><p>真正关键的是两次人工交接：先打开让 MCP 建模，再保存关闭让 Codex 安全生成 PBIR。</p></div>
+        <div class="steps">
+          <article class="step human"><span class="step-number">01</span><div><h3>提出需求与提供数据</h3><p>明确业务问题、指标口径、目标用户、数据源、页面和筛选要求。</p><span class="state closed">Desktop 关闭</span></div><span class="owner">人工</span></article>
+          <article class="step ai"><span class="step-number">02</span><div><h3>形成实施契约并复制种子</h3><p>Codex 固定表、关系、DAX 和页面规格，建立运行目录并复制完整种子。</p><span class="state closed">Desktop 关闭</span></div><span class="owner">Codex</span></article>
+          <article class="step human"><span class="step-number">03</span><div><h3>打开运行副本</h3><p>打开运行目录中的 `.pbip`，不是种子原件；等待 Desktop 完全加载。</p><span class="state open">Desktop 打开并保持</span></div><span class="owner">人工</span></article>
+          <article class="step ai"><span class="step-number">04</span><div><h3>通过 MCP 建立语义模型</h3><p>创建 M、分区、表、关系、日期属性、DAX 和格式，刷新并查询。</p><span class="state open">Desktop 必须打开</span></div><span class="owner">Codex + MCP</span></article>
+          <article class="step human"><span class="step-number">05</span><div><h3>保存并关闭 Desktop</h3><p>明确点击保存，等待完成后关闭。这样 MCP 的运行时修改才会进入磁盘 TMDL。</p><span class="state closed">保存后关闭</span></div><span class="owner">人工</span></article>
+          <article class="step ai"><span class="step-number">06</span><div><h3>生成 PBIR 报表页面</h3><p>Codex 离线创建视觉对象、字段绑定、交互、标题和布局。</p><span class="state closed">Desktop 保持关闭</span></div><span class="owner">Codex</span></article>
+          <article class="step human"><span class="step-number">07</span><div><h3>重开、确认并保存</h3><p>处理凭据和弹窗，检查指标、筛选和布局，再保存 Desktop 规范化后的文件。</p><span class="state open">Desktop 重新打开</span></div><span class="owner">人工</span></article>
+          <article class="step output"><span class="step-number">08</span><div><h3>整理并交付完整项目</h3><p>Codex 保留 PBIP、Report、SemanticModel 以及必要的数据和说明。</p></div><span class="owner">可交付</span></article>
+        </div>
+      </section>
+
+      <section class="section" id="desktop">
+        <div class="section-head"><p class="kicker">07 · DESKTOP STATE</p><h2>Power BI Desktop 什么时候开，什么时候关？</h2><p>把这条时间线记住，可以避开“模型没落盘”和“PBIR 被并发重写”两类问题。</p></div>
+        <div class="timeline">
+          <article class="timeline-item"><b>准备运行副本</b><span class="state closed">关闭</span><p>复制种子与准备数据。</p></article>
+          <article class="timeline-item"><b>MCP 建模</b><span class="state open">打开</span><p>让 MCP 连接本地模型。</p></article>
+          <article class="timeline-item"><b>模型落盘</b><span class="state open">保存</span><p>人工点击保存后关闭。</p></article>
+          <article class="timeline-item"><b>生成 PBIR</b><span class="state closed">关闭</span><p>Codex 离线修改报告。</p></article>
+          <article class="timeline-item"><b>页面确认</b><span class="state open">重开</span><p>检查视觉与交互。</p></article>
+          <article class="timeline-item"><b>最终输出</b><span class="state open">保存</span><p>保存规范化项目。</p></article>
+        </div>
+        <div class="callout orange" style="margin-top:24px"><p><strong>不要把两种编辑同时进行。</strong>Desktop 中有未保存修改时，不要让外部程序直接覆盖 PBIR；先保存并关闭，再交给 Codex。</p></div>
+      </section>
+
+      <section class="section" id="handoff">
+        <div class="section-head"><p class="kicker">08 · HANDOFF</p><h2>人机协作的清晰边界</h2><p>自动化的目标不是掩盖人工步骤，而是把人的参与压缩到授权、应用操作和业务判断。</p></div>
+        <div class="role-grid">
+          <div class="panel"><h3 style="color:var(--blue)">Codex 负责工程生成</h3><ul class="checklist"><li>结构化需求与命名契约</li><li>复制种子并保护原件</li><li>M、Partition、关系和 DAX</li><li>PBIR 页面与视觉绑定</li><li>整理项目和使用说明</li></ul></div>
+          <div class="panel"><h3 style="color:var(--orange)">人工负责授权和 Desktop</h3><ul class="checklist"><li>业务口径与数据权限</li><li>首次种子和必要设置</li><li>打开、保存、关闭和重开</li><li>安全、隐私、凭据弹窗</li><li>最终业务呈现确认</li></ul></div>
+        </div>
+      </section>
+
+      <section class="section" id="delivery">
+        <div class="section-head"><p class="kicker">09 · DELIVERY</p><h2>最终交付的是一个项目目录</h2><p>`.pbip` 主要是入口文件。真正的报告和模型位于两个同级目录，必须整体移动和分享。</p></div>
+        <div class="tree">YourReport/
+├─ YourReport.pbip                 ← Desktop 打开入口
+├─ YourReport.Report/              ← PBIR 报表
+│  ├─ definition.pbir
+│  └─ definition/
+└─ YourReport.SemanticModel/       ← TMDL 语义模型
+   ├─ definition.pbism
+   └─ definition/</div>
+        <div class="figure-grid">
+          <figure><div class="shot"><img src="assets/screenshots/05-overview-unfiltered.png" alt="最终 Power BI Overview 页面"></div><figcaption><strong>最终未筛选页面。</strong>3 张 KPI、趋势图、品类图和品类切片器。</figcaption></figure>
+          <figure><div class="shot"><img src="assets/screenshots/06-overview-technology.png" alt="Technology 筛选后的 Power BI 页面"></div><figcaption><strong>选择 Technology 后。</strong>卡片和两个图表同时受到切片器过滤。</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-head"><p class="kicker">10 · FAQ</p><h2>常见问题与当前边界</h2></div>
+        <div class="faq-grid">
+          <article class="panel"><h3>MCP 要放在项目里吗？</h3><p class="muted">不需要。使用稳定的用户级工具目录更合适，也避免把约 40 MB 的二进制误提交到每个项目。</p></article>
+          <article class="panel"><h3>下一个项目要重新安装吗？</h3><p class="muted">不需要。保持 MCP 路径和 Codex 注册不变；打开新的 PBIP 后重新连接新的 Desktop 实例即可。</p></article>
+          <article class="panel"><h3>为什么还需要人工种子？</h3><p class="muted">这是当前已验证的稳定入口。AI 从空目录直出整个工程壳属于后续零种子实验，尚未写入生产流程。</p></article>
+          <article class="panel"><h3>这已经是无人值守自动化吗？</h3><p class="muted">不是。当前是工程生成高度自动化、Desktop 生命周期与业务授权保留人工控制的人机协作流程。</p></article>
+          <article class="panel"><h3>可以直接发布到 Service 吗？</h3><p class="muted">本教程只交付本地 PBIP。Service 工作区权限、网关、凭据和计划刷新应另走部署流程。</p></article>
+          <article class="panel"><h3>换电脑能直接刷新吗？</h3><p class="muted">本地 CSV 绝对路径和凭据可能需要重新绑定；交付说明中应明确数据源位置与刷新要求。</p></article>
+        </div>
+        <div class="section-head" style="margin-top:48px"><h3>官方参考</h3></div>
+        <div class="sources">
+          <a href="https://github.com/microsoft/powerbi-modeling-mcp">Microsoft · Power BI Modeling MCP</a>
+          <a href="https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview">Microsoft Learn · Power BI Desktop projects</a>
+          <a href="https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report">Microsoft Learn · PBIR report folder</a>
+          <a href="https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-external-editing">Microsoft Learn · External editing</a>
+          <a href="https://developers.openai.com/codex/mcp">OpenAI Docs · Connect Codex to MCP</a>
+        </div>
+      </section>
+
+      <footer><strong>Power BI Builder</strong><br>本教程来自已经完成的 V0 端到端实验；V0 原始需求、运行证据和最终 PBIP 保持冻结。</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

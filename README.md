@@ -7,6 +7,7 @@ Power BI Builder 用于验证 Codex 能否结合 Microsoft Power BI Modeling MCP
 - V0 最小可行实验已完成：报表可在 Power BI Desktop 打开、交互、保存重开，最终模型回读与 DAX 基准一致。
 - [`V0/REQUIREMENTS.md`](V0/REQUIREMENTS.md) 是执行与验收基线；[项目报告](V0/PROJECT_REPORT.md)概述结果、文件和已知限制。
 - [后续项目规划](ROADMAP.md)分开安排零种子实验、通用 Playbook 和独立的 Power BI 能力扩展；V0 保持冻结。
+- [Codex × Power BI 图文教程](tutorial/index.html)整理一次性配置、MCP 安装、标准种子、人机交接和完整 PBIP 生成流程；同目录提供小红书 JPG 版本。
 - 正式运行及证据位于 [`V0/runs/20260917-003433/`](V0/runs/20260917-003433/)；最终保存后的切片器 2.12.0 Schema 精确校验仍待公开文件补证，不影响已验证的 Desktop 使用。
 
 ## 目录

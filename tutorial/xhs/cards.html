@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex × Power BI 小红书图文教程</title>
+  <style>
+    :root{--ink:#172033;--muted:#657087;--blue:#315eea;--blue2:#6e8cff;--orange:#eb7131;--green:#13866f;--paper:#f4f7fc;--line:#dbe3f0}
+    *{box-sizing:border-box}html,body{margin:0;background:#ccd3df;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink)}
+    body{display:grid;gap:28px;justify-content:center;padding:28px}
+    .card{position:relative;width:1080px;height:1440px;overflow:hidden;padding:76px 74px 66px;background:var(--paper)}
+    .card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 92% 3%,rgba(49,94,234,.14),transparent 25%),radial-gradient(circle at 2% 98%,rgba(19,134,111,.10),transparent 24%);pointer-events:none}
+    .top{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:52px;font-size:25px;font-weight:800}
+    .brand{display:flex;align-items:center;gap:14px}.logo{display:grid;place-items:center;width:54px;height:54px;border-radius:15px;color:#fff;background:var(--blue);font-size:17px}.page{color:var(--muted)}
+    .label{position:relative;display:inline-block;margin-bottom:22px;padding:9px 16px;border-radius:999px;color:var(--blue);background:#e7edff;font-size:23px;font-weight:800;letter-spacing:.05em}
+    h1,h2{position:relative;margin:0;letter-spacing:-.045em}h1{font-size:78px;line-height:1.12}h2{font-size:57px;line-height:1.18}h3{margin:0 0 13px;font-size:34px;line-height:1.3}
+    .lead{position:relative;margin:28px 0 0;color:var(--muted);font-size:31px;line-height:1.65}.accent{color:var(--blue)}
+    .footer{position:absolute;left:74px;right:74px;bottom:52px;display:flex;justify-content:space-between;padding-top:20px;border-top:2px solid var(--line);color:var(--muted);font-size:22px}.footer strong{color:var(--ink)}
+    .chips{position:relative;display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}.chip{padding:12px 18px;border-radius:14px;background:#fff;border:2px solid var(--line);font-size:25px;font-weight:700}
+    .hero-flow{position:relative;display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:center;margin-top:76px}.hero-node{display:grid;place-items:center;min-height:190px;padding:26px;text-align:center;border-radius:28px;background:#fff;box-shadow:0 20px 60px rgba(29,45,83,.11);font-size:29px;font-weight:800;line-height:1.45}.arrow{text-align:center;color:#9ba8bd;font-size:64px}
+    .result{position:relative;margin-top:55px;padding:32px;border-left:8px solid var(--green);border-radius:10px 26px 26px 10px;background:#e5f6f1;font-size:31px;font-weight:800;line-height:1.55}
+    .grid2,.grid3{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:42px}.grid3{grid-template-columns:repeat(3,1fr)}
+    .box{padding:28px;border:2px solid var(--line);border-radius:24px;background:#fff}.box p{margin:0;color:var(--muted);font-size:26px;line-height:1.62}.box .num{display:grid;place-items:center;width:48px;height:48px;margin-bottom:18px;border-radius:14px;color:#fff;background:var(--blue);font-size:25px;font-weight:900}
+    ul.clean{position:relative;display:grid;gap:22px;margin:40px 0 0;padding:0;list-style:none}ul.clean li{position:relative;padding:23px 26px 23px 68px;border-radius:20px;background:#fff;border:2px solid var(--line);font-size:28px;line-height:1.48}ul.clean li::before{content:"✓";position:absolute;left:25px;top:24px;display:grid;place-items:center;width:31px;height:31px;border-radius:50%;color:#fff;background:var(--green);font-size:18px;font-weight:900}
+    .warning{position:relative;margin-top:34px;padding:26px 28px;border-left:8px solid var(--orange);border-radius:8px 22px 22px 8px;background:#fff0e7;font-size:27px;line-height:1.6}.warning strong{color:#b64f1f}
+    .screenshot{position:relative;margin-top:36px;overflow:hidden;border:2px solid var(--line);border-radius:25px;background:#e4e9f2;box-shadow:0 20px 60px rgba(28,43,78,.12)}.screenshot img{display:block;width:100%;max-height:610px;object-fit:contain}.caption{padding:20px 24px;background:#fff;color:var(--muted);font-size:23px;line-height:1.5}.caption strong{color:var(--ink)}
+    .code{position:relative;margin-top:34px;padding:30px 32px;border-radius:24px;color:#eff3ff;background:#11192b;font:25px/1.65 Consolas,monospace;white-space:pre-wrap}.code .dim{color:#9eabc3}
+    .stack{position:relative;display:grid;gap:16px;margin-top:36px}.row{display:grid;grid-template-columns:100px 1fr 180px;gap:18px;align-items:center;padding:22px;border-radius:20px;background:#fff;border:2px solid var(--line)}.row .n{color:var(--blue);font-size:35px;font-weight:900}.row b{font-size:27px}.tag{justify-self:end;padding:8px 14px;border-radius:999px;font-size:20px;font-weight:800}.human{color:var(--orange);background:#fff0e7}.ai{color:var(--blue);background:#e7edff}.out{color:var(--green);background:#e5f6f1}
+    .timeline{position:relative;display:grid;gap:14px;margin-top:34px}.time{display:grid;grid-template-columns:220px 180px 1fr;gap:18px;align-items:center;padding:22px 24px;border:2px solid var(--line);border-radius:18px;background:#fff}.time b{font-size:27px}.status{padding:8px 14px;text-align:center;border-radius:999px;font-size:21px;font-weight:900}.open{color:var(--green);background:#e5f6f1}.closed{color:var(--orange);background:#fff0e7}.time span:last-child{color:var(--muted);font-size:23px}
+    .filetree{position:relative;margin-top:46px;padding:36px;border-radius:26px;color:#e9efff;background:#11192b;font:28px/1.75 Consolas,monospace;white-space:pre}.note{color:#8ba2ff}
+    .final-shot{position:relative;margin-top:36px;overflow:hidden;border-radius:28px;border:2px solid var(--line);background:#fff;box-shadow:0 24px 70px rgba(28,43,78,.14)}.final-shot img{width:100%;height:600px;object-fit:cover;object-position:left center}.final-shot.small img{height:535px;object-fit:contain}
+    .big-number{position:relative;margin-top:44px;color:var(--blue);font-size:210px;font-weight:900;line-height:1}.big-number span{font-size:42px;color:var(--ink);letter-spacing:-.03em}
+    .closing{position:relative;display:grid;gap:18px;margin-top:40px}.closing div{padding:25px 28px;border-radius:20px;background:#fff;border:2px solid var(--line);font-size:28px;line-height:1.5}.closing strong{color:var(--blue)}
+  </style>
+</head>
+<body>
+  <section class="card" data-name="01-cover">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>Power BI Builder</div><span class="page">01 / 14</span></div>
+    <span class="label">完整实战教程</span>
+    <h1>用 Codex<br>生成可直接打开的<br><span class="accent">Power BI 项目</span></h1>
+    <p class="lead">Power BI Modeling MCP + PBIP/PBIR<br>从自然语言需求到 Desktop 报表</p>
+    <div class="hero-flow"><div class="hero-node">自然语言<br>需求</div><div class="arrow">›</div><div class="hero-node">Codex<br>自动生成</div><div class="arrow">›</div><div class="hero-node">可打开<br>PBIP</div></div>
+    <div class="footer"><strong>真实 V0 实验复盘</strong><span>建议先收藏再跟做</span></div>
+  </section>
+
+  <section class="card" data-name="02-result">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>结论</div><span class="page">02 / 14</span></div>
+    <span class="label">先看结果</span><h2>Codex 能生成<br>Power BI 项目吗？</h2>
+    <div class="result">可以。我们已跑通：自然语言 → M/语义模型/DAX → PBIR 页面 → PBIP → Desktop 打开、筛选、保存与重开。</div>
+    <div class="grid2"><div class="box"><h3>AI 直出</h3><p>3 张模型表<br>2 条关系<br>5 个度量值<br>6 个视觉对象</p></div><div class="box"><h3>人工保留</h3><p>业务确认<br>Desktop 打开/保存<br>安全弹窗<br>最终视觉确认</p></div></div>
+    <div class="warning"><strong>不是完全无人值守。</strong>当前是一条边界清晰、可落地的人机协作流程。</div>
+    <div class="footer"><strong>交付边界：本地 PBIP 项目</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="03-architecture">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>先理解架构</div><span class="page">03 / 14</span></div>
+    <span class="label">三个独立路径</span><h2>MCP、PBIP、数据源<br>不是一回事</h2>
+    <div class="grid3"><div class="box"><span class="num">1</span><h3>MCP</h3><p>工具安装目录<br>长期复用</p></div><div class="box"><span class="num">2</span><h3>PBIP</h3><p>每个报表的<br>项目目录</p></div><div class="box"><span class="num">3</span><h3>数据</h3><p>CSV / Excel /<br>数据库地址</p></div></div>
+    <div class="code">Codex
+  ↓ 启动
+Modeling MCP
+  ↓ 连接
+Power BI Desktop
+  ↓ 保存
+PBIP 项目</div>
+    <div class="warning"><strong>MCP 不必放在项目里。</strong>放在稳定的用户工具目录即可。</div>
+    <div class="footer"><strong>路径分清，配置就清楚了一半</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="04-desktop-settings">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>一次性配置</div><span class="page">04 / 14</span></div>
+    <span class="label">Power BI Desktop</span><h2>两个勾选<br>两个取消</h2>
+    <ul class="clean"><li><strong>勾选：</strong>Power BI Project（.pbip）保存选项</li><li><strong>勾选：</strong>使用增强的元数据格式存储报表（PBIR）</li><li><strong>取消：</strong>当前文件的 Auto date/time</li><li><strong>建议取消：</strong>新文件的自动日期/时间</li></ul>
+    <div class="warning">预览功能修改后需要<strong>重启 Power BI Desktop</strong>。当前文件和全局新文件是两个不同位置。</div>
+    <div class="footer"><strong>一次设置，后续复用</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="05-settings-screens">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>设置截图</div><span class="page">05 / 14</span></div>
+    <span class="label">照着设置</span><h2>PBIR 勾选<br>Auto date/time 取消</h2>
+    <div class="screenshot"><img src="../assets/screenshots/01-enable-pbir.png" alt="PBIR 设置"><div class="caption"><strong>PBIR：勾选。</strong>报表页面会保存为可外部编辑的 definition 文件。</div></div>
+    <div class="screenshot"><img src="../assets/screenshots/02-auto-date-off.png" alt="Auto date time 设置"><div class="caption"><strong>全局新文件 Auto date/time：取消。</strong>当前文件还要单独检查。</div></div>
+    <div class="footer"><strong>别把“全局”和“当前文件”混在一起</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="06-mcp-install">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>MCP 安装</div><span class="page">06 / 14</span></div>
+    <span class="label">固定版本更稳</span><h2>MCP 下载到哪里？</h2>
+    <p class="lead">建议放在稳定、版本化的用户工具目录，不放进每个 Power BI 项目。</p>
+    <div class="code">%LOCALAPPDATA%\Programs\
+PowerBIModelingMCP\
+0.5.0-beta.13\
+└─ dist\powerbi-modeling-mcp.exe</div>
+    <ul class="clean"><li>来源：微软官方 Power BI Modeling MCP</li><li>版本：本次实测 0.5.0-beta.13</li><li>不同版本先运行 <strong>--help</strong> 核对参数</li><li>工具二进制不提交到业务 Git</li></ul>
+    <div class="footer"><strong>安装路径 ≠ PBIP 项目路径</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="07-mcp-reuse">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>Codex 注册</div><span class="page">07 / 14</span></div>
+    <span class="label">下次无需重装</span><h2>为什么 MCP<br>可以跨项目复用？</h2>
+    <div class="code">[mcp_servers.powerbi-modeling-mcp]
+command = "...\\powerbi-modeling-mcp.exe"
+args = ["--start", "--require-confirmation"]</div>
+    <ul class="clean"><li>Codex 记录的是 MCP exe 路径</li><li>MCP 每次连接“当前打开”的 Desktop 实例</li><li>新 PBIP 项目不需要复制 MCP 文件</li><li>移动 exe 或修改配置后要重启 Codex</li></ul>
+    <div class="warning">建议保留首次写操作确认；不要在没有备份时跳过安全确认。</div>
+    <div class="footer"><strong>同一个 MCP，服务多个 PBIP 项目</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="08-seed">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>标准种子</div><span class="page">08 / 14</span></div>
+    <span class="label">当前必要前置</span><h2>先人工创建一次<br>空白 PBIP 种子</h2>
+    <div class="screenshot"><img src="../assets/screenshots/03-save-as-pbip.png" alt="保存 PBIP"><div class="caption"><strong>另存为：</strong>选择 Power BI 项目文件（*.pbip）。</div></div>
+    <ul class="clean"><li>唯一空白页面命名为 <strong>Overview</strong></li><li>不预置业务表、DAX 和视觉对象</li><li>保存后纳入 Git，后续只复制不直接修改</li></ul>
+    <div class="footer"><strong>一次创建，后续每个项目复制</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="09-flow-first-half">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>每个报表</div><span class="page">09 / 14</span></div>
+    <span class="label">流程 · 前半段</span><h2>需求 → 运行副本<br>→ MCP 建模</h2>
+    <div class="stack"><div class="row"><span class="n">01</span><b>提出需求与数据</b><span class="tag human">人工</span></div><div class="row"><span class="n">02</span><b>形成规格并复制种子</b><span class="tag ai">Codex</span></div><div class="row"><span class="n">03</span><b>打开运行副本 PBIP</b><span class="tag human">人工</span></div><div class="row"><span class="n">04</span><b>M、模型、关系、DAX</b><span class="tag ai">AI + MCP</span></div></div>
+    <div class="warning"><strong>注意：</strong>第 03–04 步中 Desktop 必须打开并保持。打开的是运行副本，不是种子原件。</div>
+    <div class="chips"><span class="chip">Power Query/M</span><span class="chip">Import Partition</span><span class="chip">Relationships</span><span class="chip">DAX Measures</span></div>
+    <div class="footer"><strong>MCP 连接运行中的本地模型</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="10-critical-handoff">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>关键交接</div><span class="page">10 / 14</span></div>
+    <span class="label">最容易漏的一步</span><h2>建模完成后<br>人工保存并关闭</h2>
+    <div class="big-number">05 <span>人工操作</span></div>
+    <ul class="clean"><li>在 Power BI Desktop 中明确点击“保存”</li><li>等待保存完成，再关闭 Desktop</li><li>若关闭时再次询问，选择保存</li><li>模型修改此时才持久化到磁盘 TMDL</li></ul>
+    <div class="warning"><strong>MCP 不会替你点击 Desktop 的保存按钮。</strong>没有这一步，后面可能拿不到完整模型文件。</div>
+    <div class="footer"><strong>保存是运行时模型与磁盘项目的桥</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="11-flow-second-half">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>每个报表</div><span class="page">11 / 14</span></div>
+    <span class="label">流程 · 后半段</span><h2>关闭 Desktop<br>→ 生成 PBIR → 重开</h2>
+    <div class="stack"><div class="row"><span class="n">06</span><b>离线生成 PBIR 页面</b><span class="tag ai">Codex</span></div><div class="row"><span class="n">07</span><b>重开、确认并保存</b><span class="tag human">人工</span></div><div class="row"><span class="n">08</span><b>整理完整交付项目</b><span class="tag out">可交付</span></div></div>
+    <ul class="clean"><li>页面布局、卡片、图表和切片器</li><li>字段与度量值绑定、视觉交互</li><li>人工处理凭据、隐私和系统弹窗</li><li>最终确认指标、筛选和页面可读性</li></ul>
+    <div class="warning">第 06 步 Desktop 保持关闭，避免 Desktop 与 Codex 同时重写 PBIR。</div>
+    <div class="footer"><strong>先离线生成，再让 Desktop 正式加载</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="12-desktop-timeline">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>状态时间线</div><span class="page">12 / 14</span></div>
+    <span class="label">开还是关？</span><h2>记住这 6 个状态</h2>
+    <div class="timeline"><div class="time"><b>准备副本</b><span class="status closed">关闭</span><span>复制种子</span></div><div class="time"><b>MCP 建模</b><span class="status open">打开</span><span>连接本地模型</span></div><div class="time"><b>模型落盘</b><span class="status open">保存</span><span>人工保存后关闭</span></div><div class="time"><b>生成 PBIR</b><span class="status closed">关闭</span><span>避免并发重写</span></div><div class="time"><b>页面确认</b><span class="status open">重开</span><span>看视觉和筛选</span></div><div class="time"><b>最终输出</b><span class="status open">保存</span><span>Desktop 规范化</span></div></div>
+    <div class="footer"><strong>先保存，再切换编辑主体</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="13-delivery">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>最终交付</div><span class="page">13 / 14</span></div>
+    <span class="label">不是单个文件</span><h2>PBIP 必须和两个<br>同级目录一起交付</h2>
+    <div class="filetree">YourReport/
+├─ YourReport.pbip       <span class="note">入口</span>
+├─ YourReport.Report/    <span class="note">PBIR</span>
+│  └─ definition/
+└─ YourReport.SemanticModel/
+   └─ definition/        <span class="note">TMDL</span></div>
+    <ul class="clean"><li>不要只发送 `.pbip` 入口文件</li><li>保持 Report 和 SemanticModel 的相对位置</li><li>换机器后可能需要重绑本地数据路径和凭据</li></ul>
+    <div class="footer"><strong>整体移动、整体版本管理、整体交付</strong><span>Power BI Builder</span></div>
+  </section>
+
+  <section class="card" data-name="14-final">
+    <div class="top"><div class="brand"><span class="logo">PBI</span>最终成果</div><span class="page">14 / 14</span></div>
+    <span class="label">V0 已跑通</span><h2>AI 生成的不只是代码<br>而是可继续使用的报表项目</h2>
+    <div class="final-shot"><img src="../assets/screenshots/05-overview-unfiltered.png" alt="最终 Power BI 报表"></div>
+    <div class="closing"><div><strong>当前成立：</strong>本地 PBIP 的建模、DAX、PBIR 页面和 Desktop 使用闭环。</div><div><strong>后续探索：</strong>零种子直出、Power BI Service 发布与更复杂报表。</div></div>
+    <div class="footer"><strong>项目：Power BI Builder</strong><span>完整教程见作品集 HTML</span></div>
+  </section>
+</body>
+</html>
