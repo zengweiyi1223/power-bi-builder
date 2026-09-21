@@ -6,8 +6,8 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
 const root = path.dirname(fileURLToPath(import.meta.url));
-const cardsPath = path.join(root, 'xhs', 'cards.html');
-const outputDir = path.join(root, 'xhs', 'jpg');
+const cardsPath = path.join(root, 'cards.html');
+const outputDir = path.join(root, 'jpg');
 
 const browser = await chromium.launch({
   headless: true,
