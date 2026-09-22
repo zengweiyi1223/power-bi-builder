@@ -23,10 +23,10 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | R0 Run/Preflight | Passed | 核实 Git、版本、权限、进程和固定基线 | 版本重新测量；进程为 0；V0/Playbook tree 完整 | Passed | `evidence/checks/R0_PREFLIGHT.md` | Run 起点提交待形成 |
 | R1 空目录 | Passed | 创建精确目标目录 | 递归文件数=0、子目录数=0 | Passed | `evidence/checks/R1_EMPTY_BASELINE.md` | Run 起点提交待形成 |
-| R2a PBIP 入口 | Not Started |  |  |  |  |  |
-| R2b SemanticModel | Not Started |  |  |  |  |  |
-| R2c Report/PBIR | Not Started |  |  |  |  |  |
-| R2d 预打开冻结 | Not Started |  |  |  |  |  |
+| R2a PBIP 入口 | Passed | 生成唯一根 `.pbip` | JSON、完整公开 Schema、版本、唯一 report path 与目录边界检查通过 | Passed | `evidence/checks/R2A_PBIP.md` | 预打开 checkpoint 待 R2d |
+| R2b SemanticModel | Passed | 仅生成 PBISM 与最小 TMDL 根文件 | JSON Schema；分离解析器检查最小语法/结构/UTF-8/身份/边界 | Passed | `evidence/checks/R2B_SEMANTIC_MODEL.md` | 预打开 checkpoint 待 R2d |
+| R2c Report/PBIR | Passed | 仅生成 PBIR 根、Report 根、版本、页面索引和唯一空页面 | 五个完整 JSON Schema；`byPath`、页面索引、ID、文件数与目录边界 | Passed | `evidence/checks/R2C_REPORT_PBIR.md` | 预打开 checkpoint 待 R2d |
+| R2d 预打开冻结 | Passed | 生成 9 文件完整 manifest 并冻结首开入口 | 独立复算 SHA/大小；全量 Schema/TMDL/引用/污染/进程/日志/Git 检查 | Passed | `manifests/PRE_OPEN.json`；`evidence/checks/R2D_PRE_OPEN_FREEZE.md` | 包含本记录的预打开提交 |
 | R3 首开 | Not Started |  |  |  |  |  |
 | R4 首存 | Not Started |  |  |  |  |  |
 | R5 第一次重开 | Not Started |  |  |  |  |  |
@@ -37,7 +37,8 @@
 | ID | 请求、目标与预期 | Human 实际确认 | 时间 | 证据 | 继续授权 |
 | --- | --- | --- | --- | --- | --- |
 | HG-00 | 确认规划冻结 `82b4489` 并授权正式 V1 Run | “确认，授权” | 2026-09-22（本轮消息；01:29:19 记录） | `logs/HUMAN_ACTIONS.md` | 是 |
-| HG-01–HG-05 | 尚未请求 |  |  |  | 否 |
+| HG-01 | 首次打开精确 `.pbip`；不保存、不另存为、不创建项目；报告提示与可见状态 | 等待 Human 操作 | 2026-09-22T02:01:53-07:00 请求 | `logs/HUMAN_ACTIONS.md` | 否，等待实际确认 |
+| HG-02–HG-05 | 尚未请求 |  |  |  | 否 |
 
 ## 4. 独立验收
 
@@ -46,6 +47,10 @@
 | 固定 Git/Playbook/V0 基线 | 未修改 | Git 祖先与 tree diff | 精确 | Passed |
 | 环境版本与进程 | 已重新探测 | Appx、文件元数据、进程查询 | 精确 | Passed |
 | 空目录 Trusted baseline | 0 文件、0 子目录 | 创建后立即递归检查 | 精确 | Passed |
+| PBIP 入口 | 生成 `ZeroSeedAlpha.pbip` | 微软公开 Schema + 独立路径不变量 | 精确 | Passed |
+| SemanticModel | 生成 PBISM 与最小 TMDL | 完整 PBISM Schema + 冻结最小 TMDL 子集解析；Desktop 产品解析待 R3 | 精确（最小子集）+ 待产品验证 | Passed |
+| Report/PBIR | 生成最小 PBIR 与唯一 `Overview` 页面 | 五个完整公开 Schema + 引用、页面索引和目录边界不变量 | 精确（Schema/结构）+ 待产品验证 | Passed |
+| 首开前完整项目 | 9 个文件、1498 bytes | `PRE_OPEN.json` 独立复算 + 全量离线复验 + Desktop 进程 0 | 精确（首开前磁盘状态） | Passed |
 | 项目生成及 Desktop | Not Started |  |  | Not Started |
 
 ## 5. 异常与恢复
@@ -53,13 +58,14 @@
 | 事件 | 类型 | 严重度 | V1 主因 | 影响 | 处理 | 保留现场 |
 | --- | --- | --- | --- | --- | --- | --- |
 | EVT-001 | Safety/Permission Blocker | Non-blocking | ENV | 受限 shell 首次无法读取本机版本目录 | 只读提升权限重试并成功；未改变路线 | 是，见事件日志 |
+| EVT-002 | Validation Failure | Blocking | GEN | 首次最小 TMDL 缺少 Power BI 增强元数据版本属性 | R2c 停止；保留首次哈希，同一 R2b 原地修正并全量复验通过 | 是，见 R2b 证据与文件日志 |
 
 ## 6. 当前判定
 
 - 功能结果：`Not Started`
-- Contract 符合度：R0–R1 符合
-- 证据完整度：R0–R1 完整
+- Contract 符合度：R0–R2d 符合
+- 证据完整度：R0–R2d 完整
 - 持久化/重启状态：未测试
 - 安全与权限状态：已解决的 Non-blocking 权限事件；无敏感访问
-- 不能声称：项目可生成、Desktop 可打开或零种子成立
-- 当前 checkpoint：待创建 Run 起点提交
+- 不能声称：Desktop 可打开、保存、重开或零种子成立
+- 当前 checkpoint：Run/R1 `473ff1e`；预打开 checkpoint 为包含本记录的提交，SHA 由 Git/HG-01 报告记录

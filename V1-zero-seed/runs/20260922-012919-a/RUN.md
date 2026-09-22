@@ -9,7 +9,7 @@
 - 项目绝对路径：`E:\AIWorkspace\01_Projects\power-bi-builder\V1-zero-seed\runs\20260922-012919-a\project\ZeroSeedAlpha`
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - 需求冻结提交：`82b448957ab08a5452df297a7a95d7b6def67bef`
-- Run 起点：`82b448957ab08a5452df297a7a95d7b6def67bef`；R1 checkpoint 提交形成后另记
+- Run 起点：需求冻结 `82b448957ab08a5452df297a7a95d7b6def67bef`；Run/R1 checkpoint `473ff1e1e83cbb21458186468ad853d244ded562`
 - 生成规则版本：冻结的 `REQUIREMENTS.md` 与 `EXPERIMENT_PLAN.md` @ `82b4489`
 - 开始时间：`2026-09-22T01:29:19-07:00`
 - Experiment Owner：Codex
@@ -29,7 +29,7 @@
 ## 3. 来源声明
 
 - 已使用：V1 冻结 Contract、Playbook v0.1、Power BI adapter、V0 文档与 Git 历史中已记录的事实。
-- 微软公开文档/Schema：尚未进入 R2，使用项将在生成前锁定并记录 URL、获取时间和可得哈希。
+- 微软公开文档/Schema：已使用 PBIP overview、Report/SemanticModel folder、TMDL overview 与微软 `json-schemas`；每个实际 Schema 的 URL、获取时间和哈希写入对应 R2 证据。
 - `V0/seed/**`：未读取、未复制。
 - `V0/runs/**/project/**`：未作为实现参考。
 - 其他 Run 工程文件：不存在，未复制。
@@ -50,11 +50,11 @@
 | --- | --- | --- |
 | R0 Run/Preflight | Passed | `evidence/checks/R0_PREFLIGHT.md` |
 | R1 空目录 | Passed | `evidence/checks/R1_EMPTY_BASELINE.md` |
-| R2a PBIP 入口 | Not Started |  |
-| R2b SemanticModel | Not Started |  |
-| R2c Report/PBIR | Not Started |  |
-| R2d 预打开冻结 | Not Started |  |
-| R3–R6 Desktop 往返 | Not Started | 等待后续 Human Gate |
+| R2a PBIP 入口 | Passed | `evidence/checks/R2A_PBIP.md` |
+| R2b SemanticModel | Passed | `evidence/checks/R2B_SEMANTIC_MODEL.md` |
+| R2c Report/PBIR | Passed | `evidence/checks/R2C_REPORT_PBIR.md` |
+| R2d 预打开冻结 | Passed | `manifests/PRE_OPEN.json`；`evidence/checks/R2D_PRE_OPEN_FREEZE.md`；checkpoint 为包含两者的提交 |
+| R3–R6 Desktop 往返 | Not Started | `HG-01` 已请求，等待 Human 首开观察 |
 
 ## 6. 分离式日志
 
@@ -67,8 +67,8 @@
 ## 7. 当前结论
 
 - 功能结果：`Not Started`
-- Contract 符合度：R0–R1 符合；后续未评价
-- 证据完整度：R0–R1 证据齐全
+- Contract 符合度：R0–R2d 符合；后续未评价
+- 证据完整度：R0–R2d 证据齐全
 - 持久化/重启状态：未测试
 - 安全与权限：只读版本探测的权限事件已解决，无凭据或外部发布
-- 不能声称：任何 PBIP/PBIR/TMDL 生成或 Desktop 兼容结论
+- 不能声称：Desktop 可打开、保存、重开或零种子成立
