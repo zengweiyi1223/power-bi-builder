@@ -1,6 +1,6 @@
 # V1 Zero Seed — 总体验证记录
 
-- 状态：`In Progress — Run A Passed；Run B R4 Passed，等待 HG-03`
+- 状态：`In Progress — Run A Passed；Run B 核心 R5 Passed，等待 HG-04`
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - V1 采用前草案：`22da780412f27decf17a097548d65d151c75b235`
 - no-ff merge：`8c28f5e340ec41ef56e16d942fd2f9eb97767963`
@@ -25,7 +25,7 @@
 | 试验 | Run ID | 项目名/路径特征 | 状态 | 验证记录 | Checkpoint |
 | --- | --- | --- | --- | --- | --- |
 | A | `20260922-012919-a` | `ZeroSeedAlpha` / ASCII 短路径 | Passed | `runs/20260922-012919-a/VALIDATION.md` | Run/R1 `473ff1e`；预打开 `57b6e64`；首存 `44c2fb7`；核心往返 `9c34b5f`；final 为包含本记录的提交 |
-| B | `20260922-032410-b` | `零种子 Beta` / 不同父目录、空格与 Unicode | R4 Passed with known evidence gap；等待 HG-03 | `runs/20260922-032410-b/VALIDATION.md` | Run 起点 `21af7b2`；Run/R1 `a121769`；预打开 `6d0a594`；R3 `af23869` |
+| B | `20260922-032410-b` | `零种子 Beta` / 不同父目录、空格与 Unicode | 核心 R5 Passed；等待 HG-04 | `runs/20260922-032410-b/VALIDATION.md` | Run 起点 `21af7b2`；Run/R1 `a121769`；预打开 `6d0a594`；R3 `af23869`；首存 `5428294` |
 
 ## 3. Human Gate
 
@@ -47,13 +47,13 @@ Run A 已完成 R0–R6 与 HG-00–HG-05；Run B 已完成 R0–R2d，Desktop �
 | 空目录 Trusted baseline | Passed | Passed | 递归清单、目录外记录、Git | A/B Passed |
 | Codex 首开前完整生成 | Passed | Passed | Schema、不变量、manifest | A/B 生成阶段 Passed；不等于 Run B Desktop 兼容 |
 | Desktop 首开/补写分类 | 首开 Passed；磁盘补写 0 | 首开 Passed；磁盘补写 0 | 真实运行、Human 观察、diff | A/B 首开均无磁盘补写 |
-| 保存/关闭/重开 | 核心往返与额外最终往返均 Passed | 首存/关闭 Passed；重开待 HG-03 | Desktop、manifest、MCP 只读回读、最终 Human Gate | A Passed；B In Progress |
+| 保存/关闭/重开 | 核心往返与额外最终往返均 Passed | 核心往返 Passed；额外最终往返待 HG-04 | Desktop、manifest、MCP 只读回读、最终 Human Gate | A Passed；B 核心候选 Passed |
 | 不同名称/路径重复性 | Not Started | Not Started | 跨 Run 对比 | Not Started |
 
 ## 5. 最终判定
 
-- 功能结果：Run A `Passed`；Run B R4 Passed，尚未完成重开
-- Contract 符合度：Run A 完整符合；Run B R0–R4 符合
+- 功能结果：Run A `Passed`；Run B 核心候选 `Passed`，等待 R6
+- Contract 符合度：Run A 完整符合；Run B R0–R5 符合
 - 证据完整度：Run A R0–R6 技术证据完整；存在已解释的非阻塞 Schema/Product 缺口
 - 持久化/重启状态：核心往返与额外最终往返均通过；最后一次重开磁盘零差异
 - 安全与权限状态：Contract 已冻结；Run A 未访问敏感信息、未发布、MCP 仅只读

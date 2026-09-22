@@ -56,8 +56,8 @@
 | R2d 预打开冻结 | Passed | `manifests/PRE_OPEN.json`；`evidence/checks/R2D_PRE_OPEN_FREEZE.md`；checkpoint 为包含两者的提交 |
 | R3 首开 | Passed | `manifests/POST_OPEN_NO_SAVE.json`；`evidence/checks/R3_FIRST_OPEN.md`；磁盘差异 0 |
 | R4 首存/关闭 | Passed with known evidence gap | `manifests/POST_SAVE_CLOSED.json`；`evidence/checks/R4_POST_SAVE.md`；6 added / 9 modified / 0 deleted |
-| R5 第一次重开 | Waiting HG-03 | 首存静态复验通过；等待同路径重开 |
-| R6 最终往返 | Not Started | 仅在 R5 通过后执行 |
+| R5 第一次重开 | Passed | `POST_REOPEN_NO_SAVE.json`；`R5_FIRST_REOPEN.md`；MCP 只读回读；磁盘差异 0 |
+| R6 最终往返 | Waiting HG-04 | 核心往返 Passed；等待 Playbook-only 额外关闭—重开 |
 
 ## 6. 分离式日志
 
@@ -69,6 +69,7 @@
 ## 7. 当前结论
 
 - 功能结果：`Not Started`
-- Contract 符合度：R0–R4 符合
-- 证据完整度：R0–R4 完整；保留 `EVT-B006` 非阻塞 Schema/Product 缺口
+- Contract 符合度：R0–R5 符合
+- 证据完整度：R0–R5 完整；保留 `EVT-B006` 非阻塞 Schema/Product 缺口
+- 当前候选：完全零种子，Desktop 首次显式保存时正常规范化/补写
 - 不能声称：Run B 的路径兼容性、首开、持久化、重复性或 V1 最终结论

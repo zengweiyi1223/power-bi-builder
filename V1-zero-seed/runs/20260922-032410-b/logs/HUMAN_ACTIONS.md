@@ -5,6 +5,7 @@
 | 2026-09-22T03:15:07-07:00 | R0 precondition | Run A final checkpoint 后正常关闭 Desktop，不保存；出现提示则停止 | Human 确认：“Desktop 已关闭，无提示” | 是，允许 Run B R0/R1 | 当前 Codex 对话；进程复核为 0 |
 | 2026-09-22T07:10:51-07:00 | HG-01 | 仅打开 `E:\AIWorkspace\01_Projects\power-bi-builder\V1-zero-seed\runs\20260922-032410-b\project path\零种子 Beta\零种子 Beta.pbip`；不保存、不另存为、不创建项目、不接受修复；报告完整提示、是否进入报表、页面名与窗口标题 | Human 确认：成功进入；空白 `Overview` 可见；标题为 `零种子 Beta`；无弹窗、警告、错误或修复提示 | 是，仅完成 R3 | Human 文字；`evidence/screenshots/HG01_FIRST_OPEN.png`；首开后磁盘 diff 0 |
 | 2026-09-22T07:26:50-07:00 | HG-02 | 在当前 `零种子 Beta` 中显式保存一次，然后正常关闭 Desktop；不另存为、不修改内容、不接受修复；报告保存/关闭结果和完整提示 | Human 确认：保存成功；Desktop 已关闭；无任何提示或错误 | 是，仅完成 R4 | `POST_SAVE_CLOSED.json`；进程 0；R4 evidence |
-| 2026-09-22T07:48:51-07:00 | HG-03 | 从同一绝对路径重开 `零种子 Beta.pbip`；不保存、不修改、不接受修复；报告是否进入、`Overview`、标题和全部提示 | 等待 Human | 否 | R4 Passed with known evidence gap；首存 checkpoint 待形成 |
+| 2026-09-22T07:48:51-07:00 | HG-03 | 从同一绝对路径重开 `零种子 Beta.pbip`；不保存、不修改、不接受修复；报告是否进入、`Overview`、标题和全部提示 | Human 确认：成功进入；仍显示空白 `Overview`；标题仍为 `零种子 Beta`；无提示、错误或修复 | 是，仅完成 R5 | `POST_REOPEN_NO_SAVE.json`；MCP 只读回读；R5 evidence |
+| 2026-09-22T08:02:38-07:00 | HG-04 | 为评价 R-VLD-003，关闭当前 Desktop（不保存），再从同一路径重开；不修改、不保存；报告关闭/重开结果、全部提示及大致耗时 | 等待 Human | 否 | 核心往返已 Passed；此动作为 Playbook-only 额外往返 |
 
-截至本记录，Run B HG-02 与 R4 已通过；等待首存 checkpoint 后执行 HG-03。
+截至本记录，Run B HG-03 与核心往返已通过；Desktop 保持打开，等待 HG-04。

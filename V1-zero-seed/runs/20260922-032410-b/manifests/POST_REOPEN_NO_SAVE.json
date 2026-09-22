@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "runId": "20260922-032410-b",
+  "stage": "R5-first-reopen-no-save",
+  "projectName": "零种子 Beta",
+  "projectRoot": "E:/AIWorkspace/01_Projects/power-bi-builder/V1-zero-seed/runs/20260922-032410-b/project path/零种子 Beta",
+  "generatedAt": "2026-09-22T08:02:38.5522526-07:00",
+  "fileCount": 15,
+  "totalBytes": 3647,
+  "files": [
+    {
+      "path": "零种子 Beta.pbip",
+      "bytes": 150,
+      "sha256": "EA5AB3BCF488743F527547722D3C1340882382C646F17EF8D38A108AB250B6A0"
+    },
+    {
+      "path": "零种子 Beta.Report/.pbi/localSettings.json",
+      "bytes": 580,
+      "sha256": "14BCA094A32075E422C2CE728F1024D3C85C04537F0614FE76E64516FB8D990B"
+    },
+    {
+      "path": "零种子 Beta.Report/.platform",
+      "bytes": 308,
+      "sha256": "075B61CC2407322FBA4669ED9AA872B9C4AEB3FAA1CA8C176E3C9EC6F04ECD1A"
+    },
+    {
+      "path": "零种子 Beta.Report/definition.pbir",
+      "bytes": 128,
+      "sha256": "ABC7D916509DA178B5C609F9D50E4516C705ECC6D43E7B018F395918C81367C3"
+    },
+    {
+      "path": "零种子 Beta.Report/definition/pages/ee10ab53292bad27c265/page.json",
+      "bytes": 252,
+      "sha256": "C0184948DA6445CB5C1081605E478AE801E54BC156CB655E231D1B8E5441E8AF"
+    },
+    {
+      "path": "零种子 Beta.Report/definition/pages/pages.json",
+      "bytes": 224,
+      "sha256": "5A0A437D983A450A7F97DBF14886E83C6BD2C4C6A0BDE241653445D8ED88450C"
+    },
+    {
+      "path": "零种子 Beta.Report/definition/report.json",
+      "bytes": 203,
+      "sha256": "8370ABF3AF3CB79DF265E87F7FCA836BE65E2FE43E8645D04F423AC231BE0284"
+    },
+    {
+      "path": "零种子 Beta.Report/definition/version.json",
+      "bytes": 152,
+      "sha256": "C8BDD966A85F1EAAB4312D2096B6D7B508243E4D7BC5A4D25AF3CFCB1056A4E7"
+    },
+    {
+      "path": "零种子 Beta.SemanticModel/.pbi/editorSettings.json",
+      "bytes": 217,
+      "sha256": "B5EAEB2175FA47E040EA87779121AC87C3EBC1F8F5A7768C3DEC8787D92BBB3E"
+    },
+    {
+      "path": "零种子 Beta.SemanticModel/.pbi/localSettings.json",
+      "bytes": 474,
+      "sha256": "D34FAB798D1195D93E0197F71A909309C6AE6EA585272C5FDBD1FFB56BD8E50B"
+    },
+    {
+      "path": "零种子 Beta.SemanticModel/.platform",
+      "bytes": 315,
+      "sha256": "D873FFF250CD3AF7616FC26CF8073BFEA82F146471C703B5F49E51BA044978B4"
+    },
+    {
+      "path": "零种子 Beta.SemanticModel/definition.pbism",
+      "bytes": 43,
+      "sha256": "ED99EC078EFD2FF27FC1C65CC97902138D7D3C438ACDB7770AE37DC71C7F06C8"
+    },
+    {
+      "path": "零种子 Beta.SemanticModel/definition/database.tmdl",
+      "bytes": 39,
+      "sha256": "822C914B643BCA32BB20ABD8A762DF8204A1B9EF02ACC2BC7348727F6699CB96"
+    },
+    {
+      "path": "零种子 Beta.SemanticModel/definition/model.tmdl",
+      "bytes": 121,
+      "sha256": "547AC3470D17AE43960BBA193C49BB9BD138673673AAC558B0BF00398D414CD1"
+    },
+    {
+      "path": "零种子 Beta.SemanticModel/diagramLayout.json",
+      "bytes": 441,
+      "sha256": "B9DFB4C321D6F3F125B28F4216A34B14305702ED6C34AA764E1176ADAD47EDD1"
+    }
+  ]
+}
