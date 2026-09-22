@@ -55,7 +55,8 @@
 | R2c Report/PBIR | Passed | `evidence/checks/R2C_REPORT_PBIR.md` |
 | R2d 预打开冻结 | Passed | `manifests/PRE_OPEN.json`；`evidence/checks/R2D_PRE_OPEN_FREEZE.md`；checkpoint 为包含两者的提交 |
 | R3 首开 | Passed | `manifests/POST_OPEN_NO_SAVE.json`；`evidence/checks/R3_FIRST_OPEN.md`；首开磁盘差异为 0 |
-| R4–R6 保存/往返 | Not Started | 等待 HG-02 |
+| R4 首存/关闭 | Passed with known evidence gap | `manifests/POST_SAVE_CLOSED.json`；`evidence/checks/R4_POST_SAVE.md` |
+| R5–R6 重开/最终往返 | Not Started | 等待 HG-03 |
 
 ## 6. 分离式日志
 
@@ -68,8 +69,8 @@
 ## 7. 当前结论
 
 - 功能结果：`Not Started`
-- Contract 符合度：R0–R3 符合；后续未评价
-- 证据完整度：R0–R3 证据齐全
-- 持久化/重启状态：首开通过；显式保存和重启未测试
+- Contract 符合度：R0–R4 符合；后续未评价
+- 证据完整度：R0–R4 证据齐全；保留 `EVT-003` 非阻塞 Schema/Product 缺口
+- 持久化/重启状态：显式保存与关闭通过；重启未测试
 - 安全与权限：只读版本探测的权限事件已解决，无凭据或外部发布
-- 不能声称：保存后可关闭重开或零种子最终成立
+- 不能声称：保存后的项目可稳定重开、`.platform` 是否为必需，或零种子最终成立

@@ -1,6 +1,6 @@
 # V1 Zero Seed — 总体验证记录
 
-- 状态：`In Progress — Run A R3 Passed，等待 HG-02`
+- 状态：`In Progress — Run A R4 Passed，等待 HG-03`
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - V1 采用前草案：`22da780412f27decf17a097548d65d151c75b235`
 - no-ff merge：`8c28f5e340ec41ef56e16d942fd2f9eb97767963`
@@ -24,7 +24,7 @@
 
 | 试验 | Run ID | 项目名/路径特征 | 状态 | 验证记录 | Checkpoint |
 | --- | --- | --- | --- | --- | --- |
-| A | `20260922-012919-a` | `ZeroSeedAlpha` / ASCII 短路径 | R3 首开 Passed；等待 HG-02 | `runs/20260922-012919-a/VALIDATION.md` | Run/R1 `473ff1e`；预打开 `57b6e64` |
+| A | `20260922-012919-a` | `ZeroSeedAlpha` / ASCII 短路径 | R4 首存/关闭 Passed；等待 HG-03 | `runs/20260922-012919-a/VALIDATION.md` | Run/R1 `473ff1e`；预打开 `57b6e64`；首存提交待形成 |
 | B | 未创建 | `零种子 Beta` / 空格与 Unicode | Not Started |  |  |
 
 ## 3. Human Gate
@@ -33,7 +33,8 @@
 | --- | --- | --- | --- | --- | --- |
 | HG-00 | Passed | 确认规划冻结提交并授权创建首个正式 Run | 用户回复“确认，授权” | `runs/20260922-012919-a/logs/HUMAN_ACTIONS.md` | 是 |
 | HG-01 | Passed | 打开 Run A 的精确 `.pbip`，禁止保存/另存为/创建项目 | 成功进入；`Overview` 可见；无提示；标题正确 | Human 日志、截图、首开后 manifest | 是，仅完成 R3 |
-| HG-02 | Pending | 显式保存当前项目并正常关闭 Desktop | 等待 Human | Run A Human 日志 | 否 |
+| HG-02 | Passed | 显式保存当前项目并正常关闭 Desktop | 保存成功；关闭成功；无提示 | Human 日志、首存 manifest、进程退出检查 | 是，仅完成 R4 |
+| HG-03 | Pending | 从同一 `.pbip` 第一次重开，禁止保存和修改 | 等待 Human | Run A Human 日志 | 否 |
 
 ## 4. 跨 Run 独立验收
 
@@ -44,15 +45,15 @@ Run A 已完成首开前冻结；Desktop 项仍保持 `Not Started`。
 | 空目录 Trusted baseline | Passed | Not Started | 递归清单、目录外记录、Git | A Passed |
 | Codex 首开前完整生成 | Passed | Not Started | Schema、不变量、manifest | A Passed；不等于 Desktop 兼容 |
 | Desktop 首开/补写分类 | 首开 Passed；磁盘补写 0 | Not Started | 真实运行、Human 观察、diff | A 当前为首开无磁盘补写 |
-| 保存/关闭/重开 | Not Started | Not Started | Desktop、manifest、MCP 只读回读 | Not Started |
+| 保存/关闭/重开 | 首存/关闭 Passed；重开未开始 | Not Started | Desktop、manifest、MCP 只读回读 | A 等待 R5 |
 | 不同名称/路径重复性 | Not Started | Not Started | 跨 Run 对比 | Not Started |
 
 ## 5. 最终判定
 
 - 功能结果：Run A `In Progress`；尚无业务结论
-- Contract 符合度：Run A R0–R3 符合；后续未评价
-- 证据完整度：Run A R0–R3 完整；保存/重启证据未开始
-- 持久化/重启状态：首开通过；保存和重启未测试
+- Contract 符合度：Run A R0–R4 符合；后续未评价
+- 证据完整度：Run A R0–R4 完整；存在已解释的非阻塞 Schema/Product 缺口
+- 持久化/重启状态：首存和关闭通过；重启未测试
 - 安全与权限状态：Contract 已冻结；运行时未测试
 - 已知限制和不能声称的内容：不能声称任何零种子业务结论、Desktop 兼容性、MCP 可用性或 R-VLD-003 utility
 - 最终验收提交：`Not Started`
