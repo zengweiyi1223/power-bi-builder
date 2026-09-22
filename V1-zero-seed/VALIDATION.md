@@ -18,20 +18,20 @@
 | 步骤 3：完整阅读 README/PLAYBOOK/templates/adapter | Passed | `BASELINE.md` §3 |
 | 步骤 4–6：采用前符合性与模板补齐 | Passed | `PLAYBOOK_CONFORMITY.md`、冻结 Contract 与输出骨架 |
 | 步骤 7：规划冻结 checkpoint | Passed | 以包含本文件的独立 Git 提交完成；SHA 由 Git/报告记录 |
-| HG-00：正式 Run 授权 | Not Started | 等待 Human 确认冻结 SHA |
+| HG-00：正式 Run 授权 | Passed | 用户确认冻结提交 `82b4489` 并明确授权 |
 
 ## 2. 正式 Run 状态
 
 | 试验 | Run ID | 项目名/路径特征 | 状态 | 验证记录 | Checkpoint |
 | --- | --- | --- | --- | --- | --- |
-| A | 未创建 | `ZeroSeedAlpha` / ASCII 短路径 | Not Started |  |  |
+| A | `20260922-012919-a` | `ZeroSeedAlpha` / ASCII 短路径 | In Progress | `runs/20260922-012919-a/VALIDATION.md` | Run 起点提交待形成 |
 | B | 未创建 | `零种子 Beta` / 空格与 Unicode | Not Started |  |  |
 
 ## 3. Human Gate
 
 | ID | 状态 | 请求与目标 | Human 确认 | 证据 | 继续授权 |
 | --- | --- | --- | --- | --- | --- |
-| HG-00 | Not Started | 确认规划冻结提交并授权创建首个正式 Run |  |  |  |
+| HG-00 | Passed | 确认规划冻结提交并授权创建首个正式 Run | 用户回复“确认，授权” | `runs/20260922-012919-a/logs/HUMAN_ACTIONS.md` | 是 |
 
 ## 4. 跨 Run 独立验收
 
@@ -47,7 +47,7 @@
 
 ## 5. 最终判定
 
-- 功能结果：`Not Started`
+- 功能结果：Run A `In Progress`；尚无业务结论
 - Contract 符合度：规划层面已映射；运行时未评价
 - 证据完整度：仅有规划与 Git 基线证据
 - 持久化/重启状态：未测试

@@ -1,0 +1,1 @@
+{"id":"EVT-001","timestamp":"2026-09-22T01:29:19-07:00","stage":"R0","eventType":"Safety/Permission Blocker","severity":"Non-blocking","v1Cause":"ENV","observation":"受限 shell 未能枚举 Power BI Desktop Appx 或读取 Modeling MCP 安装目录。","impact":"首次环境版本探测不完整；未进入依赖阶段。","action":"使用获批的只读提升权限重新探测；成功确认版本和进程状态。","evidence":"evidence/checks/R0_PREFLIGHT.md"}
