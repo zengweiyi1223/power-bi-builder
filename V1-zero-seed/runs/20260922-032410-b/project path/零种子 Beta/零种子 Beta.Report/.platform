@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "零种子 Beta"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "99da43ab-9ed3-4a83-a4f0-c23bf897c35e"
+  }
+}

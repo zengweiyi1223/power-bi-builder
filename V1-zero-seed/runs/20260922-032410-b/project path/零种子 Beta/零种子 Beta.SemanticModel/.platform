@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "零种子 Beta"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c3d92e40-63e5-4c17-916f-97e7cb52ffd7"
+  }
+}
