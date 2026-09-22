@@ -1,6 +1,6 @@
 # V1 Zero Seed — Run 20260922-032410-b 验证记录
 
-- 状态：`In Progress — 核心 R5 Passed；等待 HG-04`
+- 状态：`Passed`
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - 需求冻结提交：`82b448957ab08a5452df297a7a95d7b6def67bef`
 - Run 起点：`21af7b278d9be6c40ca7315fb0dd5298e3565506`
@@ -28,7 +28,7 @@
 | R3 首开 | Passed | Human 仅打开冻结入口，禁止保存/另存为/修复 | UI/标题/页面正确；无提示；9 文件/1503 bytes；相对 pre-open 0/0/0 | Passed | `evidence/checks/R3_FIRST_OPEN.md`；截图；`POST_OPEN_NO_SAVE.json` | pre-open `6d0a594` |
 | R4 首存 | Passed with known evidence gap | Human 显式保存并正常关闭 | 进程 0；15 文件；6 新增/9 改写/0 删除；JSON/Schema/TMDL/身份/引用和差异分类 | Passed | `evidence/checks/R4_POST_SAVE.md`；`POST_SAVE_CLOSED.json` | 包含本记录的首存 checkpoint |
 | R5 第一次重开 | Passed | Human 从同一路径重开；Codex 仅做 MCP 只读回读 | UI/标题/页面正确；重开及 MCP 后磁盘 0/0/0；模型身份、1606、PowerBI_V3、空表一致 | Passed | `R5_FIRST_REOPEN.md`；`POST_REOPEN_NO_SAVE.json`；`MCP_ACTIONS.jsonl` | 首存 `5428294` |
-| R6 | Waiting HG-04 | Playbook-only 额外关闭—重开 | 等待 Human | Pending | `logs/HUMAN_ACTIONS.md` |  |
+| R6 | Passed | Playbook-only 额外关闭—重开 | HG-04 确认关闭/重开、页面/标题正确且无提示；新 Desktop/模型 PID；相对 R5 磁盘 0/0/0；HG-05 独立确认最终可见状态 | Passed | `R6_FINAL_ROUNDTRIP.md`；`FINAL_REOPEN_NO_SAVE.json`；`R-VLD-003-METRICS.json`；Human 日志 | 本记录随 Run B final checkpoint 提交 |
 
 ## 3. Human Gate
 
@@ -38,8 +38,8 @@
 | HG-01 | 首次打开精确 Unicode+空格路径 `.pbip`；不保存、不另存为、不创建项目、不接受修复 | 成功进入；`Overview`/标题正确；无提示、错误或修复 | Passed |
 | HG-02 | 显式保存当前项目并正常关闭；不另存为、不修改内容、不接受修复 | 保存成功；Desktop 已关闭；无提示或错误 | Passed |
 | HG-03 | 从同一路径第一次重开；不保存、不修改、不接受修复 | 稳定重开；`Overview`/标题正确；无提示/错误/修复 | Passed |
-| HG-04 | 执行 R-VLD-003 额外关闭—重开；报告结果和大致耗时 | 等待 Human | Pending |
-| HG-05 | 最终可见状态确认 | 尚未请求 | Not Started |
+| HG-04 | 执行 R-VLD-003 额外关闭—重开；报告结果和大致耗时 | 关闭/重开成功；`Overview` 与标题正确；无提示；耗时“约几秒” | Passed |
+| HG-05 | 对当前最终可见状态作独立签字式确认；确认前不保存/修改/关闭 | Human 确认：`零种子 Beta`、空白 `Overview` 正确；无弹窗、警告、错误或修复提示 | Passed |
 
 ## 4. 异常与恢复
 
@@ -53,14 +53,16 @@
 | EVT-B006 | Evidence Gap | Non-blocking | SPEC | Desktop 移除三个根文件 required `$schema` | 保留原样；内存恢复元数据后其余结构通过；R5 产品证据待补 |
 | EVT-B007 | Expected Negative Result | Informational | DESKTOP | 首存新增 6、改写 9、删除 0 | 全量分类；Unicode 身份/引用保留；继续 R5 |
 | EVT-B008 | Validation Failure | Non-blocking | ENV | R5 首次比较器的 `-eq` 分词错误 | MCP 前停止；改用多行比较器从头重跑通过 |
+| EVT-B009 | Validation Failure | Non-blocking | ENV | R6 最终复核首次错误地将双反斜杠作为单个路径分隔符，产生 14/0/14 假差异 | 未作结论或提交；改用 `DirectorySeparatorChar` 从头重跑，结果 0/0/0，项目未变化 |
 
 ## 5. 当前判定
 
-- 功能结果：`Not Started`
-- Contract 符合度：R0–R5 符合
-- 证据完整度：R0–R5 完整；`EVT-B006` 为已知非阻塞规范证据缺口
-- 持久化状态：核心首开—保存—关闭—第一次重开 Passed
+- 功能结果：`Passed`
+- Contract 符合度：R0–R6 与 HG-01–HG-05 符合
+- 证据完整度：R0–R6 技术证据完整；`EVT-B006` 为已知非阻塞规范证据缺口
+- 持久化状态：核心首开—保存—关闭—第一次重开及 Playbook-only 额外往返均技术通过
 - 当前候选：完全零种子，Desktop 首次显式保存时正常规范化/补写
 - 首开入口：`E:\AIWorkspace\01_Projects\power-bi-builder\V1-zero-seed\runs\20260922-032410-b\project path\零种子 Beta\零种子 Beta.pbip`
 - 当前 Blocking：0
-- 不能声称：任何 Run B Desktop 或跨 Run 结论
+- R-VLD-003：规则符合性 `Conformant`；utility `Low positive marginal value`；初步建议 `Change`
+- 不能声称：两条样本之外的普遍兼容性、`.platform` 反事实必要性、跨 Run 最终 V1 验收提交，或规则有效性已由符合性证明

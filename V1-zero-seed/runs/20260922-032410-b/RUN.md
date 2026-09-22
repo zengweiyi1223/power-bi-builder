@@ -57,7 +57,7 @@
 | R3 首开 | Passed | `manifests/POST_OPEN_NO_SAVE.json`；`evidence/checks/R3_FIRST_OPEN.md`；磁盘差异 0 |
 | R4 首存/关闭 | Passed with known evidence gap | `manifests/POST_SAVE_CLOSED.json`；`evidence/checks/R4_POST_SAVE.md`；6 added / 9 modified / 0 deleted |
 | R5 第一次重开 | Passed | `POST_REOPEN_NO_SAVE.json`；`R5_FIRST_REOPEN.md`；MCP 只读回读；磁盘差异 0 |
-| R6 最终往返 | Waiting HG-04 | 核心往返 Passed；等待 Playbook-only 额外关闭—重开 |
+| R6 最终往返 | Passed | HG-04/HG-05 Passed；新 Desktop/模型进程；15 文件/3647 bytes；相对 R5 磁盘差异 0；最终可见状态正确 |
 
 ## 6. 分离式日志
 
@@ -68,8 +68,9 @@
 
 ## 7. 当前结论
 
-- 功能结果：`Not Started`
-- Contract 符合度：R0–R5 符合
-- 证据完整度：R0–R5 完整；保留 `EVT-B006` 非阻塞 Schema/Product 缺口
+- 功能结果：`Passed`
+- Contract 符合度：R0–R6 与 HG-01–HG-05 符合
+- 证据完整度：R0–R6 技术证据完整；保留 `EVT-B006` 非阻塞 Schema/Product 缺口
 - 当前候选：完全零种子，Desktop 首次显式保存时正常规范化/补写
-- 不能声称：Run B 的路径兼容性、首开、持久化、重复性或 V1 最终结论
+- R-VLD-003：符合性 `Conformant`；Run B utility 为 `Low positive marginal value`；初步建议 `Change`，只记反馈、不修改 Playbook
+- 不能声称：两条样本之外的普遍兼容性、`.platform` 文件的反事实必要性、跨 Run 的最终 V1 验收提交或 Playbook 规则已被修改

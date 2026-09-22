@@ -1,0 +1,54 @@
+{
+  "runId": "20260922-032410-b",
+  "rule": "R-VLD-003",
+  "measuredAt": "2026-09-22T08:18:19.9992637-07:00",
+  "coreRoundtrip": {
+    "scope": "R3 first open through R5 first reopen and read-only MCP",
+    "desktopStarts": 2,
+    "humanActiveMinutes": null,
+    "humanReportedDuration": "not measured",
+    "machineCheckMinutes": null,
+    "evidenceFiles": 8,
+    "evidenceBytes": 368559,
+    "uniqueFindings": [
+      "Unicode and spaces in the parent path and project name were accepted on first open with zero project-directory disk changes.",
+      "First explicit save added 6 files and modified 9 with no deletions while preserving Unicode display names and relative references.",
+      "Desktop canonical output repeated the three-root-file public-schema gap observed in Run A.",
+      "First reopen was stable with zero disk changes; read-only MCP confirmed Model, PowerBI_V3, compatibility level 1606, and zero tables."
+    ]
+  },
+  "playbookOnlyFinalRoundtrip": {
+    "scope": "R6 extra close and reopen after core acceptance",
+    "desktopStarts": 1,
+    "humanActiveMinutes": null,
+    "humanReportedDuration": "a few seconds",
+    "machineCheckMinutes": 0.04,
+    "elapsedFromDesktopStartToManifestMinutes": 5.08,
+    "evidenceFiles": 2,
+    "evidenceBytes": 5146,
+    "uniqueFindings": [],
+    "issuesCaught": 0,
+    "incorrectConclusionsPrevented": 0,
+    "confidenceGain": "Confirmed identical behavior and zero disk diff in a third independent Desktop/model process start under the Unicode-and-space path condition.",
+    "duplicatedEvidence": "Repeated R5 UI identity, page visibility, no-prompt behavior, and 15-file byte identity without new structural or semantic information."
+  },
+  "runBEvaluation": {
+    "conformity": "Conformant",
+    "utility": "Low positive marginal value",
+    "preliminaryRecommendation": "Change",
+    "recommendationRationale": "After a successful core reopen plus MCP validation, the extra full roundtrip added repeatability confidence but found no new issue. Use a risk trigger or sampling rule for similarly minimal projects."
+  },
+  "crossRunSignal": {
+    "runAExtraRoundtripUniqueFindings": 0,
+    "runBExtraRoundtripUniqueFindings": 0,
+    "combinedPreliminaryRecommendation": "Change",
+    "boundary": "Record as V1 feedback only; do not modify Playbook v0.1 in this project."
+  },
+  "measurementLimitations": [
+    "Core human active time and machine-only time were not instrumented prospectively and remain null.",
+    "The extra human duration was reported qualitatively as a few seconds, so no fabricated numeric human minute value is recorded.",
+    "The 0.04 machineCheckMinutes value covers the manifest/process comparison command only; documentation and checkpoint work are separate.",
+    "Elapsed time from Desktop process start includes human interaction and response latency and must not be interpreted as machine-only cost.",
+    "Evidence byte totals exclude this metrics file itself to avoid a self-referential size calculation."
+  ]
+}
