@@ -27,7 +27,7 @@
 | R2b SemanticModel | Passed | 仅生成 PBISM 与最小 TMDL 根文件 | JSON Schema；分离解析器检查最小语法/结构/UTF-8/身份/边界 | Passed | `evidence/checks/R2B_SEMANTIC_MODEL.md` | 预打开 checkpoint 待 R2d |
 | R2c Report/PBIR | Passed | 仅生成 PBIR 根、Report 根、版本、页面索引和唯一空页面 | 五个完整 JSON Schema；`byPath`、页面索引、ID、文件数与目录边界 | Passed | `evidence/checks/R2C_REPORT_PBIR.md` | 预打开 checkpoint 待 R2d |
 | R2d 预打开冻结 | Passed | 生成 9 文件完整 manifest 并冻结首开入口 | 独立复算 SHA/大小；全量 Schema/TMDL/引用/污染/进程/日志/Git 检查 | Passed | `manifests/PRE_OPEN.json`；`evidence/checks/R2D_PRE_OPEN_FREEZE.md` | 包含本记录的预打开提交 |
-| R3 首开 | Not Started |  |  |  |  |  |
+| R3 首开 | Passed | Human 直接打开冻结的 `.pbip`，禁止保存 | UI/标题/页面观察；`-Force` 首开后 manifest 与预开逐文件比较为 0 差异 | Passed | `evidence/checks/R3_FIRST_OPEN.md`；截图；两个 manifest | 预打开 `57b6e64` |
 | R4 首存 | Not Started |  |  |  |  |  |
 | R5 第一次重开 | Not Started |  |  |  |  |  |
 | R6 最终往返 | Not Started |  |  |  |  |  |
@@ -37,8 +37,9 @@
 | ID | 请求、目标与预期 | Human 实际确认 | 时间 | 证据 | 继续授权 |
 | --- | --- | --- | --- | --- | --- |
 | HG-00 | 确认规划冻结 `82b4489` 并授权正式 V1 Run | “确认，授权” | 2026-09-22（本轮消息；01:29:19 记录） | `logs/HUMAN_ACTIONS.md` | 是 |
-| HG-01 | 首次打开精确 `.pbip`；不保存、不另存为、不创建项目；报告提示与可见状态 | 等待 Human 操作 | 2026-09-22T02:01:53-07:00 请求 | `logs/HUMAN_ACTIONS.md` | 否，等待实际确认 |
-| HG-02–HG-05 | 尚未请求 |  |  |  | 否 |
+| HG-01 | 首次打开精确 `.pbip`；不保存、不另存为、不创建项目；报告提示与可见状态 | 成功进入；`Overview` 可见；无提示；标题为 `ZeroSeedAlpha` | 2026-09-22T02:01:53-07:00 请求；约 02:17 打开 | `logs/HUMAN_ACTIONS.md`；`evidence/screenshots/HG01_FIRST_OPEN.png` | 是，仅完成 R3 |
+| HG-02 | 在首开磁盘差异完成后显式保存并关闭；报告保存/关闭结果与提示 | 等待 Human 操作 | 2026-09-22T02:21:09-07:00 请求 | `logs/HUMAN_ACTIONS.md` | 否，等待实际确认 |
+| HG-03–HG-05 | 尚未请求 |  |  |  | 否 |
 
 ## 4. 独立验收
 
@@ -51,7 +52,8 @@
 | SemanticModel | 生成 PBISM 与最小 TMDL | 完整 PBISM Schema + 冻结最小 TMDL 子集解析；Desktop 产品解析待 R3 | 精确（最小子集）+ 待产品验证 | Passed |
 | Report/PBIR | 生成最小 PBIR 与唯一 `Overview` 页面 | 五个完整公开 Schema + 引用、页面索引和目录边界不变量 | 精确（Schema/结构）+ 待产品验证 | Passed |
 | 首开前完整项目 | 9 个文件、1498 bytes | `PRE_OPEN.json` 独立复算 + 全量离线复验 + Desktop 进程 0 | 精确（首开前磁盘状态） | Passed |
-| 项目生成及 Desktop | Not Started |  |  | Not Started |
+| Desktop 首开 | 直接进入 `ZeroSeedAlpha`，`Overview` 可见，无提示 | Human 截图/观察 + 首开后无保存 manifest 差异 0 | 人工产品观察 + 精确磁盘 diff | Passed |
+| 保存/关闭/重开 | Not Started |  |  | Not Started |
 
 ## 5. 异常与恢复
 
@@ -63,9 +65,9 @@
 ## 6. 当前判定
 
 - 功能结果：`Not Started`
-- Contract 符合度：R0–R2d 符合
-- 证据完整度：R0–R2d 完整
-- 持久化/重启状态：未测试
+- Contract 符合度：R0–R3 符合
+- 证据完整度：R0–R3 完整
+- 持久化/重启状态：首开通过；保存和重启未测试
 - 安全与权限状态：已解决的 Non-blocking 权限事件；无敏感访问
-- 不能声称：Desktop 可打开、保存、重开或零种子成立
+- 不能声称：保存后可关闭重开或零种子最终成立
 - 当前 checkpoint：Run/R1 `473ff1e`；预打开 checkpoint 为包含本记录的提交，SHA 由 Git/HG-01 报告记录
