@@ -1,6 +1,6 @@
 # V1 Zero Seed — 总体验证记录
 
-- 状态：`In Progress — Run A 核心 R5 Passed，等待 HG-04`
+- 状态：`In Progress — Run A Passed；Run B Not Started`
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - V1 采用前草案：`22da780412f27decf17a097548d65d151c75b235`
 - no-ff merge：`8c28f5e340ec41ef56e16d942fd2f9eb97767963`
@@ -24,7 +24,7 @@
 
 | 试验 | Run ID | 项目名/路径特征 | 状态 | 验证记录 | Checkpoint |
 | --- | --- | --- | --- | --- | --- |
-| A | `20260922-012919-a` | `ZeroSeedAlpha` / ASCII 短路径 | 核心 R5 Passed；等待 Playbook-only HG-04 | `runs/20260922-012919-a/VALIDATION.md` | Run/R1 `473ff1e`；预打开 `57b6e64`；首存 `44c2fb7` |
+| A | `20260922-012919-a` | `ZeroSeedAlpha` / ASCII 短路径 | Passed | `runs/20260922-012919-a/VALIDATION.md` | Run/R1 `473ff1e`；预打开 `57b6e64`；首存 `44c2fb7`；核心往返 `9c34b5f`；final 为包含本记录的提交 |
 | B | 未创建 | `零种子 Beta` / 空格与 Unicode | Not Started |  |  |
 
 ## 3. Human Gate
@@ -35,26 +35,27 @@
 | HG-01 | Passed | 打开 Run A 的精确 `.pbip`，禁止保存/另存为/创建项目 | 成功进入；`Overview` 可见；无提示；标题正确 | Human 日志、截图、首开后 manifest | 是，仅完成 R3 |
 | HG-02 | Passed | 显式保存当前项目并正常关闭 Desktop | 保存成功；关闭成功；无提示 | Human 日志、首存 manifest、进程退出检查 | 是，仅完成 R4 |
 | HG-03 | Passed | 从同一 `.pbip` 第一次重开，禁止保存和修改 | 稳定重开；页面/标题正确；无提示 | Human 日志、重开 manifest、MCP 日志 | 是，仅完成 R5 |
-| HG-04 | Pending | 执行 R-VLD-003 的额外关闭/重开 | 等待 Human | Run A Human 日志 | 否 |
+| HG-04 | Passed | 执行 R-VLD-003 的额外关闭/重开 | 关闭无提示；再次成功进入；页面/标题正确；无提示/错误/修复；约用几秒 | Run A Human 日志、R6 evidence、最终重开 manifest | 是，仅完成 R6 技术步骤 |
+| HG-05 | Passed | 对当前最终可见状态作独立签字式确认 | `ZeroSeedAlpha`、`Overview` 正确；无弹窗、警告、错误或修复提示 | Run A Human 日志、R6 evidence | 是，Run A 可关闭 |
 
 ## 4. 跨 Run 独立验收
 
-Run A 已完成首开前冻结；Desktop 项仍保持 `Not Started`。
+Run A 已完成 R0–R6 与 HG-00–HG-05；Run B 尚未创建。
 
 | 验收条款 | A | B | 独立依据 | 结论 |
 | --- | --- | --- | --- | --- |
 | 空目录 Trusted baseline | Passed | Not Started | 递归清单、目录外记录、Git | A Passed |
 | Codex 首开前完整生成 | Passed | Not Started | Schema、不变量、manifest | A Passed；不等于 Desktop 兼容 |
 | Desktop 首开/补写分类 | 首开 Passed；磁盘补写 0 | Not Started | 真实运行、Human 观察、diff | A 当前为首开无磁盘补写 |
-| 保存/关闭/重开 | 核心往返 Passed；额外最终往返未开始 | Not Started | Desktop、manifest、MCP 只读回读 | A 核心候选 Passed |
+| 保存/关闭/重开 | 核心往返与额外最终往返均 Passed | Not Started | Desktop、manifest、MCP 只读回读、最终 Human Gate | A Passed |
 | 不同名称/路径重复性 | Not Started | Not Started | 跨 Run 对比 | Not Started |
 
 ## 5. 最终判定
 
-- 功能结果：Run A `In Progress`；尚无业务结论
-- Contract 符合度：Run A R0–R5 符合；后续未评价
-- 证据完整度：Run A R0–R5 完整；存在已解释的非阻塞 Schema/Product 缺口
-- 持久化/重启状态：核心首开—保存—关闭—第一次重开通过
-- 安全与权限状态：Contract 已冻结；运行时未测试
-- 已知限制和不能声称的内容：不能声称任何零种子业务结论、Desktop 兼容性、MCP 可用性或 R-VLD-003 utility
+- 功能结果：Run A `Passed`，分类为“完全零种子，Desktop 首次显式保存时正常规范化/补写”；尚无跨 Run 结论
+- Contract 符合度：Run A R0–R6 与 HG-00–HG-05 均符合
+- 证据完整度：Run A R0–R6 技术证据完整；存在已解释的非阻塞 Schema/Product 缺口
+- 持久化/重启状态：核心往返与额外最终往返均通过；最后一次重开磁盘零差异
+- 安全与权限状态：Contract 已冻结；Run A 未访问敏感信息、未发布、MCP 仅只读
+- 已知限制和不能声称的内容：不能声称 Run B 重复性、`.platform` 反事实必要性、R-VLD-003 的 V1 最终 utility 建议或 V1 最终结论
 - 最终验收提交：`Not Started`

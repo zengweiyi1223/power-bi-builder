@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "runId": "20260922-012919-a",
+  "stage": "R6-final-reopen-no-save",
+  "projectName": "ZeroSeedAlpha",
+  "projectRoot": "E:/AIWorkspace/01_Projects/power-bi-builder/V1-zero-seed/runs/20260922-012919-a/project/ZeroSeedAlpha",
+  "generatedAt": "2026-09-22T03:00:50.9364128-07:00",
+  "fileCount": 15,
+  "files": [
+    {
+      "path": "ZeroSeedAlpha.pbip",
+      "bytes": 149,
+      "sha256": "F2268DAEB9A97094E6BE05FFD28869B6AB8FBF16D353D77615CA6007B825EFBD"
+    },
+    {
+      "path": "ZeroSeedAlpha.Report/.pbi/localSettings.json",
+      "bytes": 580,
+      "sha256": "F15C17941B9526DEBBB0E9A358E3F846F29069F2EB63355C2EC8D4A1E497A279"
+    },
+    {
+      "path": "ZeroSeedAlpha.Report/.platform",
+      "bytes": 307,
+      "sha256": "62BD61FD51CCC68FBEA28B8D9F158CDA665457CCC9F8C2458AADEADE7AE2B477"
+    },
+    {
+      "path": "ZeroSeedAlpha.Report/definition.pbir",
+      "bytes": 127,
+      "sha256": "DA60FACF055034E9B0EABD9BF5AD75CE324DC224AAF795F3BCA0B035CF165A38"
+    },
+    {
+      "path": "ZeroSeedAlpha.Report/definition/pages/78c91ddf6ab57cf694f0/page.json",
+      "bytes": 252,
+      "sha256": "AA06D872AA352024571F29A9F948E6DF351A819E90E5D63A51AF22B232C27915"
+    },
+    {
+      "path": "ZeroSeedAlpha.Report/definition/pages/pages.json",
+      "bytes": 224,
+      "sha256": "BF596E6AF51E94017194C2C0047318AB13C99376B250F2E70DB0C1CEF3F09DB4"
+    },
+    {
+      "path": "ZeroSeedAlpha.Report/definition/report.json",
+      "bytes": 203,
+      "sha256": "8370ABF3AF3CB79DF265E87F7FCA836BE65E2FE43E8645D04F423AC231BE0284"
+    },
+    {
+      "path": "ZeroSeedAlpha.Report/definition/version.json",
+      "bytes": 152,
+      "sha256": "C8BDD966A85F1EAAB4312D2096B6D7B508243E4D7BC5A4D25AF3CFCB1056A4E7"
+    },
+    {
+      "path": "ZeroSeedAlpha.SemanticModel/.pbi/editorSettings.json",
+      "bytes": 217,
+      "sha256": "B5EAEB2175FA47E040EA87779121AC87C3EBC1F8F5A7768C3DEC8787D92BBB3E"
+    },
+    {
+      "path": "ZeroSeedAlpha.SemanticModel/.pbi/localSettings.json",
+      "bytes": 474,
+      "sha256": "129693A740D000E08C48717AA6B4BE9314872B6803310D6D0488487E559410DA"
+    },
+    {
+      "path": "ZeroSeedAlpha.SemanticModel/.platform",
+      "bytes": 314,
+      "sha256": "750A0A9957C49E09C349C2ACE6F3E7B345AC8E1D45C266E77AF0C54A05C5AAC4"
+    },
+    {
+      "path": "ZeroSeedAlpha.SemanticModel/definition.pbism",
+      "bytes": 43,
+      "sha256": "ED99EC078EFD2FF27FC1C65CC97902138D7D3C438ACDB7770AE37DC71C7F06C8"
+    },
+    {
+      "path": "ZeroSeedAlpha.SemanticModel/definition/database.tmdl",
+      "bytes": 39,
+      "sha256": "822C914B643BCA32BB20ABD8A762DF8204A1B9EF02ACC2BC7348727F6699CB96"
+    },
+    {
+      "path": "ZeroSeedAlpha.SemanticModel/definition/model.tmdl",
+      "bytes": 121,
+      "sha256": "547AC3470D17AE43960BBA193C49BB9BD138673673AAC558B0BF00398D414CD1"
+    },
+    {
+      "path": "ZeroSeedAlpha.SemanticModel/diagramLayout.json",
+      "bytes": 441,
+      "sha256": "B9DFB4C321D6F3F125B28F4216A34B14305702ED6C34AA764E1176ADAD47EDD1"
+    }
+  ]
+}

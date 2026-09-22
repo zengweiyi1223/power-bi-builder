@@ -1,0 +1,45 @@
+{
+  "runId": "20260922-012919-a",
+  "rule": "R-VLD-003",
+  "measuredAt": "2026-09-22T03:03:05.3736418-07:00",
+  "coreRoundtrip": {
+    "scope": "R3 first open through R5 first reopen and read-only MCP",
+    "desktopStarts": 2,
+    "humanActiveMinutes": null,
+    "humanReportedDuration": "not measured",
+    "machineCheckMinutes": null,
+    "evidenceFiles": 8,
+    "evidenceBytes": 370282,
+    "uniqueFindings": [
+      "First open succeeded with zero project-directory disk changes.",
+      "First explicit save added 6 files and modified 9, with no deletions.",
+      "Desktop canonical output removed three required $schema declarations, creating a non-blocking spec/product evidence gap.",
+      "First reopen was stable with zero disk changes; read-only MCP confirmed Model, PowerBI_V3, compatibility level 1606, and zero tables."
+    ]
+  },
+  "playbookOnlyFinalRoundtrip": {
+    "scope": "R6 extra close and reopen after core acceptance",
+    "desktopStarts": 1,
+    "humanActiveMinutes": null,
+    "humanReportedDuration": "a few seconds",
+    "machineCheckMinutes": 2.34,
+    "evidenceFiles": 2,
+    "evidenceBytes": 5265,
+    "uniqueFindings": [],
+    "issuesCaught": 0,
+    "incorrectConclusionsPrevented": 0,
+    "confidenceGain": "Confirmed identical behavior and zero disk diff in a third independent Desktop/model process start.",
+    "duplicatedEvidence": "Repeated R5 UI identity, page visibility, no-prompt behavior, and 15-file byte identity without new structural or semantic information."
+  },
+  "runAEvaluation": {
+    "conformity": "Conformant",
+    "utility": "Low positive marginal value",
+    "preliminaryRecommendation": "Change",
+    "recommendationRationale": "For a minimal empty project after core reopen plus MCP validation, retain the extra full roundtrip only when risk triggers justify it, or use sampling. Confirm against Run B before final V1 feedback."
+  },
+  "measurementLimitations": [
+    "Core human active time and machine-only time were not instrumented prospectively and are left null rather than estimated.",
+    "The extra human duration was reported qualitatively as a few seconds, so no fabricated numeric minute value is recorded.",
+    "Evidence byte totals exclude this metrics file itself to avoid a self-referential size calculation."
+  ]
+}

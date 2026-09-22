@@ -57,21 +57,21 @@
 | R3 首开 | Passed | `manifests/POST_OPEN_NO_SAVE.json`；`evidence/checks/R3_FIRST_OPEN.md`；首开磁盘差异为 0 |
 | R4 首存/关闭 | Passed with known evidence gap | `manifests/POST_SAVE_CLOSED.json`；`evidence/checks/R4_POST_SAVE.md` |
 | R5 第一次重开/只读回读 | Passed | `manifests/POST_REOPEN_NO_SAVE.json`；`evidence/checks/R5_FIRST_REOPEN.md`；`logs/MCP_ACTIONS.jsonl` |
-| R6 Playbook-only 最终往返 | Not Started | 等待 HG-04 |
+| R6 Playbook-only 最终往返 | Passed | `manifests/FINAL_REOPEN_NO_SAVE.json`；`evidence/checks/R6_FINAL_ROUNDTRIP.md`；HG-04/HG-05 Passed；final checkpoint 为包含本记录的提交 |
 
 ## 6. 分离式日志
 
 - Human：`logs/HUMAN_ACTIONS.md`
-- MCP：尚未连接；首次实际调用时创建 `logs/MCP_ACTIONS.jsonl`
+- MCP：`logs/MCP_ACTIONS.jsonl`；R5 仅执行发现、连接、只读回读和断开，未执行 mutation
 - Codex 文件操作：`logs/CODEX_FILE_ACTIONS.jsonl`
 - 异常：`logs/EVENTS.jsonl`
-- R-VLD-003：R5 前创建 `logs/R-VLD-003-METRICS.json`
+- R-VLD-003：`logs/R-VLD-003-METRICS.json`；Run A 初步 utility 为 `Low positive marginal value`，最终建议待 Run B
 
 ## 7. 当前结论
 
-- 功能结果：`Not Started`
-- Contract 符合度：R0–R5 符合；后续未评价
-- 证据完整度：R0–R5 证据齐全；保留 `EVT-003` 非阻塞 Schema/Product 缺口
-- 持久化/重启状态：核心首开—保存—关闭—第一次重开通过
+- 功能结果：Run A `Passed`；分类为“完全零种子，Desktop 首次显式保存时正常规范化/补写”，不属于“仍需人工种子”
+- Contract 符合度：R0–R6 与 HG-00–HG-05 均符合
+- 证据完整度：R0–R6 技术证据齐全；保留 `EVT-003` 非阻塞 Schema/Product 缺口
+- 持久化/重启状态：核心首开—保存—关闭—第一次重开通过；额外关闭—重开也通过且磁盘零差异
 - 安全与权限：只读版本探测的权限事件已解决，无凭据或外部发布
-- 不能声称：`.platform` 对后续重开的反事实必要性、Run B 重复性、R-VLD-003 utility 或 V1 最终结论
+- 不能声称：`.platform` 对后续重开的反事实必要性、Run B 重复性、R-VLD-003 的 V1 最终 utility 建议或 V1 最终结论
