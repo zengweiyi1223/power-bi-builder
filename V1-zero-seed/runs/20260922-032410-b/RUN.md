@@ -10,6 +10,7 @@
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - 需求冻结提交：`82b448957ab08a5452df297a7a95d7b6def67bef`
 - Run 起点提交：`21af7b278d9be6c40ca7315fb0dd5298e3565506`
+- Run/R1 checkpoint：`a1217699017a263e7eb3a5911ff2b10c291a8396`
 - 生成规则：冻结的 `REQUIREMENTS.md` 与 `EXPERIMENT_PLAN.md` @ `82b4489`；不因 Run A 结果修改
 - 开始时间：`2026-09-22T03:24:10-07:00`
 - Experiment Owner：Codex
@@ -49,10 +50,10 @@
 | --- | --- | --- |
 | R0 Run/Preflight | Passed | `evidence/checks/R0_PREFLIGHT.md` |
 | R1 空目录 | Passed | `evidence/checks/R1_EMPTY_BASELINE.md` |
-| R2a PBIP 入口 | Not Started |  |
-| R2b SemanticModel | Not Started |  |
-| R2c Report/PBIR | Not Started |  |
-| R2d 预打开冻结 | Not Started |  |
+| R2a PBIP 入口 | Passed | `evidence/checks/R2A_PBIP.md` |
+| R2b SemanticModel | Passed | `evidence/checks/R2B_SEMANTIC_MODEL.md` |
+| R2c Report/PBIR | Passed | `evidence/checks/R2C_REPORT_PBIR.md` |
+| R2d 预打开冻结 | Passed | `manifests/PRE_OPEN.json`；`evidence/checks/R2D_PRE_OPEN_FREEZE.md`；checkpoint 为包含两者的提交 |
 | R3–R6 Desktop 往返 | Not Started | 禁止在 R2d checkpoint 前启动 Desktop |
 
 ## 6. 分离式日志
@@ -65,6 +66,6 @@
 ## 7. 当前结论
 
 - 功能结果：`Not Started`
-- Contract 符合度：R0–R1 符合
-- 证据完整度：R0–R1 完整
+- Contract 符合度：R0–R2d 符合
+- 证据完整度：R0–R2d 完整；`EVT-B002` 已解决
 - 不能声称：Run B 的路径兼容性、首开、持久化、重复性或 V1 最终结论
