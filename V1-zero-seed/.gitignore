@@ -1,0 +1,4 @@
+# Rebuildable V1 tooling and caches
+.work/
+
+# Power BI machine-local state is also ignored by the repository root rules.

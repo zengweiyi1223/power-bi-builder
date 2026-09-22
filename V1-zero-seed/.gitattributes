@@ -1,0 +1,10 @@
+# Planning documents are authored by Codex.
+*.md text eol=lf
+*.jsonl text eol=lf
+
+# Preserve Power BI Desktop source bytes in future formal runs.
+runs/**/project/**/*.json -text !eol
+*.tmdl -text !eol
+*.pbir -text !eol
+*.pbip -text !eol
+*.pbism -text !eol
