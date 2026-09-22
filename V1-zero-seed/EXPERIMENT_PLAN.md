@@ -1,157 +1,156 @@
-# V1 Zero Seed — 实验计划
+# V1 Zero Seed — 实验路线
+
+本路线受 `REQUIREMENTS.md` 冻结。Playbook 基线为 `3ee871d618db84d55b3b2f86a198ac552864317e`；路线变化必须先记录 Decision，不得在运行中静默调整。
 
 ## 1. 设计原则
 
-实验只测试工程壳来源，不把 Modeling MCP、业务数据或复杂报表混成首开前置条件。核心比较对象是同一试验的四个磁盘状态：
+实验只测试工程壳来源，不把业务数据、完整建模或复杂报表混成首开前置条件。每个 Run 比较五个磁盘状态：
 
 ```text
 空目录
-  -> Codex 生成态
-  -> Desktop 首开态（未保存）
-  -> Desktop 首存态
-  -> 稳定重开态
+  → Codex 原子生成态
+  → Desktop 首开态（未保存）
+  → Desktop 首存态
+  → 第一次稳定重开态
+  → 最终再次重开态（R-VLD-003 评价）
 ```
 
-每个箭头均留下递归清单、SHA-256 和结构化差异。Desktop 能打开不等于完全零种子；必须证明首开没有补齐必需工程结构。
+每个箭头均留下清单、SHA-256、结构/语义差异和 Gate。Desktop 能打开不等于完全零种子；必须确定首开是否补齐了必需工程结构。
 
-## 2. 试验单元
+## 2. Run 单元与目录
 
-每个正式运行目录只容纳一个项目名、一个路径条件和一个 attempt：
+每个正式 Run 只容纳一个项目名、一个路径条件和一个 attempt：
 
 ```text
 V1-zero-seed/runs/<run-id>/
 ├─ RUN.md
 ├─ VALIDATION.md
-├─ project/                    # 创建后先证明为空；之后只放本次项目
+├─ project/                    # 先证明为空；不放占位文件
 ├─ logs/
 │  ├─ HUMAN_ACTIONS.md
 │  ├─ MCP_ACTIONS.jsonl
 │  ├─ CODEX_FILE_ACTIONS.jsonl
-│  ├─ PREOPEN_MANIFEST.json
-│  ├─ FIRST_OPEN_MANIFEST.json
-│  ├─ FIRST_SAVE_MANIFEST.json
-│  └─ REOPEN_MANIFEST.json
+│  ├─ EVENTS.jsonl
+│  └─ R-VLD-003-METRICS.json
 └─ evidence/
-   ├─ PREOPEN_VALIDATION.md
-   ├─ DIFF_FIRST_OPEN.md
-   ├─ DIFF_FIRST_SAVE.md
-   └─ REOPEN_VALIDATION.md
+   ├─ manifests/
+   │  ├─ PREOPEN_MANIFEST.json
+   │  ├─ FIRST_OPEN_MANIFEST.json
+   │  ├─ FIRST_SAVE_MANIFEST.json
+   │  ├─ FIRST_REOPEN_MANIFEST.json
+   │  └─ FINAL_REOPEN_MANIFEST.json
+   └─ checks/
+      ├─ PREOPEN_VALIDATION.md
+      ├─ DIFF_FIRST_OPEN.md
+      ├─ DIFF_FIRST_SAVE.md
+      └─ REOPEN_VALIDATION.md
 ```
 
-失败后不复用 `project/`。后续修正使用新的 `<run-id>` 或显式 `-attempt-N`，并在新记录中引用前一次失败。
+失败后不复用 `project/`。仅当 Contract 已允许、状态可信且失败证据不会被覆盖时，才在同一 Run 的同一原子步骤重试；其他情况回滚或新建 `<run-id>-attempt-N`。
 
-## 3. 计划中的两组主试验
+## 3. 重复矩阵
 
 ### A — ASCII 基线
 
 - 项目名：`ZeroSeedAlpha`
 - 预定位置：`V1-zero-seed/runs/<timestamp>-a/project/ZeroSeedAlpha/`
 - 特征：短路径、ASCII、无空格。
-- 用途：减少路径噪声，先验证公开格式推导出的最小工程壳。
 
 ### B — 名称与路径变化
 
 - 项目名：`零种子 Beta`
 - 预定位置：`V1-zero-seed/runs/<timestamp>-b/project path/零种子 Beta/`
 - 特征：不同父目录、空格、Unicode。
-- 用途：验证相对 `byPath`、文件系统编码和名称自洽性，排除 A 的偶然成功。
 
-B 必须重新生成标识符和全部项目文件，不得复制或改名 A。A 的 Desktop 结果可以用于修正生成规则，但若修正规则发生变化，A 也要在新 attempt 中用同一规则重跑，保证两组可比较。
+B 必须重新生成标识符和全部工程文件，不得复制或改名 A。若生成规则在 A 后发生实质变化，A 与 B 都要在新 attempt 中使用同一冻结规则重跑。
 
-## 4. 阶段闸门
+## 4. Execute–Verify 原子循环
 
-### P0 — 环境与治理预检
+| 原子阶段 | Execute | 立即 Verify | Gate / checkpoint |
+| --- | --- | --- | --- |
+| R0 | 创建 Run 记录，执行环境与权限预检 | 核实分支、版本、工具、目标身份、进程和回滚条件 | Blocking 为 0；记录 Run 起点 |
+| R1 | 创建目标 `project/` | 立即递归证明文件数和子目录数均为 0 | 空目录作为 Trusted baseline |
+| R2a | 只生成根 `.pbip` | JSON/Schema、Report 目标和名称检查 | 通过才生成模型 |
+| R2b | 只生成 SemanticModel 最小结构 | PBISM/TMDL 语法、编码、标识符和目录边界 | 通过才生成 Report |
+| R2c | 只生成 Report/PBIR/唯一页面 | JSON/Schema、页面索引、`byPath`、引用边界 | 通过才做全量冻结 |
+| R2d | 生成全量 manifest 和来源记录 | 独立不变量检查、SHA-256、污染扫描、Desktop 未运行 | 预打开 Git checkpoint |
+| R3 | 请求 HG-01 并由 Human 首开，禁止保存 | 记录目标、提示、首开 manifest；分类缓存/补写/修复 | Gate 判定后才可保存 |
+| R4 | 请求 HG-02 并由 Human 首存/关闭 | 进程退出、首存 manifest、原始/结构/语义 diff、离线复验 | 首存 Git checkpoint |
+| R5 | 请求 HG-03 并由 Human 第一次重开 | Desktop 观察；可用时 MCP 只读回读；首次往返判定 | Run 核心功能候选结论 |
+| R6 | 请求 HG-04/HG-05，执行最终再次关闭/重开 | 最终 manifest、稳定性、R-VLD-003 新发现与成本 | Run 最终 checkpoint |
+| R7 | 两组有效 Run 完成后汇总 | 交叉比较规则、结果、证据、限制和 Playbook utility | 最终验收 checkpoint |
 
-- 确认分支、Git 状态和基线提交。
-- 记录 Desktop 完整版本、PBIP/PBIR 功能状态和 Modeling MCP 版本；不得沿用 V0 数值而不重新检查。
-- 确认 Desktop 与本地模型进程均未运行。
-- 固定允许使用的微软公开文档/Schema URL 与获取时间。
-- 记录禁止来源确认，不扫描 `V0/seed/` 或 V0 项目目录内容。
+原子验证失败立即记录事件类型、严重度和 V1 主因；`Blocking` 不得越过当前 Gate。
 
-通过条件：环境信息齐全、工作区可回滚、无目标进程、来源边界明确。
+## 5. Human Gate 请求格式
 
-### P1 — 空目录证明
+每次请求必须给出：
 
-- 创建本次运行的 `project/`。
-- 在任何项目文件写入前递归检查，文件数和子目录数都必须为 0。
-- 把检查命令、时间和结果写到 `RUN.md`，而不是在 `project/` 内放占位文件。
+1. Gate ID 与目的；
+2. 目标 `.pbip` 的精确绝对路径、项目名和 Run ID；
+3. 允许执行的唯一动作与明确禁止动作；
+4. 预期看到的状态和需要报告的全部提示；
+5. 当前自动验证与 checkpoint；
+6. 用户回复中必须包含的实际确认和是否授权继续。
 
-通过条件：空目录证据可复核。
+Human 未明确回复时保持 `Blocked` 或等待状态，不推断授权。
 
-### P2 — Codex 生成与离线预检
+## 6. 离线检查与独立依据
 
-- 依据公开规范生成最小 PBIP/PBIR/TMDL 项目。
-- 所有创建和修改逐条写入 `CODEX_FILE_ACTIONS.jsonl`。
-- 验证 JSON/TMDL 语法、根入口、Report/SemanticModel 目录关系、`byPath`、唯一页面和标识符唯一性。
-- 生成 `PREOPEN_MANIFEST.json`，记录相对路径、字节数、SHA-256、文件角色和来源。
-- 形成 Desktop 首开前 Git 快照。
-
-停止条件：任何引用离开本次项目、存在未解释的既有文件、或离线验证失败。
-
-### P3 — Desktop 首次打开（禁止保存）
-
-- 人工仅双击或从 Desktop 打开本次根 `.pbip`。
-- 不创建新报表，不执行另存为，不手工添加页面或模型对象。
-- 记录所有对话框、修复、升级、隐私和预览确认。
-- 在未保存时采集 `FIRST_OPEN_MANIFEST.json`。
-- 将预打开与首开态差异分类；`.pbi/` 单独排除。
-
-通过条件：Desktop 可进入项目且不存在阻塞错误。出现修复或结构性补写时可继续收证，但已失去“完全零种子”的资格。
-
-### P4 — 首次保存与关闭
-
-- 人工显式保存，然后关闭。
-- 记录是否出现二次保存提示和实际选择。
-- 确认 Desktop 与本地模型进程均退出。
-- 采集 `FIRST_SAVE_MANIFEST.json` 和原始 diff。
-- 分别评估字节变化、结构变化和语义变化。
-
-通过条件：磁盘项目仍可离线解析，所有差异已分类或标记为待归因。
-
-### P5 — 重开与只读回读
-
-- 从同一根 `.pbip` 重开。
-- 确认无阻塞错误，唯一 `Overview` 页面存在，SemanticModel 可识别。
-- 如 Modeling MCP 可连接，创建新连接并只读回读模型；所有 MCP 调用写入独立日志。
-- 采集 `REOPEN_MANIFEST.json`，关闭 Desktop 后再次确认磁盘稳定。
-
-通过条件：项目可稳定重开；MCP 故障单独归因，不覆盖 Desktop 结果。
-
-### P6 — 重复性与最终分级
-
-- A 与 B 均完成 P0–P5 后才给出三级结论。
-- 比较两组的首次补写类型、Schema 升级、目录命名和相对引用差异。
-- 若规则在 A 后修正，使用相同最终规则重新执行新的 A 与 B attempt。
-- 在总报告中列出主结论、适用版本、路径限制、置信度和所有例外。
-
-## 5. 预定离线检查
-
-规划阶段不实现检查器。执行阶段应优先扩展独立验证脚本，而不是靠目视判断：
-
-- JSON 语法和文件声明的公开 Schema；公开文件不可得时必须显式记为未校验。
-- 根 `.pbip` 引用目标 Report 目录存在。
-- `definition.pbir` 的相对 `byPath` 解析后仍在本试验目录内并指向目标 SemanticModel。
-- `definition.pbism` 与 TMDL 根文件存在且编码/换行被记录。
+- 按文件声明的公开 Schema 验证 JSON；Schema 不可得时标记 `Evidence Gap`，不以旧版代替精确证明。
+- 根 `.pbip` 指向本 Run 的 Report，`definition.pbir` 的 `byPath` 解析后仍在本 Run 内并指向目标 SemanticModel。
+- PBISM/TMDL 根文件存在，语法、编码和换行被记录。
 - PBIR 只有一个 `Overview` 页面，页面索引与目录一致。
-- 所有项目级标识符在本次生成中唯一，A/B 不共用固定标识符。
-- 清单中无 V0 项目路径、种子名称或外部绝对工程引用。
+- 项目级标识符在本 Run 中唯一，A/B 不共用固定标识符。
+- 清单和文本中不得出现 V0 种子名、V0 工程路径或外部绝对工程引用。
+- manifest 生成与不变量验证使用分离的命令/逻辑；再由 Git diff、Desktop 真实运行和 MCP 只读回读组合佐证。
 
-## 6. 决策表
+## 7. Desktop 差异分类
 
-| 观察 | 分类 | 候选结论 |
+- `CACHE_LOCAL`：`.pbi/` 等本机缓存，排除出正式项目。
+- `SERIALIZATION_EQUIVALENT`：等价序列化、顺序、缩进或换行变化。
+- `DEFAULT_ENRICHMENT`：非必需默认属性或元数据。
+- `VERSION_UPGRADE`：Schema/版本声明升级但结构等价。
+- `STRUCTURAL_REQUIRED`：新增或修复项目成立所必需的文件、引用或对象。
+- `SEMANTIC_CHANGE`：模型、页面或绑定语义改变。
+- `UNKNOWN`：不能解释；最终分级前必须关闭或保留为证据限制。
+
+## 8. 异常双轴归因
+
+每个异常必须同时选择一个 Playbook 事件类型、一个严重度和一个 V1 主因：
+
+| V1 主因 | 典型问题 | 常见 Playbook 类型 |
 | --- | --- | --- |
-| 首开无提示；只产生缓存；保存仅等价重排或默认元数据；重开成功 | 无结构性补写 | 完全零种子 |
-| 首开可进入，但 Desktop 自动新增必需根文件/引用或报告修复；保存后稳定 | Desktop 首次补写 | Desktop 首次补写 |
-| 首开阻塞，修正规范后新的独立 attempt 仍重复失败；人工空白壳才能继续 | 项目壳不可由当前方法可靠生成 | 仍需人工种子 |
-| 只有 Unicode/空格路径失败，ASCII 的两组独立路径成功 | 路径兼容限制 | 完全零种子或首次补写，并附限制 |
-| MCP 回读失败但 Desktop 打开、保存、重开均成功 | MCP 独立故障 | 不改变项目壳结论 |
-| 首开前发现读取或复制既有项目文件 | 来源污染 | 无法判定，重做 |
-| Desktop 版本、权限或进程状态不稳定 | 环境阻塞 | 无法判定，修复后重做 |
+| `GEN` | JSON/TMDL/引用生成错误 | Validation Failure |
+| `SPEC` | 公开规范缺口或版本漂移 | Evidence Gap / Validation Failure |
+| `DESKTOP` | 阻塞打开、自动修复、宿主补写 | Expected Negative Result / Validation Failure |
+| `PATH` | Unicode、空格、长度或编码 | Expected Negative Result / Environment Failure |
+| `MCP` | 连接或只读回读失败 | Environment Failure / Warning |
+| `ENV` | 版本、权限、进程或工具状态 | Environment Failure |
+| `HUMAN` | 打错项目、未按 Gate 执行 | Governance Failure |
+| `PROVENANCE` | 读取/复制禁止来源 | Governance Failure |
 
-## 7. 本轮明确不执行
+表中只是常见映射，实际以证据为准。预期负面结果可形成完整业务结论，但未完成证据链仍是执行问题。
 
-- 不启动 Power BI Desktop。
-- 不连接 Modeling MCP。
-- 不创建 A/B 的 `project/` 或任何 PBIP/PBIR/TMDL 文件。
-- 不读取 `V0/seed/` 或 V0 正式运行中的项目文件。
-- 不宣称零种子已经通过。
+## 9. R-VLD-003 成本与价值评价
+
+第一次保存/关闭/重开属于零种子核心验收，记为 `Core roundtrip`；第二次最终关闭/重开是为评价 Provisional Rule 加入的 `Playbook-only final roundtrip`。两者分开计量：
+
+- Desktop 启动、保存、关闭、重开次数；
+- Human 主动操作分钟、等待分钟、AI/机器检查分钟；
+- 新增日志/清单/截图数量与字节；
+- 只在该轮往返发现的问题、其严重度和避免的错误结论；
+- 未发现新问题时，对置信度的实际增加及是否可由更低成本证据替代；
+- 对后续项目的建议：Keep / Change / Retire / Move。
+
+第二次往返是 `Playbook-only Alignment`，只能证明遵守并提供 utility 数据，不能因执行了它就证明规则有效。
+
+## 10. 当前停止点
+
+规划冻结提交形成并报告后，状态停在 `HG-00`。在 Human 明确确认冻结提交并授权正式 Run 前：
+
+- 不启动 Power BI Desktop；
+- 不连接 Modeling MCP；
+- 不创建 A/B 正式 Run；
+- 不生成任何 PBIP/PBIR/TMDL 项目；
+- 不修改 V0 或 `playbook/**`。
