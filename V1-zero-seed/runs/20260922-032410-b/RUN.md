@@ -54,7 +54,9 @@
 | R2b SemanticModel | Passed | `evidence/checks/R2B_SEMANTIC_MODEL.md` |
 | R2c Report/PBIR | Passed | `evidence/checks/R2C_REPORT_PBIR.md` |
 | R2d 预打开冻结 | Passed | `manifests/PRE_OPEN.json`；`evidence/checks/R2D_PRE_OPEN_FREEZE.md`；checkpoint 为包含两者的提交 |
-| R3–R6 Desktop 往返 | Not Started | 禁止在 R2d checkpoint 前启动 Desktop |
+| R3 首开 | Passed | `manifests/POST_OPEN_NO_SAVE.json`；`evidence/checks/R3_FIRST_OPEN.md`；磁盘差异 0 |
+| R4 首存/关闭 | Waiting HG-02 | 首开 diff 已通过；等待显式保存并关闭 |
+| R5–R6 Desktop 往返 | Not Started | 仅在前序 Gate 通过后执行 |
 
 ## 6. 分离式日志
 
@@ -66,6 +68,6 @@
 ## 7. 当前结论
 
 - 功能结果：`Not Started`
-- Contract 符合度：R0–R2d 符合
-- 证据完整度：R0–R2d 完整；`EVT-B002` 已解决
+- Contract 符合度：R0–R3 符合
+- 证据完整度：R0–R3 完整；`EVT-B001`–`EVT-B003` 均已恢复
 - 不能声称：Run B 的路径兼容性、首开、持久化、重复性或 V1 最终结论
