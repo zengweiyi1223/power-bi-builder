@@ -1,6 +1,6 @@
 # V1 Zero Seed — 总体验证记录
 
-- 状态：`In Progress — Run A Passed；Run B Not Started`
+- 状态：`In Progress — Run A Passed；Run B R1 Passed`
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - V1 采用前草案：`22da780412f27decf17a097548d65d151c75b235`
 - no-ff merge：`8c28f5e340ec41ef56e16d942fd2f9eb97767963`
@@ -25,7 +25,7 @@
 | 试验 | Run ID | 项目名/路径特征 | 状态 | 验证记录 | Checkpoint |
 | --- | --- | --- | --- | --- | --- |
 | A | `20260922-012919-a` | `ZeroSeedAlpha` / ASCII 短路径 | Passed | `runs/20260922-012919-a/VALIDATION.md` | Run/R1 `473ff1e`；预打开 `57b6e64`；首存 `44c2fb7`；核心往返 `9c34b5f`；final 为包含本记录的提交 |
-| B | 未创建 | `零种子 Beta` / 空格与 Unicode | Not Started |  |  |
+| B | `20260922-032410-b` | `零种子 Beta` / 不同父目录、空格与 Unicode | R1 Passed | `runs/20260922-032410-b/VALIDATION.md` | Run 起点 `21af7b2`；Run/R1 checkpoint 待形成 |
 
 ## 3. Human Gate
 
@@ -40,11 +40,11 @@
 
 ## 4. 跨 Run 独立验收
 
-Run A 已完成 R0–R6 与 HG-00–HG-05；Run B 尚未创建。
+Run A 已完成 R0–R6 与 HG-00–HG-05；Run B 已完成 R0–R1，尚未生成任何工程文件。
 
 | 验收条款 | A | B | 独立依据 | 结论 |
 | --- | --- | --- | --- | --- |
-| 空目录 Trusted baseline | Passed | Not Started | 递归清单、目录外记录、Git | A Passed |
+| 空目录 Trusted baseline | Passed | Passed | 递归清单、目录外记录、Git | A/B Passed |
 | Codex 首开前完整生成 | Passed | Not Started | Schema、不变量、manifest | A Passed；不等于 Desktop 兼容 |
 | Desktop 首开/补写分类 | 首开 Passed；磁盘补写 0 | Not Started | 真实运行、Human 观察、diff | A 当前为首开无磁盘补写 |
 | 保存/关闭/重开 | 核心往返与额外最终往返均 Passed | Not Started | Desktop、manifest、MCP 只读回读、最终 Human Gate | A Passed |
@@ -52,7 +52,7 @@ Run A 已完成 R0–R6 与 HG-00–HG-05；Run B 尚未创建。
 
 ## 5. 最终判定
 
-- 功能结果：Run A `Passed`，分类为“完全零种子，Desktop 首次显式保存时正常规范化/补写”；尚无跨 Run 结论
+- 功能结果：Run A `Passed`；Run B R1 Passed，尚无跨 Run 结论
 - Contract 符合度：Run A R0–R6 与 HG-00–HG-05 均符合
 - 证据完整度：Run A R0–R6 技术证据完整；存在已解释的非阻塞 Schema/Product 缺口
 - 持久化/重启状态：核心往返与额外最终往返均通过；最后一次重开磁盘零差异

@@ -1,0 +1,1 @@
+{"id":"EVT-B001","timestamp":"2026-09-22T03:24:10-07:00","stage":"R0","eventType":"Safety/Permission Blocker","severity":"Non-blocking","v1Cause":"ENV","observation":"受限 token 的 Get-AppxPackage 未返回 Power BI Desktop 包。","impact":"首次 Desktop 版本复核没有结果；R1 及后续依赖步骤尚未开始。","action":"停止依赖步骤，使用获批的只读提升权限重新查询；确认 2.157.1354.0 x64 后继续。","evidence":"evidence/checks/R0_PREFLIGHT.md"}
