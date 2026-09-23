@@ -56,3 +56,9 @@
   close icon. Do not select `立即刷新`, save, restart, or edit the report. Count
   the dismissal as an additional human UI action and observe whether the queued
   external-change banner becomes available.
+- Recovery observation: one dismissal was performed, but the same banner
+  immediately reappeared and the external-change action remained unavailable.
+  Dismissal is therefore not a viable workflow step.
+- Next diagnostic: select `立即刷新` once. This is an explicitly counted human
+  refresh action and tests whether satisfying the calculated-table requirement
+  releases the queued external-change notification.

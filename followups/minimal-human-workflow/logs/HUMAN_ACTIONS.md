@@ -27,3 +27,14 @@
 - Production operation count remains: open `1`, save `0`, refresh `0`, apply
   external changes `0`, dismiss banner `0`, close `0`, reopen `0`
 - End state: Desktop remains open
+
+## H-003 — Dismiss calculated-table banner
+
+- Recorded at: `2026-09-23T00:35:17.0438513-07:00`
+- Action: selected the close icon on the calculated-table refresh banner once
+- Result: the same `需要手动刷新一个或多个计算表。` banner reappeared
+- External-change banner: still not visible
+- Refresh/save/close action: none
+- Production operation count: open `1`, dismiss banner `1`, save `0`, refresh
+  `0`, apply external changes `0`, close `0`, reopen `0`
+- End state: Desktop remains open
