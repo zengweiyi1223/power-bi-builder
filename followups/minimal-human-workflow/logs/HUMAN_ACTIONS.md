@@ -111,3 +111,14 @@
 - End state: Desktop remains open
 - Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
   `1`, close `1`, reopen `1`, apply external changes `0`
+
+## H-010 — Reopened-instance external-change notification
+
+- Recorded at: `2026-09-23T01:07:13.5870202-07:00`
+- Human action taken: none
+- Banner text: `This project's files were changed externally. Apply to view the latest changes.`
+- Action offered: `Apply external changes`
+- Visible pre-apply state: `Doubled Total`, value `120`
+- Other warning/error: none
+- End state: Desktop remains open; external change not yet applied
+- Evidence: `evidence/screenshots/HG-02-external-change-banner.png`

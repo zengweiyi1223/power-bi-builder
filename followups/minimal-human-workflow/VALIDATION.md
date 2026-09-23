@@ -1,6 +1,6 @@
 # Validation
 
-Status: **REOPENED-INSTANCE LIVE BATCH WRITTEN; DETECTION PENDING**
+Status: **REOPENED-INSTANCE DETECTION PASS; ONE APPLY PENDING**
 
 ## Baselines
 
@@ -23,7 +23,7 @@ Status: **REOPENED-INSTANCE LIVE BATCH WRITTEN; DETECTION PENDING**
 | R1 complete generated project | Pass (static) | `manifests/PRE_OPEN.json`, `evidence/checks/R1_COMPLETE_PROJECT.md` |
 | HG-01 cold open: title 60 | Core pass; non-blocking banner deviation | `logs/HUMAN_ACTIONS.md`, `evidence/checks/HG-01_COLD_OPEN.md`, screenshot |
 | R2 two-file external batch | Pass (static) | `manifests/EXTERNAL_BATCH.json`, `evidence/checks/R2_EXTERNAL_BATCH.md` |
-| HG-02 one apply action | Blocked: action not surfaced | `logs/HUMAN_ACTIONS.md`, `RECORDS.md` DV-002 |
+| HG-02 one apply action | Action surfaced after initialization restart; click pending | `evidence/checks/HG-02B_EXTERNAL_BANNER.md`, screenshot |
 | R3 title 120 | Pending | human log/screenshot |
 | HG-03 production close without save | Pending | human log/process check |
 | HG-04 validation-only reopen | Pending | human log/screenshot |

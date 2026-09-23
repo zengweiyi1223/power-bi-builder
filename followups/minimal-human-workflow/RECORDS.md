@@ -133,3 +133,8 @@
 - Reason: isolate whether the close—reopen boundary, rather than first save
   alone, enables Desktop's external-change workflow.
 - Boundary: no new object, save, refresh, UI edit, or MCP operation.
+- Detection result: pass. The reopened instance surfaced the exact external-file
+  banner and `Apply external changes` action while retaining the pre-apply
+  `Doubled Total / 120` view.
+- Interim conclusion: on this Desktop build, first save alone is insufficient;
+  save plus close—reopen establishes the live external-editing session.
