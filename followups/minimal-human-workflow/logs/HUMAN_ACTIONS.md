@@ -78,3 +78,14 @@
 - Disk result: Desktop rewrote all 11 authored project files, restored its
   in-memory baseline over the ignored retry, added 3 trackable initialization
   files, and added 4 ignored `.pbi/` local-cache files
+
+## H-007 — Post-save external detection observation
+
+- Recorded at: `2026-09-23T00:56:05.1563304-07:00`
+- Human action taken: none
+- Waited after post-save batch: several seconds
+- External-change banner: did not appear
+- Visible state: `Baseline Total`, value `60`
+- Other warning/error: none
+- Disk target remained committed as: `Doubled Total`, value `120`
+- End state: Desktop remains open

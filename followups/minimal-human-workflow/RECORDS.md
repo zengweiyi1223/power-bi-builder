@@ -103,3 +103,17 @@
 - Preservation note: repository attributes deliberately keep Power BI source
   bytes without text/EOL normalization. Desktop CRLF output is committed as
   generated even though generic `git diff --check` labels it as whitespace.
+
+## DV-003 — Post-save external batch still not detected
+
+- Classification: blocking at the live-apply path
+- Observation: after the first-save initialization checkpoint, a fresh
+  two-file batch targeting `Doubled Total / 120` produced no external-change
+  banner. Desktop remained on `Baseline Total / 60` without an error.
+- Impact: first save alone does not make live external apply available in this
+  session. The original one-open workflow has failed.
+- State safety: the disk target is committed at
+  `58a1448415b536db81f07841d1f6a6dfaa0dcab4`; Desktop must close without another
+  save so it does not overwrite that target.
+- Next diagnostic: close and reopen the same PBIP once, verify it loads the
+  committed target, then write one new batch while the reopened instance runs.
