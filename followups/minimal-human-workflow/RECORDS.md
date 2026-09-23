@@ -76,3 +76,20 @@
   enables subsequent file-change detection without conflating the result with a
   first save.
 - Boundary: no new object file, save, restart, UI edit, or MCP operation.
+- Result: fail. After several seconds, no external-change banner appeared; the
+  rendered state remained `Baseline Total / 60` with no error.
+
+## D-005 — First-save diagnostic
+
+- Classification: risk-controlled prerequisite test
+- Decision: perform one human save while Desktop remains open, then inspect all
+  project-file changes before writing another external batch.
+- Reason: both pre-refresh and post-refresh external edits were ignored while
+  the project had never been saved in the current Desktop session. Prior
+  evidence suggested that first save may initialize Desktop's project-file
+  monitoring state.
+- Risk: Desktop may overwrite the externally authored retry state with its
+  current in-memory `Baseline Total / 60` state.
+- Control: retry state is committed at
+  `b57fb61c9717f4948895ae789b64f8aec8e61519`; no recovery copy or hidden seed is
+  required. Inspect before making any subsequent file edit.

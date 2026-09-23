@@ -53,3 +53,14 @@
 - Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
   `0`, apply external changes `0`, close `0`, reopen `0`
 - End state: Desktop remains open
+
+## H-005 — Post-refresh no-save retry observation
+
+- Recorded at: `2026-09-23T00:44:06.6108145-07:00`
+- Human action taken: none
+- Waited after retry batch: several seconds
+- External-change banner: did not appear
+- Card remained: `Baseline Total`, value `60`
+- Other prompt/error: none
+- Desktop save state: no save performed in this experiment
+- End state: Desktop remains open
