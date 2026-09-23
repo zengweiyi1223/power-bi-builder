@@ -99,3 +99,15 @@
 - Disk verification: committed `Doubled Total / 120` batch hashes unchanged
 - Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
   `1`, close `1`, apply external changes `0`, reopen `0`
+
+## H-009 — Initialization reopen
+
+- Recorded at: `2026-09-23T01:02:01.2683679-07:00`
+- Action: reopened the same `MinimalWorkflow.pbip`
+- Page: `Overview`
+- Card: `Doubled Total`, value `120`
+- Calculated-table refresh banner: none
+- Warning/error/repair prompt: none
+- End state: Desktop remains open
+- Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
+  `1`, close `1`, reopen `1`, apply external changes `0`

@@ -120,3 +120,16 @@
 - Close result: Desktop closed without a save prompt; both Desktop and model
   server exited, and the committed `Doubled Total / 120` file hashes remained
   unchanged.
+- Reopen result: the same project loaded `Overview`, `Doubled Total`, and `120`
+  with no calculated-table banner, warning, error, or repair prompt. This proves
+  the Desktop-initialized project can consume the externally committed state on
+  restart.
+
+## D-006 — Reopened-instance live batch
+
+- Classification: controlled retry after initialization restart
+- Decision: while the cleanly reopened Desktop instance remains open, modify
+  only the same existing measure and card title to `Tripled Total / 180`.
+- Reason: isolate whether the close—reopen boundary, rather than first save
+  alone, enables Desktop's external-change workflow.
+- Boundary: no new object, save, refresh, UI edit, or MCP operation.
