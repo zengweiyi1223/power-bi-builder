@@ -1,3 +1,4 @@
 {"at":"2026-09-22T23:59:10.9531891-07:00","actor":"Codex","action":"create_empty_project_directory","path":"followups/minimal-human-workflow/project/MinimalWorkflow","result":{"fileCount":0,"directoryCount":0}}
 {"at":"2026-09-22T23:59:10.9531891-07:00","actor":"Codex","action":"draft_experiment_contract","scope":"followups/minimal-human-workflow","desktopStarted":false,"mcpConnected":false}
-
+{"at":"2026-09-23T00:06:19.9206764-07:00","actor":"Codex","action":"generate_complete_preloaded_project","project":"MinimalWorkflow","source":"empty_directory","seedCopied":false,"expectedProjectFiles":11,"model":{"table":"Sales","rows":3,"measure":"Total Amount","baselineValue":60},"report":{"page":"Overview","visualType":"cardVisual","baselineTitle":"Baseline Total"}}
+{"at":"2026-09-23T00:06:19.9206764-07:00","actor":"Codex","action":"validate_pre_open_project","result":"pass","fileCount":11,"jsonLikeFilesParsed":8,"pbipReportReference":true,"pbirDatasetReference":true,"pageAndVisualIdentifiers":true,"measureBinding":true,"calculatedRows":3,"autoDateTimeDisabled":true,"desktopStarted":false,"mcpConnected":false}

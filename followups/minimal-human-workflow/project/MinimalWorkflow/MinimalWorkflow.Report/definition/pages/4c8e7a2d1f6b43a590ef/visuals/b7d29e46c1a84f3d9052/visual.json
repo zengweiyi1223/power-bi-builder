@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "b7d29e46c1a84f3d9052",
+  "position": {
+    "x": 390,
+    "y": 210,
+    "z": 0,
+    "height": 240,
+    "width": 500,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales"
+                    }
+                  },
+                  "Property": "Total Amount"
+                }
+              },
+              "queryRef": "Sales.Total Amount",
+              "nativeQueryRef": "Total Amount"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Baseline Total'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+table Sales
+
+	measure 'Total Amount' = SUM('Sales'[Amount])
+		formatString: 0
+
+	column Category
+		dataType: string
+		isNameInferred
+		sourceColumn: [Category]
+		summarizeBy: none
+
+	column Amount
+		dataType: int64
+		isNameInferred
+		formatString: 0
+		sourceColumn: [Amount]
+		summarizeBy: sum
+
+	partition Sales = calculated
+		mode: import
+		source =
+			DATATABLE (
+				"Category", STRING,
+				"Amount", INTEGER,
+				{
+					{ "A", 10 },
+					{ "B", 20 },
+					{ "C", 30 }
+				}
+			)
+
