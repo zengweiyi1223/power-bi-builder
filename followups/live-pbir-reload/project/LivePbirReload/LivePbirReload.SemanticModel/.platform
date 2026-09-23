@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "LivePbirReload"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2855bef8-a3be-4a95-b8d5-f4f8a755f2a0"
+  }
+}

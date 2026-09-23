@@ -1,0 +1,37 @@
+{
+  "capturedAt": "2026-09-22T21:45:38.5264521-07:00",
+  "fileCount": 16,
+  "trackedOrTrackableFileCount": 13,
+  "gitIgnoredLocalFileCount": 3,
+  "totalBytes": 4563,
+  "humanObservation": {
+    "closedWithoutSavePrompt": true,
+    "reopenSucceeded": true,
+    "page": "Overview",
+    "windowTitle": "LivePbirReload",
+    "renderedText": "Live PBIR loaded-visual hot reload succeeded",
+    "promptWarningErrorOrRepair": false
+  },
+  "processesAfterReopen": {
+    "PBIDesktop": 1,
+    "msmdsrv": 1
+  },
+  "files": [
+    {"path":"LivePbirReload.pbip","bytes":150,"sha256":"23BB41B5D1DCF995B3DA1DEFBD6E364590D012BB3B59D135C95D460E8C204F43","gitIgnored":false},
+    {"path":"LivePbirReload.Report/.pbi/localSettings.json","bytes":580,"sha256":"89E08CC8C1F6DBA0B2738791E2FE4687767F82730C69F7092D185CCAD8550EB5","gitIgnored":true},
+    {"path":"LivePbirReload.Report/.platform","bytes":308,"sha256":"932810FF41B45502A037246427BFB09D9405C6F8A2060B2FDDE9E10C2930F930","gitIgnored":false},
+    {"path":"LivePbirReload.Report/definition.pbir","bytes":128,"sha256":"1D3CF0E9326603071B45B5AAC8383B678BCBE3386131DE96B6381991DDDDC98E","gitIgnored":false},
+    {"path":"LivePbirReload.Report/definition/pages/6f3dca48e6c14b7ca102/page.json","bytes":252,"sha256":"87E1BD35C9E069C6180079AECB6434FF220BCA435EFAB09C6660C0A492E334EE","gitIgnored":false},
+    {"path":"LivePbirReload.Report/definition/pages/6f3dca48e6c14b7ca102/visuals/a8d41f76c2e94b1a8f03/visual.json","bytes":868,"sha256":"B15CE004C964554A3681E6729DEB138BFA38215138C01270F9400D2A3A1503D4","gitIgnored":false},
+    {"path":"LivePbirReload.Report/definition/pages/pages.json","bytes":224,"sha256":"E0F69C94DA1DF4C6AAC4699DA67D6CB7430F5E6D39758F59CA27BBBEFFD0EB52","gitIgnored":false},
+    {"path":"LivePbirReload.Report/definition/report.json","bytes":203,"sha256":"8370ABF3AF3CB79DF265E87F7FCA836BE65E2FE43E8645D04F423AC231BE0284","gitIgnored":false},
+    {"path":"LivePbirReload.Report/definition/version.json","bytes":152,"sha256":"C8BDD966A85F1EAAB4312D2096B6D7B508243E4D7BC5A4D25AF3CFCB1056A4E7","gitIgnored":false},
+    {"path":"LivePbirReload.SemanticModel/.pbi/editorSettings.json","bytes":217,"sha256":"B5EAEB2175FA47E040EA87779121AC87C3EBC1F8F5A7768C3DEC8787D92BBB3E","gitIgnored":true},
+    {"path":"LivePbirReload.SemanticModel/.pbi/localSettings.json","bytes":474,"sha256":"48734DEC615AE1CB8C99F26F8AAC54248786897B5209EFFF92D9FD0055D59EFF","gitIgnored":true},
+    {"path":"LivePbirReload.SemanticModel/.platform","bytes":315,"sha256":"EE4CEFE04B727BC746DA591ADE61F2EF7C48FADB29DDE61E420F7B87AB07BF02","gitIgnored":false},
+    {"path":"LivePbirReload.SemanticModel/definition.pbism","bytes":43,"sha256":"ED99EC078EFD2FF27FC1C65CC97902138D7D3C438ACDB7770AE37DC71C7F06C8","gitIgnored":false},
+    {"path":"LivePbirReload.SemanticModel/definition/database.tmdl","bytes":39,"sha256":"822C914B643BCA32BB20ABD8A762DF8204A1B9EF02ACC2BC7348727F6699CB96","gitIgnored":false},
+    {"path":"LivePbirReload.SemanticModel/definition/model.tmdl","bytes":169,"sha256":"2DD9C0825A6625CD8776A130575EDE84015AC5DA778191E08140319ADE762428","gitIgnored":false},
+    {"path":"LivePbirReload.SemanticModel/diagramLayout.json","bytes":441,"sha256":"B9DFB4C321D6F3F125B28F4216A34B14305702ED6C34AA764E1176ADAD47EDD1","gitIgnored":false}
+  ]
+}

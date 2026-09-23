@@ -1,0 +1,24 @@
+{
+  "capturedAt": "2026-09-22T21:26:06.2193363-07:00",
+  "fileCount": 16,
+  "totalBytes": 4549,
+  "relativeToPreOpen": {
+    "addedCount": 7,
+    "modifiedCount": 9,
+    "removedCount": 0
+  },
+  "visual": {
+    "preserved": true,
+    "text": "Live PBIR hot reload succeeded",
+    "sha256": "6D5DB25958A3345C04B5F44F42D599699D55EB76DF600BAAF6C31A17629FB4EE"
+  },
+  "processes": {
+    "PBIDesktop": 1,
+    "msmdsrv": 1
+  },
+  "humanObservation": {
+    "saveSucceeded": true,
+    "desktopRemainedOpen": true,
+    "promptWarningOrError": false
+  }
+}

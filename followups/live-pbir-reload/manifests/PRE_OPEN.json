@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-09-22T20:54:03.8540550-07:00",
+  "fileCount": 9,
+  "jsonLikeFileCount": 7,
+  "visualFileCount": 0,
+  "totalBytes": 1314,
+  "checks": {
+    "pbipReportPathExists": true,
+    "datasetPathExists": true,
+    "pageOrderMatches": true,
+    "activePageMatches": true,
+    "overviewName": true,
+    "autoDateTimeExplicitlyOff": true,
+    "pbIDesktopCount": 0,
+    "msmdsrvCount": 0
+  },
+  "files": [
+    {"path":"LivePbirReload.pbip","bytes":141,"sha256":"84B25214B1280AC26ABE668B51127A90988D13D26D9B1DCD9AFAA1646AAA5406"},
+    {"path":"LivePbirReload.Report/definition.pbir","bytes":122,"sha256":"D1E8D45E6379B6A4C1D0A81D6F104990C9A2136670A412006DBD03CF8178AC86"},
+    {"path":"LivePbirReload.Report/definition/pages/6f3dca48e6c14b7ca102/page.json","bytes":246,"sha256":"6E3D83CE3B60A34535EBE8E61AA981B39F388B8D5DE2F93F97B86569CF411A49"},
+    {"path":"LivePbirReload.Report/definition/pages/pages.json","bytes":219,"sha256":"42BEAB38DDF72C54979AC75891852806CA55823CD30FA0C5D4F7B02DAC6FA61E"},
+    {"path":"LivePbirReload.Report/definition/report.json","bytes":198,"sha256":"1F1EC1058BE08C3B24CB2AC9AB81862A41FA5FE62E4D0251CF206A5843C7FF19"},
+    {"path":"LivePbirReload.Report/definition/version.json","bytes":150,"sha256":"0F9F217A60981BF882D7B1963977FC72CC051078DF8512B46CAA607AFF2E5220"},
+    {"path":"LivePbirReload.SemanticModel/definition.pbism","bytes":41,"sha256":"75EE79EE6405FF616D2ACD97312D5D700BACF3F4113B2A721B86A273237D8108"},
+    {"path":"LivePbirReload.SemanticModel/definition/database.tmdl","bytes":36,"sha256":"05E6E4D3963C40921D429C883E83714A9DD42AEADBB8470E671A6B38DBB34872"},
+    {"path":"LivePbirReload.SemanticModel/definition/model.tmdl","bytes":161,"sha256":"CA27FF91960D5C54923CD02F3C1EDE587D4BF6332635211166E59D59E328BC8C"}
+  ]
+}
