@@ -1,6 +1,6 @@
 # Validation
 
-Status: **INITIALIZATION REOPEN PASS; REOPENED-INSTANCE LIVE BATCH NEXT**
+Status: **REOPENED-INSTANCE LIVE BATCH WRITTEN; DETECTION PENDING**
 
 ## Baselines
 
@@ -12,6 +12,7 @@ Status: **INITIALIZATION REOPEN PASS; REOPENED-INSTANCE LIVE BATCH NEXT**
 - Post-refresh retry checkpoint: this commit (exact SHA reported after creation)
 - First-save checkpoint: this commit (exact SHA reported after creation)
 - Post-save external-batch checkpoint: this commit (exact SHA reported after creation)
+- Reopened-instance live-batch checkpoint: this commit (exact SHA reported after creation)
 - Final acceptance: pending
 
 ## Gates

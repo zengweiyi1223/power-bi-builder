@@ -1,7 +1,7 @@
 table Sales
 	lineageTag: b072a1e4-025b-4eab-8194-9abc0a20b077
 
-	measure 'Total Amount' = SUM('Sales'[Amount]) * 2
+	measure 'Total Amount' = SUM('Sales'[Amount]) * 3
 		formatString: 0
 		lineageTag: 7f82d80a-01a1-46f8-82f2-1499d3801e16
 
