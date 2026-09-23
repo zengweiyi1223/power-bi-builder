@@ -40,3 +40,19 @@
 - Suggested follow-up interpretation: a calculated-table fixture is useful for
   credential-free testing but may add an avoidable refresh banner; a real
   source-backed project requires its own refresh/credential accounting.
+
+## DV-002 — External-change notification not surfaced
+
+- Classification: blocking at the original `HG-02` path; recoverable diagnostic
+- Gate: `HG-02`
+- Observation: after the exact two-file batch was written and committed while
+  Desktop remained open, the only visible banner was still the calculated-table
+  manual-refresh banner. No external-change action was available.
+- File verification: both external edits remained present with their expected
+  SHA-256 values; Desktop and model-server processes remained running.
+- Impact: the planned one-click external apply cannot yet be executed. Dependent
+  title/value verification is stopped.
+- Recovery boundary: dismiss only the existing calculated-table banner by its
+  close icon. Do not select `立即刷新`, save, restart, or edit the report. Count
+  the dismissal as an additional human UI action and observe whether the queued
+  external-change banner becomes available.

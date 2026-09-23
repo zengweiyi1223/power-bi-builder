@@ -1,6 +1,6 @@
 # Validation
 
-Status: **R2 BATCH READY; HG-02 APPLY PENDING**
+Status: **HG-02 BLOCKED — EXTERNAL-CHANGE NOTIFICATION NOT VISIBLE**
 
 ## Baselines
 
@@ -19,7 +19,7 @@ Status: **R2 BATCH READY; HG-02 APPLY PENDING**
 | R1 complete generated project | Pass (static) | `manifests/PRE_OPEN.json`, `evidence/checks/R1_COMPLETE_PROJECT.md` |
 | HG-01 cold open: title 60 | Core pass; non-blocking banner deviation | `logs/HUMAN_ACTIONS.md`, `evidence/checks/HG-01_COLD_OPEN.md`, screenshot |
 | R2 two-file external batch | Pass (static) | `manifests/EXTERNAL_BATCH.json`, `evidence/checks/R2_EXTERNAL_BATCH.md` |
-| HG-02 one apply action | Pending | human log/screenshot |
+| HG-02 one apply action | Blocked: action not surfaced | `logs/HUMAN_ACTIONS.md`, `RECORDS.md` DV-002 |
 | R3 title 120 | Pending | human log/screenshot |
 | HG-03 production close without save | Pending | human log/process check |
 | HG-04 validation-only reopen | Pending | human log/screenshot |
