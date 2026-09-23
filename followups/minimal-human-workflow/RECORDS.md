@@ -25,5 +25,18 @@
 
 ## Deviations
 
-None recorded.
+## DV-001 — Calculated-table manual-refresh banner
 
+- Classification: non-blocking operational deviation
+- Gate: `HG-01`
+- Observation: cold open rendered `Baseline Total` and `60`, but Desktop showed
+  `需要手动刷新一个或多个计算表。` with the action `立即刷新`.
+- Action taken: none; Desktop remains open and the banner was not selected.
+- Impact: the strict no-warning cold-open criterion is not met, although the
+  generated model and bound visual loaded successfully. The production human
+  action count remains one open and zero refresh/save actions at this point.
+- Experiment handling: continue the fixed one-batch test. Do not redesign the
+  model merely to erase the observation.
+- Suggested follow-up interpretation: a calculated-table fixture is useful for
+  credential-free testing but may add an avoidable refresh banner; a real
+  source-backed project requires its own refresh/credential accounting.

@@ -1,6 +1,6 @@
 # Validation
 
-Status: **PLAN FROZEN; PRE-OPEN CHECKPOINT READY**
+Status: **HG-01 CORE PASS WITH NON-BLOCKING DEVIATION; R2 NEXT**
 
 ## Baselines
 
@@ -17,7 +17,7 @@ Status: **PLAN FROZEN; PRE-OPEN CHECKPOINT READY**
 | --- | --- | --- |
 | R0 empty baseline and plan freeze | Pass | `manifests/EMPTY_BASELINE.json`, `evidence/checks/R0_PREFLIGHT.md` |
 | R1 complete generated project | Pass (static) | `manifests/PRE_OPEN.json`, `evidence/checks/R1_COMPLETE_PROJECT.md` |
-| HG-01 cold open: title 60 | Pending | human log/screenshot |
+| HG-01 cold open: title 60 | Core pass; non-blocking banner deviation | `logs/HUMAN_ACTIONS.md`, `evidence/checks/HG-01_COLD_OPEN.md`, screenshot |
 | R2 two-file external batch | Pending | batch manifest/checks |
 | HG-02 one apply action | Pending | human log/screenshot |
 | R3 title 120 | Pending | human log/screenshot |
