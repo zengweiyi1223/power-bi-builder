@@ -93,3 +93,13 @@
 - Control: retry state is committed at
   `b57fb61c9717f4948895ae789b64f8aec8e61519`; no recovery copy or hidden seed is
   required. Inspect before making any subsequent file edit.
+- Result: save completed without a prompt. Desktop rewrote all 11 original
+  project files, restored `Baseline Total / 60`, generated lineage tags, added
+  two `.platform` files and `diagramLayout.json`, and generated four ignored
+  `.pbi/` local files. This confirms first save is an initialization/ownership
+  boundary rather than a no-op.
+- Next test: preserve this exact Desktop-authored state as a Git checkpoint,
+  then change only the existing measure and visual title once more.
+- Preservation note: repository attributes deliberately keep Power BI source
+  bytes without text/EOL normalization. Desktop CRLF output is committed as
+  generated even though generic `git diff --check` labels it as whitespace.

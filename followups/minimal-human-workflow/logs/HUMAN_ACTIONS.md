@@ -64,3 +64,17 @@
 - Other prompt/error: none
 - Desktop save state: no save performed in this experiment
 - End state: Desktop remains open
+
+## H-006 — First save in current Desktop session
+
+- Recorded at: `2026-09-23T00:46:40.8727023-07:00`
+- Action: saved once
+- Result: save completed
+- Prompt/error: none
+- Visible state after save: `Baseline Total`, value `60`
+- Desktop state: remains open
+- Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
+  `1`, apply external changes `0`, close `0`, reopen `0`
+- Disk result: Desktop rewrote all 11 authored project files, restored its
+  in-memory baseline over the ignored retry, added 3 trackable initialization
+  files, and added 4 ignored `.pbi/` local-cache files

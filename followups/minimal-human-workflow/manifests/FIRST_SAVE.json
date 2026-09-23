@@ -1,0 +1,37 @@
+{
+  "capturedAt": "2026-09-23T00:46:40.8727023-07:00",
+  "desktopOpen": true,
+  "saveCount": 1,
+  "promptOrError": false,
+  "authoredFilesRewritten": 11,
+  "trackableFilesAdded": 3,
+  "ignoredLocalCacheFilesAdded": 4,
+  "externalRetryOverwritten": true,
+  "persistedState": {
+    "visualTitle": "Baseline Total",
+    "measureExpression": "SUM('Sales'[Amount])",
+    "expectedValue": 60
+  },
+  "trackableFiles": [
+    {"path":"MinimalWorkflow.pbip","sha256":"1B21234F42E284C7B491F4942BFB949E4D3868DF55FE84AA5E8E9F49FA153727"},
+    {"path":"MinimalWorkflow.Report/.platform","sha256":"3B5727F178607442CC1A4C64A310AE565523DA68A009F4344F04D00C6744C362"},
+    {"path":"MinimalWorkflow.Report/definition.pbir","sha256":"C0E3D5A2E2DA284E40DAA9D85AE3B2C8DAA97CAB90E7C402354D51BA8E276264"},
+    {"path":"MinimalWorkflow.Report/definition/pages/4c8e7a2d1f6b43a590ef/page.json","sha256":"21F0550CD7220551D501D14F74492FD9A92AFC09D84D5FE3A2EC65C18B7305F3"},
+    {"path":"MinimalWorkflow.Report/definition/pages/4c8e7a2d1f6b43a590ef/visuals/b7d29e46c1a84f3d9052/visual.json","sha256":"B1C4B8CEB287ADC814FA720CA3C09367A94D11CDB6D82E1B90A2433DED9BE52C"},
+    {"path":"MinimalWorkflow.Report/definition/pages/pages.json","sha256":"FCDB0103A6FB92AB4581E64D099AD06FF3265EEB167DB2BC40E19661FD208879"},
+    {"path":"MinimalWorkflow.Report/definition/report.json","sha256":"8370ABF3AF3CB79DF265E87F7FCA836BE65E2FE43E8645D04F423AC231BE0284"},
+    {"path":"MinimalWorkflow.Report/definition/version.json","sha256":"C8BDD966A85F1EAAB4312D2096B6D7B508243E4D7BC5A4D25AF3CFCB1056A4E7"},
+    {"path":"MinimalWorkflow.SemanticModel/.platform","sha256":"F138B412122A84EA240F68005E078D10DB33226A36F2728B405466968E70088F"},
+    {"path":"MinimalWorkflow.SemanticModel/definition.pbism","sha256":"ED99EC078EFD2FF27FC1C65CC97902138D7D3C438ACDB7770AE37DC71C7F06C8"},
+    {"path":"MinimalWorkflow.SemanticModel/definition/database.tmdl","sha256":"822C914B643BCA32BB20ABD8A762DF8204A1B9EF02ACC2BC7348727F6699CB96"},
+    {"path":"MinimalWorkflow.SemanticModel/definition/model.tmdl","sha256":"3F23817BDE3F6B9B6F0B6BE1589573A0A82A80819EDFE6695D3499D86D2451B2"},
+    {"path":"MinimalWorkflow.SemanticModel/definition/tables/Sales.tmdl","sha256":"83D956F7EAC3E84301503F0F020B1C283F1DE5B5C4397D539302DFFFCEC623A7"},
+    {"path":"MinimalWorkflow.SemanticModel/diagramLayout.json","sha256":"FD0B3022721160D61747B05E974CC3986B8C3D15C5A7E6BB6F0E4EB3639EC8B2"}
+  ],
+  "ignoredLocalFiles": [
+    {"path":"MinimalWorkflow.Report/.pbi/localSettings.json","reason":"gitignored machine-local settings"},
+    {"path":"MinimalWorkflow.SemanticModel/.pbi/cache.abf","reason":"gitignored machine-local model cache"},
+    {"path":"MinimalWorkflow.SemanticModel/.pbi/editorSettings.json","reason":"gitignored machine-local editor settings"},
+    {"path":"MinimalWorkflow.SemanticModel/.pbi/localSettings.json","reason":"gitignored machine-local settings"}
+  ]
+}

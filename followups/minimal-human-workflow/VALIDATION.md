@@ -1,6 +1,6 @@
 # Validation
 
-Status: **NO-SAVE DETECTION FAILED; FIRST-SAVE DIAGNOSTIC PENDING**
+Status: **FIRST SAVE INITIALIZED PROJECT; POST-SAVE EXTERNAL BATCH NEXT**
 
 ## Baselines
 
@@ -10,6 +10,7 @@ Status: **NO-SAVE DETECTION FAILED; FIRST-SAVE DIAGNOSTIC PENDING**
 - Pre-open checkpoint: this commit (exact SHA reported after creation)
 - External-batch checkpoint: this commit (exact SHA reported after creation)
 - Post-refresh retry checkpoint: this commit (exact SHA reported after creation)
+- First-save checkpoint: this commit (exact SHA reported after creation)
 - Final acceptance: pending
 
 ## Gates

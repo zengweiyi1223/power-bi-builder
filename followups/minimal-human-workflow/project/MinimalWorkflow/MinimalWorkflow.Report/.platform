@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "MinimalWorkflow"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "190dbe7d-9bb5-4589-ab0b-99f64568671b"
+  }
+}
