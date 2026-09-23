@@ -1,0 +1,3 @@
+{"at":"2026-09-22T23:59:10.9531891-07:00","actor":"Codex","action":"create_empty_project_directory","path":"followups/minimal-human-workflow/project/MinimalWorkflow","result":{"fileCount":0,"directoryCount":0}}
+{"at":"2026-09-22T23:59:10.9531891-07:00","actor":"Codex","action":"draft_experiment_contract","scope":"followups/minimal-human-workflow","desktopStarted":false,"mcpConnected":false}
+
