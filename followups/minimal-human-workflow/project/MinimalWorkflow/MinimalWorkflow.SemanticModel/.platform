@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "MinimalWorkflow"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7a013afa-bac6-44dc-8b24-b53a1778070f"
+  }
+}

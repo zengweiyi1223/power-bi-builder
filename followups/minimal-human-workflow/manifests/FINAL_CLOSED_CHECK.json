@@ -1,0 +1,19 @@
+{
+  "capturedAt": "2026-09-23T01:22:34.1996537-07:00",
+  "branch": "codex/minimal-human-workflow",
+  "PBIDesktopCount": 0,
+  "msmdsrvCount": 0,
+  "materialProjectFileCount": 14,
+  "materialProjectBytes": 4852,
+  "ignoredLocalFileCount": 4,
+  "ignoredLocalBytes": 13011,
+  "finalState": {
+    "page": "Overview",
+    "visualTitle": "Tripled Total",
+    "measureValue": 180,
+    "visualSha256": "0526831854A6D0D095DA92BD6A24E2D6F5DF081553EC98FB1EDC3AB2BF70E6FD",
+    "tmdlSha256": "FDEBD27DAA00E02AC775E79C5F290492325CEE20280218F7A5ACD21AEC461729"
+  },
+  "humanFinalClosePrompt": false,
+  "mcpOperations": 0
+}

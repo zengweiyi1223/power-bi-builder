@@ -1,0 +1,26 @@
+{
+  "capturedAt": "2026-09-23T00:25:25.6193956-07:00",
+  "baselineCheckpoint": "aff4f7dd069d793c0afce89583a98a2085030f67",
+  "desktopOpen": true,
+  "projectFilesChanged": 2,
+  "newObjectFiles": 0,
+  "expectedAfterApply": {
+    "page": "Overview",
+    "visualTitle": "Doubled Total",
+    "measureValue": 120
+  },
+  "files": [
+    {
+      "path": "MinimalWorkflow.Report/definition/pages/4c8e7a2d1f6b43a590ef/visuals/b7d29e46c1a84f3d9052/visual.json",
+      "beforeSha256": "F0290E3B8E2D32B21A892ED1F7B672C39EE1AA9DF88593F2F9E866FA13E89E15",
+      "afterSha256": "94D7E0EF9FC6D3BB5EFD2FF4555A78ECCE72212B4ED458EB9289FA5AB9BB808C",
+      "semanticChange": "title literal: Baseline Total -> Doubled Total"
+    },
+    {
+      "path": "MinimalWorkflow.SemanticModel/definition/tables/Sales.tmdl",
+      "beforeSha256": "EDEB9F22CC8F8693CA50D3EA26D1DEF4D96F5EDE06AF84E50D20FFE1523C6A0E",
+      "afterSha256": "7229BEC18BE5E1857B2E3EA5834A8C16531FE385C0514548A6D15A1F0580598A",
+      "semanticChange": "measure: SUM('Sales'[Amount]) -> SUM('Sales'[Amount]) * 2"
+    }
+  ]
+}

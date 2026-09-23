@@ -1,0 +1,44 @@
+{
+  "capturedAt": "2026-09-23T00:06:19.9206764-07:00",
+  "projectPath": "E:\\AIWorkspace\\01_Projects\\power-bi-builder-minimal-human-workflow\\followups\\minimal-human-workflow\\project\\MinimalWorkflow",
+  "branch": "codex/minimal-human-workflow",
+  "planFreeze": "03b7af978616b6bfabbe2b1605b1f405e952c357",
+  "sourceWasEmpty": true,
+  "seedCopied": false,
+  "fileCount": 11,
+  "jsonLikeFilesParsed": 8,
+  "PBIDesktopCount": 0,
+  "msmdsrvCount": 0,
+  "expected": {
+    "page": "Overview",
+    "visualType": "cardVisual",
+    "visualTitle": "Baseline Total",
+    "measure": "Sales.Total Amount",
+    "measureValue": 60,
+    "autoDateTimeDisabled": true
+  },
+  "checks": {
+    "pbipReportReference": true,
+    "pbirDatasetReference": true,
+    "activePageAndOrder": true,
+    "visualFolderAndName": true,
+    "visualMeasureBinding": true,
+    "modelTableReference": true,
+    "measureDefinition": true,
+    "calculatedPartition": true,
+    "calculatedRowCount": 3
+  },
+  "files": [
+    {"path":"MinimalWorkflow.pbip","sha256":"B4341CDF5C77CF48F4A743AAD5D1CED6C786A5FD1F752C35626D65EA5BFB79FE"},
+    {"path":"MinimalWorkflow.Report/definition.pbir","sha256":"60707FB3EE40CB937EB2E2AB212574E04EE0553DF06F714FECDA661547EEBF99"},
+    {"path":"MinimalWorkflow.Report/definition/pages/4c8e7a2d1f6b43a590ef/page.json","sha256":"AD4D8FB7120BC88879021AD453827A03B8449F97B329E0674ABCAB074C1FA03E"},
+    {"path":"MinimalWorkflow.Report/definition/pages/4c8e7a2d1f6b43a590ef/visuals/b7d29e46c1a84f3d9052/visual.json","sha256":"F0290E3B8E2D32B21A892ED1F7B672C39EE1AA9DF88593F2F9E866FA13E89E15"},
+    {"path":"MinimalWorkflow.Report/definition/pages/pages.json","sha256":"7026B6203DEAC389909290509D092951C617F3C6C332CC38AFD0B60C995A9759"},
+    {"path":"MinimalWorkflow.Report/definition/report.json","sha256":"1F1EC1058BE08C3B24CB2AC9AB81862A41FA5FE62E4D0251CF206A5843C7FF19"},
+    {"path":"MinimalWorkflow.Report/definition/version.json","sha256":"0F9F217A60981BF882D7B1963977FC72CC051078DF8512B46CAA607AFF2E5220"},
+    {"path":"MinimalWorkflow.SemanticModel/definition.pbism","sha256":"75EE79EE6405FF616D2ACD97312D5D700BACF3F4113B2A721B86A273237D8108"},
+    {"path":"MinimalWorkflow.SemanticModel/definition/database.tmdl","sha256":"05E6E4D3963C40921D429C883E83714A9DD42AEADBB8470E671A6B38DBB34872"},
+    {"path":"MinimalWorkflow.SemanticModel/definition/model.tmdl","sha256":"4B3734BAF5528412023DC8B80B11A49EF303419EB24325614A544D0043708077"},
+    {"path":"MinimalWorkflow.SemanticModel/definition/tables/Sales.tmdl","sha256":"EDEB9F22CC8F8693CA50D3EA26D1DEF4D96F5EDE06AF84E50D20FFE1523C6A0E"}
+  ]
+}

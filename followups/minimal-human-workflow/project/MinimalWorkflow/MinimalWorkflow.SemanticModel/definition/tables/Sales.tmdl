@@ -1,0 +1,35 @@
+table Sales
+	lineageTag: b072a1e4-025b-4eab-8194-9abc0a20b077
+
+	measure 'Total Amount' = SUM('Sales'[Amount]) * 3
+		formatString: 0
+		lineageTag: 7f82d80a-01a1-46f8-82f2-1499d3801e16
+
+	column Category
+		dataType: string
+		lineageTag: 940217e8-362c-42f3-99f7-730fb593f276
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+	column Amount
+		dataType: int64
+		formatString: 0
+		lineageTag: bba822a1-fc51-425f-91e0-08a0ec9e378f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Amount]
+
+	partition Sales = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Category", STRING,
+					"Amount", INTEGER,
+					{
+						{ "A", 10 },
+						{ "B", 20 },
+						{ "C", 30 }
+					}
+				)
+

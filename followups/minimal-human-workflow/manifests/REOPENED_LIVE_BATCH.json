@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-09-23T01:03:35.3603791-07:00",
+  "reopenEvidenceCheckpoint": "ab111a1e953b95d8b7298ed4dbde8778e806c1e7",
+  "desktopOpen": true,
+  "projectFilesChanged": 2,
+  "newObjectFiles": 0,
+  "expectedAfterApply": {
+    "visualTitle": "Tripled Total",
+    "measureValue": 180
+  },
+  "files": [
+    {
+      "path": "MinimalWorkflow.Report/definition/pages/4c8e7a2d1f6b43a590ef/visuals/b7d29e46c1a84f3d9052/visual.json",
+      "beforeSha256": "42CE5F9B21F1E12933F98642571F29B0D90CC7D4D4EF1DF13BFF71DD208DF463",
+      "afterSha256": "0526831854A6D0D095DA92BD6A24E2D6F5DF081553EC98FB1EDC3AB2BF70E6FD"
+    },
+    {
+      "path": "MinimalWorkflow.SemanticModel/definition/tables/Sales.tmdl",
+      "beforeSha256": "D224267505096E6E842ADB9FC180F1E36B783C487AAD6A7B0CB20D0E8595ECEC",
+      "afterSha256": "FDEBD27DAA00E02AC775E79C5F290492325CEE20280218F7A5ACD21AEC461729"
+    }
+  ]
+}
