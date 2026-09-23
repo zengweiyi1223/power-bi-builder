@@ -1,6 +1,6 @@
 # Validation
 
-Status: **HG-02 BLOCKED — REFRESH CLEARED BANNER BUT DID NOT SURFACE BATCH; RETRY NEXT**
+Status: **POST-REFRESH NO-SAVE RETRY WRITTEN; DESKTOP DETECTION PENDING**
 
 ## Baselines
 
@@ -9,6 +9,7 @@ Status: **HG-02 BLOCKED — REFRESH CLEARED BANNER BUT DID NOT SURFACE BATCH; RE
 - Plan freeze: `03b7af978616b6bfabbe2b1605b1f405e952c357`
 - Pre-open checkpoint: this commit (exact SHA reported after creation)
 - External-batch checkpoint: this commit (exact SHA reported after creation)
+- Post-refresh retry checkpoint: this commit (exact SHA reported after creation)
 - Final acceptance: pending
 
 ## Gates

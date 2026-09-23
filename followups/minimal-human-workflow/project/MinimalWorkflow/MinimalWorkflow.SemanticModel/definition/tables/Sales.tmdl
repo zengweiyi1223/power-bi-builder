@@ -1,6 +1,6 @@
 table Sales
 
-	measure 'Total Amount' = SUM('Sales'[Amount]) * 2
+	measure 'Total Amount' = SUM('Sales'[Amount]) * 3
 		formatString: 0
 
 	column Category
