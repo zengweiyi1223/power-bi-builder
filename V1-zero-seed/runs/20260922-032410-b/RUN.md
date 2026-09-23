@@ -11,6 +11,7 @@
 - 需求冻结提交：`82b448957ab08a5452df297a7a95d7b6def67bef`
 - Run 起点提交：`21af7b278d9be6c40ca7315fb0dd5298e3565506`
 - Run/R1 checkpoint：`a1217699017a263e7eb3a5911ff2b10c291a8396`
+- Run final checkpoint：`a127b7978990d1d0c6027a72c689704dd5b09a04`
 - 生成规则：冻结的 `REQUIREMENTS.md` 与 `EXPERIMENT_PLAN.md` @ `82b4489`；不因 Run A 结果修改
 - 开始时间：`2026-09-22T03:24:10-07:00`
 - Experiment Owner：Codex
@@ -73,4 +74,5 @@
 - 证据完整度：R0–R6 技术证据完整；保留 `EVT-B006` 非阻塞 Schema/Product 缺口
 - 当前候选：完全零种子，Desktop 首次显式保存时正常规范化/补写
 - R-VLD-003：符合性 `Conformant`；Run B utility 为 `Low positive marginal value`；初步建议 `Change`，只记反馈、不修改 Playbook
+- 最终关闭：Human 确认无提示；R7 复核 `PBIDesktop=0`、`msmdsrv=0`，项目相对 final manifest 为 0/0/0
 - 不能声称：两条样本之外的普遍兼容性、`.platform` 文件的反事实必要性、跨 Run 的最终 V1 验收提交或 Playbook 规则已被修改

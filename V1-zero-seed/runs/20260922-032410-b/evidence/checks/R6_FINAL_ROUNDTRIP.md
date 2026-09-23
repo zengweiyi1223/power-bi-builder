@@ -52,3 +52,5 @@ PID 与启动时间均变化，证明是第三个独立 Desktop/模型进程实�
 HG-04：`Passed`。
 
 HG-05：`Passed`。Human 独立确认当前仍显示 `零种子 Beta` 与空白 `Overview`，且无弹窗、警告、错误或修复提示。R6 与 Run B 验收通过。
+
+Run B final checkpoint 为 `a127b7978990d1d0c6027a72c689704dd5b09a04`。随后 Human 正常关闭 Desktop 且无提示；R7 于 `2026-09-22T08:58:04.2191728-07:00` 复核 `PBIDesktop=0`、`msmdsrv=0`，项目仍为 15 文件/3647 bytes，相对 final manifest 为 0/0/0。

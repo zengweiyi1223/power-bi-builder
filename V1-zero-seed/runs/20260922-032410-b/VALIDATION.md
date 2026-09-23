@@ -28,7 +28,7 @@
 | R3 首开 | Passed | Human 仅打开冻结入口，禁止保存/另存为/修复 | UI/标题/页面正确；无提示；9 文件/1503 bytes；相对 pre-open 0/0/0 | Passed | `evidence/checks/R3_FIRST_OPEN.md`；截图；`POST_OPEN_NO_SAVE.json` | pre-open `6d0a594` |
 | R4 首存 | Passed with known evidence gap | Human 显式保存并正常关闭 | 进程 0；15 文件；6 新增/9 改写/0 删除；JSON/Schema/TMDL/身份/引用和差异分类 | Passed | `evidence/checks/R4_POST_SAVE.md`；`POST_SAVE_CLOSED.json` | 包含本记录的首存 checkpoint |
 | R5 第一次重开 | Passed | Human 从同一路径重开；Codex 仅做 MCP 只读回读 | UI/标题/页面正确；重开及 MCP 后磁盘 0/0/0；模型身份、1606、PowerBI_V3、空表一致 | Passed | `R5_FIRST_REOPEN.md`；`POST_REOPEN_NO_SAVE.json`；`MCP_ACTIONS.jsonl` | 首存 `5428294` |
-| R6 | Passed | Playbook-only 额外关闭—重开 | HG-04 确认关闭/重开、页面/标题正确且无提示；新 Desktop/模型 PID；相对 R5 磁盘 0/0/0；HG-05 独立确认最终可见状态 | Passed | `R6_FINAL_ROUNDTRIP.md`；`FINAL_REOPEN_NO_SAVE.json`；`R-VLD-003-METRICS.json`；Human 日志 | 本记录随 Run B final checkpoint 提交 |
+| R6 | Passed | Playbook-only 额外关闭—重开 | HG-04 确认关闭/重开、页面/标题正确且无提示；新 Desktop/模型 PID；相对 R5 磁盘 0/0/0；HG-05 独立确认最终可见状态；最终关闭后进程 0 | Passed | `R6_FINAL_ROUNDTRIP.md`；`FINAL_REOPEN_NO_SAVE.json`；`R-VLD-003-METRICS.json`；Human 日志 | Run B final `a127b7978990d1d0c6027a72c689704dd5b09a04` |
 
 ## 3. Human Gate
 
@@ -65,4 +65,5 @@
 - 首开入口：`E:\AIWorkspace\01_Projects\power-bi-builder\V1-zero-seed\runs\20260922-032410-b\project path\零种子 Beta\零种子 Beta.pbip`
 - 当前 Blocking：0
 - R-VLD-003：规则符合性 `Conformant`；utility `Low positive marginal value`；初步建议 `Change`
+- 最终关闭：Human 确认无提示；`2026-09-22T08:58:04.2191728-07:00` 复核 Desktop/模型进程均为 0，最终项目 15 文件/3647 bytes、0/0/0
 - 不能声称：两条样本之外的普遍兼容性、`.platform` 反事实必要性、跨 Run 最终 V1 验收提交，或规则有效性已由符合性证明
