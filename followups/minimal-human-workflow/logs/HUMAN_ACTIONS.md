@@ -146,3 +146,17 @@
 - Disk verification: `Tripled Total / 180` batch hashes unchanged
 - Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
   `1`, close `2`, reopen `1`, apply external changes `1`
+
+## H-013 — Reopen for TMDL reload
+
+- Recorded at: `2026-09-23T01:18:42.0916899-07:00`
+- Action: reopened the same `MinimalWorkflow.pbip`
+- Page: `Overview`
+- Card title: `Tripled Total`
+- Card value: `180`
+- Calculated-table or external-change banner: none
+- Warning/error/repair prompt: none
+- End state: Desktop remains open
+- Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
+  `1`, close `2`, reopen `2`, apply external changes `1`
+- Evidence: `evidence/screenshots/HG-04-tmdl-reopen-180.png`

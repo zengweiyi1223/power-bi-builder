@@ -155,3 +155,10 @@
   reopen once, and verify `Tripled Total / 180` loads without repair.
 - Close result: Desktop closed without a prompt; both processes exited and the
   final batch hashes remained unchanged.
+- Reopen result: pass. Desktop loaded `Tripled Total / 180` with no banner,
+  warning, error, or repair prompt. This confirms restart is sufficient and the
+  prior `120` was a live semantic-model reload limitation, not invalid TMDL.
+- Workflow implication: for a batch containing any TMDL change, close—reopen is
+  the required path and also loads the PBIR changes; an earlier `Apply external
+  changes` click is redundant for reaching the combined final state. For
+  PBIR-only edits after initialization, one apply remains useful.

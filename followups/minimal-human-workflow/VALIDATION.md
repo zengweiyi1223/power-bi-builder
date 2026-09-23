@@ -1,6 +1,6 @@
 # Validation
 
-Status: **REPORT-ONLY HOT PASS; TMDL RELOAD CLOSE VERIFIED; REOPEN PENDING**
+Status: **REPORT-ONLY HOT PASS; TMDL RESTART PASS; FINAL CLOSE PENDING**
 
 ## Baselines
 
@@ -26,7 +26,7 @@ Status: **REPORT-ONLY HOT PASS; TMDL RELOAD CLOSE VERIFIED; REOPEN PENDING**
 | HG-02 one apply action | Pass: one action completed without error | `evidence/checks/HG-02B_EXTERNAL_BANNER.md`, screenshot |
 | R3 combined title/value update | Partial: title `Tripled Total`; value remained `120` | `evidence/checks/HG-02C_APPLY_PARTIAL.md`, screenshot |
 | HG-03 production close without save | Pending | human log/process check |
-| HG-04 validation-only reopen | Pending | human log/screenshot |
+| HG-04 TMDL reload reopen | Pass: `Tripled Total / 180` | `evidence/checks/HG-04_TMDL_REOPEN.md`, screenshot |
 | R4 final acceptance | Pending | final result/handoff |
 
 ## Operation result
