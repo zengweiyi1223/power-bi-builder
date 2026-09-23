@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "project": "AutoDateExplicitOff",
+  "stage": "final-reopen-closed",
+  "checkedAt": "2026-09-22T20:23:48.8425231-07:00",
+  "baselineManifest": "POST_SAVE_CLOSED.json",
+  "baselineManifestSha256": "89B02D235D0E45817DDD4389414223EFF7F23AA3544D7F96B833D62EF1396221",
+  "fileCount": 15,
+  "totalBytes": 3715,
+  "relativeToPostSave": {"added":0,"modified":0,"deleted":0},
+  "annotationOffCount": 1,
+  "annotationOnCount": 0,
+  "PBIDesktopProcessCount": 0,
+  "msmdsrvProcessCount": 0
+}
