@@ -1,6 +1,6 @@
 # Explicit Auto Date/Time — Validation
 
-- Status: `First-open hypothesis passed; persistence test pending`
+- Status: `Save persistence passed; waiting HG-AD-03 reopen confirmation`
 - Baseline: `0d47e512e3b835b9d1aa8580c68c4a853a0d325d`
 - Branch: `codex/auto-date-setting`
 - Project: `AutoDateExplicitOff`
@@ -44,3 +44,11 @@ No V1, V0, or `playbook/**` file is modified.
 - Treatment annotation remains present exactly once.
 
 This proves the explicit model annotation controls the initial Current File checkbox in the tested Desktop version. Save/close/reopen persistence is not yet proven.
+
+## Save/close result
+
+- HG-AD-02: Passed; save/close succeeded without prompts.
+- Desktop/model processes after close: 0/0.
+- Desktop canonicalization: 6 files added, 9 modified, 0 deleted.
+- `__PBI_TimeIntelligenceEnabled = 0`: retained exactly once; value `1`: absent.
+- Remaining Gate: reopen from the same path and confirm the Current File checkbox remains unchecked without changing it.

@@ -6,3 +6,5 @@ This focused follow-up tests whether a zero-seed PBIP/TMDL project with the mode
 - Branch: `codex/auto-date-setting`
 - Scope: one variable—the model-level annotation
 - V1, V0, and `playbook/**` remain unchanged
+
+After this test closes, the next isolated experiment will test PBIR visual generation while Desktop remains open and applies external changes. When the follow-up sequence is complete, the temporary worktree may be removed while retaining its branch and commits.

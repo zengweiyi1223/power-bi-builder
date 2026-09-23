@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "project": "AutoDateExplicitOff",
+  "stage": "post-save-closed",
+  "generatedAt": "2026-09-22T20:14:56.3539975-07:00",
+  "fileCount": 15,
+  "totalBytes": 3715,
+  "relativeToPreOpen": {"added":6,"modified":9,"deleted":0},
+  "annotationOffCount": 1,
+  "annotationOnCount": 0,
+  "files": [
+    {"path":"AutoDateExplicitOff.pbip","bytes":155,"sha256":"5C5942493AAEE8B345FC6B651E4E1978B4BA13A165A2AD0C5051030906DB6B2E"},
+    {"path":"AutoDateExplicitOff.Report/.pbi/localSettings.json","bytes":580,"sha256":"75BC433D812E5DF8C3BE2D659524C32D084F79344F16E26EE426BDA7AC40223A"},
+    {"path":"AutoDateExplicitOff.Report/.platform","bytes":313,"sha256":"A3FCB1690335D04190A2F776E1180825E8D17122BB4BEC91B39E50DA98B44B30"},
+    {"path":"AutoDateExplicitOff.Report/definition.pbir","bytes":133,"sha256":"FF7202EA0C685B6A1AD35F4FFC8443B3CF358F746C4C1C573ED7F3966F14370C"},
+    {"path":"AutoDateExplicitOff.Report/definition/pages/3d5116baed88c84724a1/page.json","bytes":252,"sha256":"54B13AD6DDC420698E7BF7978AE83E51FCB6D52CAE16F6F0A1721B9444478005"},
+    {"path":"AutoDateExplicitOff.Report/definition/pages/pages.json","bytes":224,"sha256":"451CF2D49F9DE69D96F5827709ABB1B2AF1B6F5653DC8D78AF43F4D1AA7332FC"},
+    {"path":"AutoDateExplicitOff.Report/definition/report.json","bytes":203,"sha256":"8370ABF3AF3CB79DF265E87F7FCA836BE65E2FE43E8645D04F423AC231BE0284"},
+    {"path":"AutoDateExplicitOff.Report/definition/version.json","bytes":152,"sha256":"C8BDD966A85F1EAAB4312D2096B6D7B508243E4D7BC5A4D25AF3CFCB1056A4E7"},
+    {"path":"AutoDateExplicitOff.SemanticModel/.pbi/editorSettings.json","bytes":217,"sha256":"B5EAEB2175FA47E040EA87779121AC87C3EBC1F8F5A7768C3DEC8787D92BBB3E"},
+    {"path":"AutoDateExplicitOff.SemanticModel/.pbi/localSettings.json","bytes":474,"sha256":"1D661B6C45A072FAD65DE1D82FEF7569A5E42846F7536E58DAD44C81BE5F4F51"},
+    {"path":"AutoDateExplicitOff.SemanticModel/.platform","bytes":320,"sha256":"D039D95EC0614C2B94758556D32F236ABFA5C433DCD070BE854E7FA3DEBF7FAB"},
+    {"path":"AutoDateExplicitOff.SemanticModel/definition.pbism","bytes":43,"sha256":"ED99EC078EFD2FF27FC1C65CC97902138D7D3C438ACDB7770AE37DC71C7F06C8"},
+    {"path":"AutoDateExplicitOff.SemanticModel/definition/database.tmdl","bytes":39,"sha256":"822C914B643BCA32BB20ABD8A762DF8204A1B9EF02ACC2BC7348727F6699CB96"},
+    {"path":"AutoDateExplicitOff.SemanticModel/definition/model.tmdl","bytes":169,"sha256":"2DD9C0825A6625CD8776A130575EDE84015AC5DA778191E08140319ADE762428"},
+    {"path":"AutoDateExplicitOff.SemanticModel/diagramLayout.json","bytes":441,"sha256":"B9DFB4C321D6F3F125B28F4216A34B14305702ED6C34AA764E1176ADAD47EDD1"}
+  ]
+}
