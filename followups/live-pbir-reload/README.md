@@ -21,5 +21,5 @@ editing and Desktop reload behavior.
 
 ## State
 
-Plan and safety boundaries are frozen at `fc671ac`. The zero-seed scaffold has
-passed static validation and awaits its pre-open checkpoint and HG-01.
+Execution and final Desktop closure are complete. The final Git checkpoint is
+the remaining repository operation. See `FINAL_RESULT.md` and `HANDOFF.md`.

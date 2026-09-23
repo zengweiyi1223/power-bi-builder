@@ -1,0 +1,21 @@
+{
+  "capturedAt": "2026-09-22T21:00:49.7331308-07:00",
+  "fileCount": 9,
+  "totalBytes": 1314,
+  "relativeToPreOpen": {
+    "added": [],
+    "modified": [],
+    "removed": []
+  },
+  "processes": {
+    "PBIDesktop": 1,
+    "msmdsrv": 1
+  },
+  "humanObservation": {
+    "reportOpened": true,
+    "page": "Overview",
+    "pageBlank": true,
+    "windowTitle": "LivePbirReload",
+    "promptWarningErrorOrRepair": false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-09-22T21:08:21.8305681-07:00",
+  "fileCount": 10,
+  "relativeToPreOpen": {
+    "added": [
+      "LivePbirReload.Report/definition/pages/6f3dca48e6c14b7ca102/visuals/a8d41f76c2e94b1a8f03/visual.json"
+    ],
+    "modified": [],
+    "removed": []
+  },
+  "visual": {
+    "name": "a8d41f76c2e94b1a8f03",
+    "type": "textbox",
+    "text": "Live PBIR reload succeeded",
+    "withinCanvas": true,
+    "sha256": "573174FB51A8B65517C9AB93BCEE7E8F7D6D3CF394B1541B4006F9B25733F290"
+  },
+  "desktopState": {
+    "preEditSave": false,
+    "PBIDesktopCount": 1,
+    "msmdsrvCount": 1
+  }
+}
