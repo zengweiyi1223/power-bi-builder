@@ -136,3 +136,13 @@
 - Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
   `1`, close `1`, reopen `1`, apply external changes `1`
 - Evidence: `evidence/screenshots/HG-02-apply-partial.png`
+
+## H-012 — Close for TMDL reload
+
+- Recorded at: `2026-09-23T01:15:24.4576616-07:00`
+- Action: closed Power BI Desktop without saving
+- Prompt/error: none
+- Process verification: `PBIDesktop=0`, `msmdsrv=0`
+- Disk verification: `Tripled Total / 180` batch hashes unchanged
+- Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
+  `1`, close `2`, reopen `1`, apply external changes `1`

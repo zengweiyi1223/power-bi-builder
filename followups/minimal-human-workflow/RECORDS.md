@@ -153,3 +153,5 @@
   formatting/content edits can still use the apply workflow after initialization.
 - Next verification: close without saving, confirm the committed files remain,
   reopen once, and verify `Tripled Total / 180` loads without repair.
+- Close result: Desktop closed without a prompt; both processes exited and the
+  final batch hashes remained unchanged.
