@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "project": "AutoDateExplicitOff",
+  "stage": "pre-open",
+  "generatedAt": "2026-09-22T19:32:42.2533664-07:00",
+  "fileCount": 9,
+  "totalBytes": 1562,
+  "independentVariable": "annotation __PBI_TimeIntelligenceEnabled = 0",
+  "files": [
+    {"path":"AutoDateExplicitOff.pbip","bytes":234,"sha256":"19DABF3CB297CC24BFC5F566EFFEC4AB9ACCF264EEEDA5C1F117693C0D21733C"},
+    {"path":"AutoDateExplicitOff.Report/definition.pbir","bytes":246,"sha256":"0996832FB2FE86EB322F78FE5D89A81DC6FBB7437C5E8FB321F042A0859BE098"},
+    {"path":"AutoDateExplicitOff.Report/definition/pages/3d5116baed88c84724a1/page.json","bytes":246,"sha256":"5649A412772C6F1E04EA75C93DE8D9991C82B7CC9ED7192AFD9AE82F17BDD7F7"},
+    {"path":"AutoDateExplicitOff.Report/definition/pages/pages.json","bytes":219,"sha256":"9AFFFFC3C59A12F234DFB67A5D57FDDA3A05578AC9A5C6CC813592EDA6DEE6A1"},
+    {"path":"AutoDateExplicitOff.Report/definition/report.json","bytes":144,"sha256":"9AC7E731DC8035B5A9E34207562C54C4EE38C5D45EAF8CA6D4E88C4A2CDE087D"},
+    {"path":"AutoDateExplicitOff.Report/definition/version.json","bytes":150,"sha256":"0F9F217A60981BF882D7B1963977FC72CC051078DF8512B46CAA607AFF2E5220"},
+    {"path":"AutoDateExplicitOff.SemanticModel/definition.pbism","bytes":149,"sha256":"CC3D122D38A9D92D4389DC68ADEA2588A351698913860FC826A28B7EB9D2709A"},
+    {"path":"AutoDateExplicitOff.SemanticModel/definition/database.tmdl","bytes":55,"sha256":"E2134708DC18067CC598A7B2C579848860D8A74E4401162C8583A3C31A9B9305"},
+    {"path":"AutoDateExplicitOff.SemanticModel/definition/model.tmdl","bytes":119,"sha256":"E30A56A4143D37F4799C9E93D79C121898AF4AA6E6357609D4DF448CC34CA81E"}
+  ]
+}
