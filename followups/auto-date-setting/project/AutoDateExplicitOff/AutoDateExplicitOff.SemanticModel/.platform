@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "AutoDateExplicitOff"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "febf6e7e-a379-4e26-b403-39d4bfbbdc53"
+  }
+}
