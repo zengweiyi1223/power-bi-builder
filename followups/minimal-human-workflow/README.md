@@ -26,6 +26,7 @@ No Desktop operation may begin before the plan-freeze and pre-open checkpoints.
 ## Current state
 
 - Plan freeze: `03b7af978616b6bfabbe2b1605b1f405e952c357`
-- Complete pre-open project: generated and statically validated
-- Desktop opened during this experiment: `no`
-- Next gate: commit the pre-open checkpoint, then `HG-01` cold open
+- Final outcome: report-only hot pass; TMDL restart pass
+- Final rendered state: `Tripled Total / 180`
+- Final Desktop/model processes: `0 / 0`
+- See `FINAL_RESULT.md` for minimum workflows and claim limits

@@ -162,3 +162,15 @@
   the required path and also loads the PBIR changes; an earlier `Apply external
   changes` click is redundant for reaching the combined final state. For
   PBIR-only edits after initialization, one apply remains useful.
+
+## D-007 — Final minimum-workflow decision
+
+- Classification: evidence-backed operational decision
+- PBIR-only decision: after the one-time Desktop initialization save and
+  restart, use one `Apply external changes` action per existing-file batch.
+- TMDL decision: use close—reopen; include accompanying PBIR changes in the same
+  disk batch and do not require a redundant apply action.
+- Cold complete-project decision: if Codex finishes the model and report before
+  first open, human-created seed and human construction remain unnecessary.
+- Fixture caveat: count `立即刷新` only when Desktop actually presents a source
+  or calculated-table refresh gate.

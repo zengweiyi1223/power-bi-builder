@@ -160,3 +160,14 @@
 - Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
   `1`, close `2`, reopen `2`, apply external changes `1`
 - Evidence: `evidence/screenshots/HG-04-tmdl-reopen-180.png`
+
+## H-014 — Final close
+
+- Recorded at: `2026-09-23T01:22:34.1996537-07:00`
+- Action: closed Power BI Desktop without saving
+- Prompt/error: none
+- Process verification: `PBIDesktop=0`, `msmdsrv=0`
+- Final disk state: `Tripled Total / 180` batch hashes unchanged
+- Final observed-run operation count: initial open `1`, banner dismiss `1`,
+  refresh `1`, save `1`, close `3`, reopen `2`, apply external changes `1`
+- Total active human UI operations in the diagnostic run: `10`
