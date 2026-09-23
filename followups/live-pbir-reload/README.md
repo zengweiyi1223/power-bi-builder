@@ -21,5 +21,5 @@ editing and Desktop reload behavior.
 
 ## State
 
-Planning and safety boundaries are being frozen before Desktop is opened.
-
+Plan and safety boundaries are frozen at `fc671ac`. The zero-seed scaffold has
+passed static validation and awaits its pre-open checkpoint and HG-01.
