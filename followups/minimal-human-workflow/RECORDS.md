@@ -138,3 +138,18 @@
   `Doubled Total / 120` view.
 - Interim conclusion: on this Desktop build, first save alone is insufficient;
   save plus close—reopen establishes the live external-editing session.
+
+## DV-004 — One apply reloads PBIR but not TMDL
+
+- Classification: blocking for combined model+report hot reload
+- Observation: one `Apply external changes` updated the card title from
+  `Doubled Total` to `Tripled Total`, but the value remained `120` instead of
+  the expected `180`.
+- Attribution: the existing PBIR visual file reloaded; the running semantic
+  model retained the previous measure definition. No error or refresh prompt
+  appeared.
+- Impact: a single apply action cannot replace a restart for this TMDL model
+  edit on the installed Desktop build. The combined one-open target fails; PBIR
+  formatting/content edits can still use the apply workflow after initialization.
+- Next verification: close without saving, confirm the committed files remain,
+  reopen once, and verify `Tripled Total / 180` loads without repair.

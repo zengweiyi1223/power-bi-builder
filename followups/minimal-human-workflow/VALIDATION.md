@@ -1,6 +1,6 @@
 # Validation
 
-Status: **REOPENED-INSTANCE DETECTION PASS; ONE APPLY PENDING**
+Status: **REPORT-ONLY HOT PASS; TMDL RESTART VERIFICATION PENDING**
 
 ## Baselines
 
@@ -23,8 +23,8 @@ Status: **REOPENED-INSTANCE DETECTION PASS; ONE APPLY PENDING**
 | R1 complete generated project | Pass (static) | `manifests/PRE_OPEN.json`, `evidence/checks/R1_COMPLETE_PROJECT.md` |
 | HG-01 cold open: title 60 | Core pass; non-blocking banner deviation | `logs/HUMAN_ACTIONS.md`, `evidence/checks/HG-01_COLD_OPEN.md`, screenshot |
 | R2 two-file external batch | Pass (static) | `manifests/EXTERNAL_BATCH.json`, `evidence/checks/R2_EXTERNAL_BATCH.md` |
-| HG-02 one apply action | Action surfaced after initialization restart; click pending | `evidence/checks/HG-02B_EXTERNAL_BANNER.md`, screenshot |
-| R3 title 120 | Pending | human log/screenshot |
+| HG-02 one apply action | Pass: one action completed without error | `evidence/checks/HG-02B_EXTERNAL_BANNER.md`, screenshot |
+| R3 combined title/value update | Partial: title `Tripled Total`; value remained `120` | `evidence/checks/HG-02C_APPLY_PARTIAL.md`, screenshot |
 | HG-03 production close without save | Pending | human log/process check |
 | HG-04 validation-only reopen | Pending | human log/screenshot |
 | R4 final acceptance | Pending | final result/handoff |

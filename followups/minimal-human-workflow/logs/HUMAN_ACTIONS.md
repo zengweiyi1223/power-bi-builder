@@ -122,3 +122,17 @@
 - Other warning/error: none
 - End state: Desktop remains open; external change not yet applied
 - Evidence: `evidence/screenshots/HG-02-external-change-banner.png`
+
+## H-011 — Apply external changes once
+
+- Recorded at: `2026-09-23T01:11:18.4939594-07:00`
+- Action: selected `Apply external changes` once
+- Card title after apply: `Tripled Total`
+- Card value after apply: `120` (did not become expected `180`)
+- External-change banner after apply: disappeared
+- Calculated-table refresh banner: none
+- Warning/error/overwrite/repair prompt: none
+- End state: Desktop remains open; no save performed
+- Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
+  `1`, close `1`, reopen `1`, apply external changes `1`
+- Evidence: `evidence/screenshots/HG-02-apply-partial.png`
