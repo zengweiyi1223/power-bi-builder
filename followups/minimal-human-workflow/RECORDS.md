@@ -117,3 +117,6 @@
   save so it does not overwrite that target.
 - Next diagnostic: close and reopen the same PBIP once, verify it loads the
   committed target, then write one new batch while the reopened instance runs.
+- Close result: Desktop closed without a save prompt; both Desktop and model
+  server exited, and the committed `Doubled Total / 120` file hashes remained
+  unchanged.

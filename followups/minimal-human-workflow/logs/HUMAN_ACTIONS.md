@@ -89,3 +89,13 @@
 - Other warning/error: none
 - Disk target remained committed as: `Doubled Total`, value `120`
 - End state: Desktop remains open
+
+## H-008 — Initialization close
+
+- Recorded at: `2026-09-23T00:59:15.5126211-07:00`
+- Action: closed Power BI Desktop without an additional save
+- Prompt/error: none
+- Process verification: `PBIDesktop=0`, `msmdsrv=0`
+- Disk verification: committed `Doubled Total / 120` batch hashes unchanged
+- Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
+  `1`, close `1`, apply external changes `0`, reopen `0`
