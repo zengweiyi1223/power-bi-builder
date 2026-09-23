@@ -1,6 +1,6 @@
 # Validation
 
-Status: **HG-01 CORE PASS WITH NON-BLOCKING DEVIATION; R2 NEXT**
+Status: **R2 BATCH READY; HG-02 APPLY PENDING**
 
 ## Baselines
 
@@ -8,7 +8,7 @@ Status: **HG-01 CORE PASS WITH NON-BLOCKING DEVIATION; R2 NEXT**
 - Integrated baseline: `298ff99addf2b348fbea62966144705ee3543fb3`
 - Plan freeze: `03b7af978616b6bfabbe2b1605b1f405e952c357`
 - Pre-open checkpoint: this commit (exact SHA reported after creation)
-- External-batch checkpoint: pending
+- External-batch checkpoint: this commit (exact SHA reported after creation)
 - Final acceptance: pending
 
 ## Gates
@@ -18,7 +18,7 @@ Status: **HG-01 CORE PASS WITH NON-BLOCKING DEVIATION; R2 NEXT**
 | R0 empty baseline and plan freeze | Pass | `manifests/EMPTY_BASELINE.json`, `evidence/checks/R0_PREFLIGHT.md` |
 | R1 complete generated project | Pass (static) | `manifests/PRE_OPEN.json`, `evidence/checks/R1_COMPLETE_PROJECT.md` |
 | HG-01 cold open: title 60 | Core pass; non-blocking banner deviation | `logs/HUMAN_ACTIONS.md`, `evidence/checks/HG-01_COLD_OPEN.md`, screenshot |
-| R2 two-file external batch | Pending | batch manifest/checks |
+| R2 two-file external batch | Pass (static) | `manifests/EXTERNAL_BATCH.json`, `evidence/checks/R2_EXTERNAL_BATCH.md` |
 | HG-02 one apply action | Pending | human log/screenshot |
 | R3 title 120 | Pending | human log/screenshot |
 | HG-03 production close without save | Pending | human log/process check |
