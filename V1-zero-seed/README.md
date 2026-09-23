@@ -24,7 +24,7 @@ V1-zero-seed 是冻结的 Playbook v0.1 的第一个实际验证项目。它只�
 - 需求与规划冻结：`82b448957ab08a5452df297a7a95d7b6def67bef`。
 - Run A final：`21af7b278d9be6c40ca7315fb0dd5298e3565506`。
 - Run B final：`a127b7978990d1d0c6027a72c689704dd5b09a04`。
-- 跨 Run 最终验收提交：见 `VALIDATION.md`、`HANDOFF.md` 与最终报告。
+- 跨 Run 最终验收提交：`c9003aaf29056edac67be88e9f9cf6745816a9cd`。
 
 V0 与 `playbook/**` 在实验期间保持冻结。V1 未读取或复制 `V0/seed/**` 作为工程起点，也未在 A/B 之间复制工程文件。
 

@@ -8,7 +8,7 @@
 - 需求冻结：`82b448957ab08a5452df297a7a95d7b6def67bef`
 - Run A final：`21af7b278d9be6c40ca7315fb0dd5298e3565506`
 - Run B final：`a127b7978990d1d0c6027a72c689704dd5b09a04`
-- 最终验收提交：R7 结果 checkpoint；其 SHA 在 metadata/reporting commit 与最终报告中记录
+- 最终验收提交：`c9003aaf29056edac67be88e9f9cf6745816a9cd`
 
 本文件只汇总已核实的跨 Run 事实。逐阶段 Execute–Verify、Human Gate、异常、manifest、MCP 和 Codex 文件操作分别保存在各 Run 目录。
 

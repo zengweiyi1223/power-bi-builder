@@ -3,7 +3,7 @@
 - Playbook 基线：`v0.1` @ `3ee871d618db84d55b3b2f86a198ac552864317e`
 - 需求冻结：`82b448957ab08a5452df297a7a95d7b6def67bef`
 - Run A/B final：`21af7b278d9be6c40ca7315fb0dd5298e3565506` / `a127b7978990d1d0c6027a72c689704dd5b09a04`
-- 最终验收：R7 result checkpoint；完整 SHA 在 metadata/reporting commit 与最终报告中记录
+- 最终验收：`c9003aaf29056edac67be88e9f9cf6745816a9cd`
 
 ## 1. 总体评价
 
@@ -89,4 +89,4 @@
 - [采用前符合性](PLAYBOOK_CONFORMITY.md)
 - [R7 evidence](r7/ACCEPTANCE_EVIDENCE.md)
 - 两组成本明细：`runs/*/logs/R-VLD-003-METRICS.json`
-- 相关提交：`3ee871d`、`22da780`、`8c28f5e`、`82b4489`、`21af7b2`、`a127b79`、R7 result checkpoint
+- 相关提交：`3ee871d`、`22da780`、`8c28f5e`、`82b4489`、`21af7b2`、`a127b79`、`c9003aa`

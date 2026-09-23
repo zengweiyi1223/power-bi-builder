@@ -44,7 +44,7 @@ Desktop 首次显式保存确实规范化 9 个文件并新增 6 个默认/平�
 | V1 规划冻结 | Contract、符合性、路线、安全和 Gate | `82b448957ab08a5452df297a7a95d7b6def67bef` |
 | Run A 起点 / pre-open / 首存 / final | Run A logs、manifest、evidence | `473ff1e` / `57b6e64` / `44c2fb7` / `21af7b2` |
 | Run B 起点 / pre-open / 首存 / final | Run B logs、manifest、evidence | `a121769` / `6d0a594` / `5428294` / `a127b79` |
-| 跨 Run 最终验收 | 本 Handoff、总 Validation、Records、Feedback、R7 evidence | R7 result checkpoint；完整 SHA 在 metadata/reporting commit 与最终报告中记录 |
+| 跨 Run 最终验收 | 本 Handoff、总 Validation、Records、Feedback、R7 evidence | `c9003aaf29056edac67be88e9f9cf6745816a9cd` |
 
 ## 5. 决策、偏差与限制
 
@@ -63,6 +63,6 @@ Desktop 首次显式保存确实规范化 9 个文件并新增 6 个默认/平�
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - 需求冻结：`82b448957ab08a5452df297a7a95d7b6def67bef`
 - Run A/B final：`21af7b278d9be6c40ca7315fb0dd5298e3565506` / `a127b7978990d1d0c6027a72c689704dd5b09a04`
-- 最终验收：R7 result checkpoint；SHA 由后续 metadata/reporting commit 记录
+- 最终验收：`c9003aaf29056edac67be88e9f9cf6745816a9cd`
 
 后续只能由 Playbook 对话读取这些产物并决定是否升级 v0.2。本 V1 不修改 `playbook/**`、不创建 v0.2、不做跨项目方法论总结，也不封装 Skill。
