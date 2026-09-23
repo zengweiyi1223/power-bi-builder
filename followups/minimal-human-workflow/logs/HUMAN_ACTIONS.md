@@ -38,3 +38,18 @@
 - Production operation count: open `1`, dismiss banner `1`, save `0`, refresh
   `0`, apply external changes `0`, close `0`, reopen `0`
 - End state: Desktop remains open
+
+## H-004 — Refresh calculated table once
+
+- Recorded at: `2026-09-23T00:39:38.2352221-07:00`
+- Action: selected `立即刷新` once
+- Refresh completion indicator: none observed, so completion cannot be claimed
+  directly
+- Observable result: calculated-table banner disappeared
+- External-change banner: did not appear
+- Card remained: `Baseline Total`, value `60`
+- Error or other prompt: none
+- Save/close action: none
+- Observed-run operation count: open `1`, dismiss banner `1`, refresh `1`, save
+  `0`, apply external changes `0`, close `0`, reopen `0`
+- End state: Desktop remains open

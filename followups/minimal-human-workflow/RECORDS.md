@@ -62,3 +62,17 @@
 - Next diagnostic: select `立即刷新` once. This is an explicitly counted human
   refresh action and tests whether satisfying the calculated-table requirement
   releases the queued external-change notification.
+- Refresh observation: selecting `立即刷新` removed the calculated-table banner
+  without an error, but no external-change banner appeared and the rendered
+  state remained `Baseline Total / 60`. Thus refresh did not retroactively
+  surface or apply the already-written external batch.
+
+## D-004 — Post-refresh no-save retry batch
+
+- Classification: controlled retry after state transition
+- Decision: while Desktop remains open and unsaved, change the same two loaded
+  files again to a new distinguishable state: `Tripled Total` and `180`.
+- Reason: determine whether completion of the initial calculated-table refresh
+  enables subsequent file-change detection without conflating the result with a
+  first save.
+- Boundary: no new object file, save, restart, UI edit, or MCP operation.
