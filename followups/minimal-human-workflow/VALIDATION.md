@@ -1,6 +1,6 @@
 # Validation
 
-Status: **FIRST SAVE INITIALIZED PROJECT; POST-SAVE EXTERNAL BATCH NEXT**
+Status: **POST-SAVE EXTERNAL BATCH WRITTEN; DESKTOP DETECTION PENDING**
 
 ## Baselines
 
@@ -11,6 +11,7 @@ Status: **FIRST SAVE INITIALIZED PROJECT; POST-SAVE EXTERNAL BATCH NEXT**
 - External-batch checkpoint: this commit (exact SHA reported after creation)
 - Post-refresh retry checkpoint: this commit (exact SHA reported after creation)
 - First-save checkpoint: this commit (exact SHA reported after creation)
+- Post-save external-batch checkpoint: this commit (exact SHA reported after creation)
 - Final acceptance: pending
 
 ## Gates

@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-09-23T00:52:02.2205179-07:00",
+  "firstSaveCheckpoint": "1e13a9d29dadd7d5eb926479603adbe5eee4a43e",
+  "desktopOpen": true,
+  "projectFilesChanged": 2,
+  "newObjectFiles": 0,
+  "expectedAfterApply": {
+    "visualTitle": "Doubled Total",
+    "measureValue": 120
+  },
+  "files": [
+    {
+      "path": "MinimalWorkflow.Report/definition/pages/4c8e7a2d1f6b43a590ef/visuals/b7d29e46c1a84f3d9052/visual.json",
+      "beforeSha256": "B1C4B8CEB287ADC814FA720CA3C09367A94D11CDB6D82E1B90A2433DED9BE52C",
+      "afterSha256": "42CE5F9B21F1E12933F98642571F29B0D90CC7D4D4EF1DF13BFF71DD208DF463"
+    },
+    {
+      "path": "MinimalWorkflow.SemanticModel/definition/tables/Sales.tmdl",
+      "beforeSha256": "83D956F7EAC3E84301503F0F020B1C283F1DE5B5C4397D539302DFFFCEC623A7",
+      "afterSha256": "D224267505096E6E842ADB9FC180F1E36B783C487AAD6A7B0CB20D0E8595ECEC"
+    }
+  ]
+}

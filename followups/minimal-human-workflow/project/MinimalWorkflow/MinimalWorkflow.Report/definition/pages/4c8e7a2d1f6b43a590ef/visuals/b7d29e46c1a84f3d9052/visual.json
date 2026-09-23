@@ -47,7 +47,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Baseline Total'"
+                  "Value": "'Doubled Total'"
                 }
               }
             }
