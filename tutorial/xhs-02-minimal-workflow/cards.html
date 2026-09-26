@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex × Power BI 极简工作流</title>
+  <style>
+    :root{--ink:#172033;--muted:#657087;--blue:#315eea;--blue2:#6e8cff;--orange:#eb7131;--green:#13866f;--paper:#f4f7fc;--line:#dbe3f0;--dark:#11192b}
+    *{box-sizing:border-box}html,body{margin:0;background:#ccd3df;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink)}
+    body{display:grid;gap:28px;justify-content:center;padding:28px}
+    .card{position:relative;width:1080px;height:1440px;overflow:hidden;padding:76px 74px 66px;background:var(--paper)}
+    .card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 92% 3%,rgba(49,94,234,.14),transparent 25%),radial-gradient(circle at 2% 98%,rgba(19,134,111,.10),transparent 24%);pointer-events:none}
+    .top{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:52px;font-size:25px;font-weight:800}
+    .tool-lockup{display:flex;align-items:center;gap:15px}.tool-icon{display:block;width:54px;height:54px;object-fit:contain}.tool-x{color:#8792a6;font-size:29px;font-weight:500}.tool-title{margin-left:7px;font-size:25px;font-weight:800}.author-meta{display:flex;align-items:center;gap:12px;color:var(--muted)}.author-meta strong{color:#a7b0c0}
+    .label{position:relative;display:inline-block;margin-bottom:22px;padding:9px 16px;border-radius:999px;color:var(--blue);background:#e7edff;font-size:23px;font-weight:800;letter-spacing:.05em}
+    h1,h2{position:relative;margin:0;letter-spacing:-.045em}h1{font-size:76px;line-height:1.12}h2{font-size:56px;line-height:1.18}.accent{color:var(--blue)}[data-name="01-cover"] h1{font-size:74px;letter-spacing:-.05em}
+    .cover-sticker{position:absolute;right:55px;top:154px;z-index:2;width:420px;padding:21px 26px 19px;transform:rotate(6deg);border:6px solid #fff;border-radius:20px;color:#171717;background:#ffcf25;box-shadow:0 11px 0 #ef3a48,0 20px 32px rgba(67,42,8,.24);font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-size:32px;font-weight:1000;line-height:1.15;letter-spacing:0;text-align:center}.cover-sticker small{display:block;margin-top:8px;color:#171717;font-size:21px;font-weight:900;letter-spacing:.02em}
+    .footer{position:absolute;left:74px;right:74px;bottom:52px;display:flex;justify-content:space-between;padding-top:20px;border-top:2px solid var(--line);color:var(--muted);font-size:22px}.footer strong{color:var(--ink)}
+    .cover-subtitle{position:relative;margin:18px 0 0;font-size:32px;font-weight:800;line-height:1.4}.human-wave{position:relative;display:inline-block;z-index:1}.human-wave::after{content:"";position:absolute;left:-3px;right:-4px;bottom:-7px;height:11px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C15 2 24 11 39 6 C55 1 67 10 83 7 C99 3 111 11 128 6 C145 1 157 10 174 7 C191 3 205 10 238 5' fill='none' stroke='%23ef3a48' stroke-width='4.2' stroke-linecap='round'/%3E%3Cpath d='M7 10 C26 7 43 11 62 8 C83 5 98 11 119 8 C142 5 160 11 181 8 C202 5 219 9 235 7' fill='none' stroke='%23ef3a48' stroke-width='1.7' stroke-linecap='round' opacity='.55'/%3E%3C/svg%3E") center/100% 100% no-repeat;transform:rotate(-1.2deg);pointer-events:none}.human-wave.wave-two::after{transform:rotate(.8deg) scaleY(.9);filter:hue-rotate(-5deg)}.case-brief{position:relative;margin-top:22px;padding:20px 25px;border-left:7px solid var(--blue);border-radius:8px 22px 22px 8px;background:#fff;font-size:24px;line-height:1.55}.case-brief strong{color:var(--blue)}
+    .cover-preview{position:relative;margin-top:25px;overflow:hidden;border:2px solid var(--line);border-radius:28px;background:#fff;box-shadow:0 24px 70px rgba(28,43,78,.14)}.cover-preview img{display:block;width:100%;height:490px;object-fit:contain}.cover-badge{position:absolute;left:24px;top:24px;z-index:1;padding:10px 16px;border-radius:999px;color:#fff;background:rgba(23,32,51,.88);font-size:21px;font-weight:800}
+    .cover-message{position:relative;margin-top:25px;padding:19px 24px;border:2px solid #cfdaff;border-radius:20px;background:#fff;color:var(--ink);font-size:25px;font-weight:900;text-align:center}.cover-message span{color:var(--blue)}.cover-message small{display:block;margin-top:7px;color:var(--muted);font-size:19px;font-weight:700}
+
+    .prompt-stack{position:relative;display:grid;gap:14px;margin-top:24px}.prompt-section{padding:17px 21px 16px;border:2px solid var(--line);border-radius:20px;background:#fff}.prompt-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}.prompt-tag{padding:6px 11px;border-radius:10px;color:#fff;background:var(--blue);font-size:19px;font-weight:900}.prompt-purpose{color:var(--muted);font-size:18px;font-weight:800}.prompt-text{padding:14px 17px;border-radius:14px;color:#edf2ff;background:var(--dark);font-size:18px;line-height:1.47;white-space:pre-wrap}
+    .mini-flow{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px}.flow-node{padding:11px 13px;border:2px solid var(--line);border-radius:13px;background:#fff;font-size:19px;font-weight:900}.flow-node.codex{color:#fff;background:var(--blue);border-color:var(--blue)}.flow-arrow{color:#8b96aa;font-size:20px;font-weight:900}.save-note{position:relative;margin-top:17px;padding:15px 19px;border-left:7px solid var(--orange);border-radius:8px 18px 18px 8px;background:#fff0e7;font-size:19px;line-height:1.5}.save-note strong{color:#b64f1f}.delivery-note{margin-top:12px;padding-top:13px;padding-bottom:13px;font-size:18px;line-height:1.45}
+
+    .file-intro{position:relative;margin:18px 0 0;color:var(--ink);font-size:27px;font-weight:1000;line-height:1.35}.file-intro strong{color:var(--blue)}
+    .file-map{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:12px}.file-card{min-height:165px;padding:18px 18px;border:2px solid var(--line);border-radius:20px;background:#fff}.file-card code{display:block;margin-bottom:11px;color:var(--blue);font:800 19px/1.35 Consolas,monospace;word-break:break-word}.file-card strong{display:block;margin-bottom:7px;font-size:24px}.file-card p{margin:0;color:var(--muted);font-size:19px;line-height:1.45}
+    .decision-title{position:relative;display:flex;align-items:center;gap:13px;margin-top:24px;font-size:27px;font-weight:1000}.decision-title::after{content:"";height:2px;flex:1;background:var(--line)}
+    .decision-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.decision-column{padding:20px;border-radius:22px;background:#fff;border:2px solid var(--line)}.decision-column h3{margin:0 0 15px;font-size:27px}.decision-column h3 span{display:inline-block;margin-right:8px;padding:5px 10px;border-radius:9px;color:#fff;background:var(--green);font-size:17px;vertical-align:.17em}.decision-column.complex h3 span{background:var(--orange)}.route{padding:14px 15px;border-radius:15px;background:#f5f7fb}.route+.route{margin-top:11px}.route strong{display:block;margin-bottom:6px;color:var(--blue);font-size:21px}.route p{margin:0;color:#424d63;font-size:18px;line-height:1.45}.route b{color:var(--ink)}
+    .rule-list{position:relative;display:grid;gap:10px;margin-top:16px}.rule-item{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:12px;min-height:52px;padding:10px 15px;border:2px solid var(--line);border-radius:16px;background:#fff;color:#29354b;font-size:19px;font-weight:400;line-height:1.35}.rule-check{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;background:var(--green);font-size:18px;font-weight:1000}.rule-item strong{color:var(--ink);font-weight:400}
+
+    .scenario-list{position:relative;display:grid;gap:16px;margin-top:30px}.scenario{display:grid;grid-template-columns:198px 1fr;gap:18px;align-items:center;padding:22px 24px;border:2px solid var(--line);border-radius:22px;background:#fff}.scenario-name{font-size:24px;font-weight:1000}.scenario-name small{display:block;margin-top:5px;color:var(--muted);font-size:17px;font-weight:700}.scenario-flow{display:flex;align-items:center;flex-wrap:wrap;gap:6px}.scenario-flow span{padding:8px 10px;border-radius:10px;color:#263149;background:#edf1f8;font-size:18px;font-weight:900}.scenario-flow span.hot{color:#fff;background:var(--blue)}.scenario-flow span.note{color:#13866f;background:#e4f5f0}.scenario-flow i{color:#8b96aa;font-style:normal;font-weight:1000}
+    .closing-box{position:relative;margin-top:26px;padding:25px 27px;border-radius:23px;color:#edf2ff;background:var(--dark)}.closing-box h3{margin:0 0 14px;font-size:30px}.closing-points{display:flex;flex-wrap:wrap;gap:10px}.closing-points span{padding:10px 14px;border-radius:11px;color:#11192b;background:#91a8ff;font-size:19px;font-weight:900}
+  </style>
+</head>
+<body>
+  <section class="card" data-name="01-cover">
+    <div class="top"><div class="tool-lockup"><img class="tool-icon" src="../assets/codex-app.png" alt="Codex"><span class="tool-x">×</span><img class="tool-icon" src="../assets/power-bi.png" alt="Power BI"><span class="tool-title">Power BI Builder</span></div><div class="author-meta"><span>01 / 04</span><span>·</span><strong>山楂条</strong></div></div>
+    <span class="label">销售经营分析 · 小白跟做</span>
+    <span class="cover-sticker">已验证极简总结版<small>最少人工步骤 · 最优人机协作流</small></span>
+    <h1>用 Codex 生成<br><span class="accent">Power BI 项目（下篇）</span></h1>
+    <p class="cover-subtitle">从空目录直接生成，<span class="human-wave">最少人工步骤</span>与<span class="human-wave wave-two">最优人机协作</span>工作流</p>
+    <div class="case-brief">某销售型企业希望把一份销售明细变成经营看板，让业务负责人用一页报表看清<strong>销售业绩、盈利情况、月度走势和各品类贡献</strong>。</div>
+    <div class="cover-preview"><span class="cover-badge">你将做出这个报表</span><img src="../assets/screenshots/05-overview-unfiltered.png" alt="Power BI 销售概览报表"></div>
+    <div class="cover-message">你只需提供：<span>数据 + 业务需求 + 提示词</span><small>需要授权或输入凭据时，再按 Codex 提示操作</small></div>
+    <div class="footer"><strong>适合 Power BI 初学者、业务分析人员</strong><span>下一张：一段提示词完成项目 →</span></div>
+  </section>
+
+  <section class="card" data-name="02-prompt-and-delivery">
+    <div class="top"><div class="tool-lockup"><img class="tool-icon" src="../assets/codex-app.png" alt="Codex"><span class="tool-x">×</span><img class="tool-icon" src="../assets/power-bi.png" alt="Power BI"><span class="tool-title">Power BI Builder</span></div><div class="author-meta"><span>02 / 04</span><span>·</span><strong>山楂条</strong></div></div>
+    <span class="label">完整提示词示例 · 替换数据路径与业务需求</span>
+    <h2>一段提示词，完成<br>前置检查、生成与交付</h2>
+    <div class="prompt-stack">
+      <div class="prompt-section"><div class="prompt-head"><span class="prompt-tag">① 前置检查</span><span class="prompt-purpose">作用：先确认环境，缺条件时提前报告</span></div><div class="prompt-text">检查 Power BI Desktop 和当前环境是否支持 PBIP、PBIR、TMDL。生成时显式关闭当前文件的自动日期/时间，并检查官方 Power BI Modeling MCP 是否可用。如需安装、授权、输入凭据或修改设置，先告诉我。</div></div>
+      <div class="prompt-section"><div class="prompt-head"><span class="prompt-tag">② 数据</span><span class="prompt-purpose">作用：告诉 Codex 数据在哪里、怎样理解</span></div><div class="prompt-text">数据文件：E:\Data\销售明细.xlsx
+包含订单日期、产品、品类、销售额、成本和地区。先检查字段、类型、空值和重复记录，不要修改原始数据。</div></div>
+      <div class="prompt-section"><div class="prompt-head"><span class="prompt-tag">③ 需求</span><span class="prompt-purpose">作用：说明最后要交付什么</span></div><div class="prompt-text">从空目录生成一套可由 Power BI Desktop 打开的完整项目。创建 Overview 页面，展示销售额、毛利额、毛利率、月度趋势和品类贡献，并增加品类筛选器。完成模型、度量值、页面和视觉对象，保留完整 PBIP、PBIR 与 TMDL 文件。</div></div>
+    </div>
+    <div class="mini-flow"><span class="flow-node">发提示词</span><span class="flow-arrow">→</span><span class="flow-node codex">Codex 生成</span><span class="flow-arrow">→</span><span class="flow-node">打开</span><span class="flow-arrow">→</span><span class="flow-node">保存</span><span class="flow-arrow">→</span><span class="flow-node">关闭</span><span class="flow-arrow">→</span><span class="flow-node">交付</span></div>
+    <div class="save-note"><strong>为什么建议首次保存？</strong>不是为了让项目能够打开，而是让 Desktop 完成文件规范化并写入平台、身份等元数据，形成稳定的长期协作与交付基线。</div>
+    <div class="save-note delivery-note"><strong>交付什么？</strong>不要只发送 .pbip；应交付同级的 .pbip、Report 和 SemanticModel 整个项目目录。移动、提交 Git 或发给他人时保持目录完整，不包含缓存、本机设置、自动恢复文件和临时目录。</div>
+    <div class="footer"><strong>人工只需提示词 + 打开、保存、关闭、交付</strong><span>下一张：修改时怎样选路径 →</span></div>
+  </section>
+
+  <section class="card" data-name="03-change-routing">
+    <div class="top"><div class="tool-lockup"><img class="tool-icon" src="../assets/codex-app.png" alt="Codex"><span class="tool-x">×</span><img class="tool-icon" src="../assets/power-bi.png" alt="Power BI"><span class="tool-title">Power BI Builder</span></div><div class="author-meta"><span>03 / 04</span><span>·</span><strong>山楂条</strong></div></div>
+    <span class="label">修改项目 · 先判断文件层</span>
+    <h2>要修改，先看改的是<br>模型还是视觉</h2>
+    <div class="file-intro">Codex 会生成一套 Power BI 项目，核心由下面 <strong>3 部分</strong>组成：</div>
+    <div class="file-map">
+      <div class="file-card"><code>销售分析.pbip</code><strong>项目入口</strong><p>双击它打开项目，并关联报表目录。</p></div>
+      <div class="file-card"><code>Report / PBIR</code><strong>报表视觉</strong><p>负责页面、图表、位置、格式和字段绑定。</p></div>
+      <div class="file-card"><code>SemanticModel / TMDL</code><strong>数据模型</strong><p>负责表、列、关系、度量值和数据源。</p></div>
+    </div>
+    <div class="decision-title">根据修改复杂度选择最少人工路径</div>
+    <div class="decision-grid">
+      <div class="decision-column"><h3><span>简单</span>一次性修改</h3><div class="route"><strong>修改模型 / TMDL</strong><p><b>关闭 Desktop</b> → Codex 修改 → <b>重开验收</b></p></div><div class="route"><strong>修改已有视觉 / PBIR</strong><p>保持打开 → Codex 修改 → <b>应用外部更改</b></p></div></div>
+      <div class="decision-column complex"><h3><span>复杂</span>多轮修改</h3><div class="route"><strong>复杂建模</strong><p>保持打开 → <b>MCP 实时调整</b> → 完成后保存</p></div><div class="route"><strong>多轮视觉</strong><p>Codex 分批修改 PBIR → 每批<b>应用外部更改</b></p></div></div>
+    </div>
+    <div class="rule-list">
+      <div class="rule-item"><span class="rule-check">✓</span><span><strong>Codex 外部修改 TMDL / PBIR</strong> 后已写入磁盘；重开或应用外部更改后无需保存。</span></div>
+      <div class="rule-item"><span class="rule-check">✓</span><span>人工在 Desktop 修改，或用 <strong>MCP 修改模型</strong>后，必须保存。</span></div>
+      <div class="rule-item"><span class="rule-check">✓</span><span>Codex 每批修改前保留 <strong>Git checkpoint</strong>，避免 Desktop 覆盖文件。</span></div>
+      <div class="rule-item"><span class="rule-check">✓</span><span><strong>MCP 不是必需条件</strong>；复杂、多轮建模时可实时修改和验收，效率更高。</span></div>
+    </div>
+    <div class="footer"><strong>记住：模型看 TMDL，视觉看 PBIR</strong><span>下一张：全部流程汇总 →</span></div>
+  </section>
+
+  <section class="card" data-name="04-summary">
+    <div class="top"><div class="tool-lockup"><img class="tool-icon" src="../assets/codex-app.png" alt="Codex"><span class="tool-x">×</span><img class="tool-icon" src="../assets/power-bi.png" alt="Power BI"><span class="tool-title">Power BI Builder</span></div><div class="author-meta"><span>04 / 04</span><span>·</span><strong>山楂条</strong></div></div>
+    <span class="label">最终总结</span>
+    <h2>记住这 4 种情况<br>就够了</h2>
+    <div class="scenario-list">
+      <div class="scenario"><div class="scenario-name">初版无需修改<small>最简单的完整交付</small></div><div class="scenario-flow"><span>提示词</span><i>→</i><span class="hot">Codex 生成</span><i>→</i><span>打开</span><i>→</i><span>保存</span><i>→</i><span>关闭</span><i>→</i><span>交付</span></div></div>
+      <div class="scenario"><div class="scenario-name">简单模型修改<small>TMDL 文件路径</small></div><div class="scenario-flow"><span>关闭</span><i>→</i><span class="hot">Codex 改 TMDL</span><i>→</i><span>重开验收</span><i>→</i><span class="note">无需保存</span></div></div>
+      <div class="scenario"><div class="scenario-name">复杂多轮建模<small>MCP 实时路径</small></div><div class="scenario-flow"><span>保持打开</span><i>→</i><span class="hot">MCP 调整</span><i>→</i><span>实时验收</span><i>→</i><span>完成后保存</span></div></div>
+      <div class="scenario"><div class="scenario-name">视觉对象修改<small>PBIR 外部更改路径</small></div><div class="scenario-flow"><span>保持打开</span><i>→</i><span class="hot">Codex 改 PBIR</span><i>→</i><span>应用外部更改</span><i>→</i><span class="note">无需保存</span></div></div>
+    </div>
+    <div class="closing-box"><h3>长期协作，建议这样安排</h3><div class="closing-points"><span>先完成模型</span><span>再调整视觉</span><span>Codex 每批做 Git</span><span>人工 / MCP 写入后保存</span></div></div>
+    <div class="save-note" style="margin-top:20px"><strong>最后一条：</strong>如果人工直接在 Desktop 中修改了模型、页面或视觉对象，确认无误后一定要保存，否则修改不会完整回写到项目文件。</div>
+    <div class="footer"><strong>Power BI Builder · 极简协作流程</strong><span>换成你的数据和需求试试 →</span></div>
+  </section>
+</body>
+</html>
