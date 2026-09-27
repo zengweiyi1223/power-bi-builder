@@ -48,6 +48,6 @@ ongoing workflow depends on the file layer being changed:
 
 ## Cleanup
 
-Final closure passed and the branch is self-contained. Keep the worktree until
-the result is accepted or integrated. It can then be removed while retaining
-branch `codex/minimal-human-workflow` and its commits.
+Final closure passed and the branch is self-contained. The temporary worktree
+has been removed; branch `codex/minimal-human-workflow` and its commits are
+retained and integrated into the repository's follow-up history.

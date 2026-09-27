@@ -13,7 +13,7 @@ Status: **FINAL — REPORT-ONLY HOT PASS; TMDL RESTART PASS**
 - First-save checkpoint: `1e13a9d29dadd7d5eb926479603adbe5eee4a43e`
 - Post-save external-batch checkpoint: `58a1448415b536db81f07841d1f6a6dfaa0dcab4`
 - Reopened-instance live-batch checkpoint: `1f6a2ccd8c98ec768c6f401977e2c3fbbf2c068e`
-- Final acceptance: the commit containing this validation; reported after creation
+- Final acceptance: `8a005159aa2b739ecc4a399405b2caecb3a752f6`
 
 ## Gates
 

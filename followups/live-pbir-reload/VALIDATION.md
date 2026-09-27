@@ -8,8 +8,7 @@ Status: **PARTIAL SUCCESS — MATERIAL BOUNDARY IDENTIFIED**
 - V1 final baseline: `0d47e512e3b835b9d1aa8580c68c4a853a0d325d`
 - Plan-freeze commit: `fc671ac2c1638d19a249eb9dcaee735211fc61d3`
 - Pre-open checkpoint: `39ea434a634746ddfe898ce90b3dbd61a66fda68`
-- Final acceptance commit: the commit containing this finalized validation;
-  reported externally after Git creates it
+- Final acceptance commit: `8732141fa58d6314c0b17e31116f2b0db5296d71`
 
 ## Gate results
 

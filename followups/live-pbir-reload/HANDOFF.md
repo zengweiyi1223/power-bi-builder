@@ -42,6 +42,6 @@ conditional on in-Desktop changes.
 
 ## Cleanup
 
-The final closure check passed. After the final Git checkpoint, the temporary
-worktree is to be removed while branch `codex/live-pbir-reload` and its commits
-are retained.
+The final closure and Git checkpoint passed. The temporary worktree has been
+removed; branch `codex/live-pbir-reload` and its commits are retained and
+integrated into the repository's follow-up history.

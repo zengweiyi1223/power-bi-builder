@@ -45,5 +45,4 @@ files are involved.
 - Plan freeze: `fc671ac2c1638d19a249eb9dcaee735211fc61d3`
 - Pre-open checkpoint: `39ea434a634746ddfe898ce90b3dbd61a66fda68`
 - Final closure: `PBIDesktop=0`, `msmdsrv=0`, no human-observed prompt
-- Final acceptance commit: the commit containing this finalized result; reported
-  externally after Git creates it
+- Final acceptance commit: `8732141fa58d6314c0b17e31116f2b0db5296d71`

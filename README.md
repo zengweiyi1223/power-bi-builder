@@ -1,31 +1,45 @@
 # Power BI Builder
 
-Power BI Builder 用于验证 Codex 能否结合 Microsoft Power BI Modeling MCP 与 PBIP/PBIR，自动生成可由 Power BI Desktop 打开、展示和交互的报表。
+Power BI Builder 用于验证并沉淀 Codex 直接生成、验证和迭代 Power BI Project（PBIP/PBIR/TMDL）的可靠工作流。项目从 V0 的种子与 MCP 路线出发，已经完成零种子、模型级设置、PBIR 热重载和最少人工步骤等后续实验。
 
 ## 当前状态
 
-- V0 最小可行实验已完成：报表可在 Power BI Desktop 打开、交互、保存重开，最终模型回读与 DAX 基准一致。
-- [`V0/REQUIREMENTS.md`](V0/REQUIREMENTS.md) 是冻结的执行与验收基线；[`V0/HANDOFF.md`](V0/HANDOFF.md) 汇总结论、交付物、复用规则与后续方向。
-- [Codex × Power BI 五张图文教程](tutorial/xhs/cards.html)以卡片形式整理一次性配置、可复制提示词、三个人工等待点和完整 PBIP 交付方式；同目录提供 JPG 发布版本。
-- 正式运行及证据位于 [`V0/runs/20260917-003433/`](V0/runs/20260917-003433/)；最终保存后的切片器 2.12.0 Schema 精确校验仍待公开文件补证，不影响已验证的 Desktop 使用。
+- [V0](V0/)：最小可行实验已完成，证明报表可以在 Power BI Desktop 中打开、交互、保存重开，并通过模型回读与 DAX 基准验证。V0 需求、种子和正式运行产物保持冻结。
+- [Playbook v0.1](playbook/)：基于 V0 提炼的固定执行协议，基线提交为 `3ee871d618db84d55b3b2f86a198ac552864317e`。V1 与后续实验没有直接修改该版本。
+- [V1-zero-seed](V1-zero-seed/)：两组独立 Run 均通过，最终结论为“完全零种子”；在已测试环境中，人工无需先创建空白 PBIP 种子。
+- [后续实验](followups/)：已完成显式关闭自动日期/时间、已加载 PBIR 视觉热重载和最少人工工作流验证。
+- [图文教程](tutorial/)：已定稿上篇 5 张和下篇 4 张。上篇保留首次实践视角，下篇总结零种子、最少人工步骤和长期人机协作流程。
+
+## 已验证的实际工作流
+
+1. **初版生成**：用户提供前置检查要求、数据和业务需求；Codex 可从空目录直接生成完整 PBIP、PBIR 和 TMDL 项目。
+2. **首次长期基线**：项目无需保存即可打开；长期协作建议首次打开后保存并关闭，让 Desktop 完成规范化和平台/身份元数据写入。
+3. **模型文件修改**：Desktop 关闭时由 Codex 修改 TMDL，随后重开验收；纯磁盘外部修改无需再次保存。
+4. **已有视觉修改**：Desktop 保持打开时由 Codex 修改已加载的 PBIR，人工选择 **Apply external changes**；成功应用后无需额外保存。
+5. **复杂多轮建模**：MCP 不是生成项目的必需条件，但适合保持 Desktop 打开并实时调整、验收复杂模型；MCP 或人工在 Desktop 内完成修改后必须保存。
+
+上述结论来自 Power BI Desktop `2.157.1354.0` 的本机 Windows 实验。不同版本、数据源、凭据、Service、跨机器迁移和未测试的 PBIR/TMDL 对象仍需按项目重新验证。
 
 ## 目录
 
 ```text
 .
-├─ README.md              # 项目入口与当前状态
-├─ V0/
-│  ├─ REQUIREMENTS.md     # 冻结的需求与验收基线
-│  ├─ HANDOFF.md          # 结论、交付物、复用规则与后续方向
-│  ├─ data/               # 固定输入数据
-│  ├─ seed/               # 不可直接修改的空白 PBIP 种子
-│  ├─ scripts/            # 基准计算和验证脚本
-│  ├─ runs/               # 每次正式实验的独立运行目录
-│  └─ .work/              # 可删除的中间文件，不提交 Git
+├─ README.md                       # 项目入口与当前结论
+├─ V0/                             # 冻结的初始实验、种子、正式 Run 与证据
+├─ playbook/                       # 冻结的 Playbook v0.1、模板和 Power BI adapter
+├─ V1-zero-seed/                   # 零种子 A/B Run、证据、Handoff 与反馈
+├─ followups/
+│  ├─ auto-date-setting/           # 模型级自动日期/时间显式关闭
+│  ├─ live-pbir-reload/            # 已加载 PBIR 视觉的外部热重载
+│  └─ minimal-human-workflow/      # 最少人工步骤与模型/视觉边界
 └─ tutorial/
-   └─ xhs/                # 五张教程卡片、导出脚本和 JPG
+   ├─ xhs/                         # 上篇：首次实践，5 张
+   └─ xhs-02-minimal-workflow/     # 下篇：极简工作流，4 张
 ```
 
-正式运行统一使用 `V0/runs/<run-id>/`，其中包含 `project/`、`logs/`、`evidence/`、`expected-results.json` 和 `VALIDATION.md`。运行时从 `seed/` 复制整个种子项目，不直接修改种子原件；正式副本应改用实际业务报表名称，并保持 `.pbip` 与 Report、SemanticModel 目录引用一致。
+## 证据与冻结边界
 
-正式运行证据默认纳入 Git；可重建中间文件只放入 `.work/`，由脚本按需创建且不得作为验收证据。制品范围、体积限制和 Power BI 文件换行策略以 `V0/REQUIREMENTS.md` 为准。
+- `V0/**` 和 `V1-zero-seed/**` 保存各自实验当时的需求、计划、项目、日志和验收记录；即使其中存在阶段性或历史措辞，也不回写改造成当前教程。
+- `followups/**` 保存三个独立后续实验的完整项目、manifest、人工/Codex/MCP 操作日志和结论。
+- `playbook/**` 当前仍是固定的 v0.1。实验观察只进入各自 `PLAYBOOK_FEEDBACK.md`；通用规则调整统一留给 Playbook v0.2。
+- `.pbi/` 缓存、本机设置和自动恢复文件不属于正式项目交付物；完整交付应包含同级的 `.pbip`、Report 和 SemanticModel 目录。

@@ -100,4 +100,4 @@ recommended workflow steps. Passive observations are not counted.
 - Reopened-instance live batch: `1f6a2ccd8c98ec768c6f401977e2c3fbbf2c068e`
 - Report-only apply evidence: `205120a49b47350510cb26b6f402c03188bd73e4`
 - TMDL restart evidence: `db1a531a0b7e887fe0747d450892c95cd5c6fce3`
-- Final acceptance: the commit containing this file; reported after creation
+- Final acceptance: `8a005159aa2b739ecc4a399405b2caecb3a752f6`

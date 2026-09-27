@@ -8,4 +8,4 @@ This focused follow-up confirms that a zero-seed PBIP/TMDL project with the mode
 - V1, V0, and `playbook/**` remain unchanged
 - Result: `Passed`
 
-After this test closes, the next isolated experiment will test PBIR visual generation while Desktop remains open and applies external changes. When the follow-up sequence is complete, the temporary worktree may be removed while retaining its branch and commits.
+This experiment is complete at commit `77a188f20f85a614a7a2774ecb64fa6426411fa6` and is integrated into the repository's follow-up history. Its temporary worktree has been removed; the branch and commits are retained.

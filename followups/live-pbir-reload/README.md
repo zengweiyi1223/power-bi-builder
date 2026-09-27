@@ -21,5 +21,6 @@ editing and Desktop reload behavior.
 
 ## State
 
-Execution and final Desktop closure are complete. The final Git checkpoint is
-the remaining repository operation. See `FINAL_RESULT.md` and `HANDOFF.md`.
+Execution, final Desktop closure, and the final Git checkpoint are complete.
+The final experiment commit is `8732141fa58d6314c0b17e31116f2b0db5296d71`.
+See `FINAL_RESULT.md` and `HANDOFF.md`.
