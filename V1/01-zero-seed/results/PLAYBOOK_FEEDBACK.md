@@ -86,7 +86,7 @@
 - [HANDOFF](HANDOFF.md)
 - [VALIDATION](VALIDATION.md)
 - [Decision/Deviation](RECORDS.md)
-- [采用前符合性](PLAYBOOK_CONFORMITY.md)
-- [R7 evidence](r7/ACCEPTANCE_EVIDENCE.md)
+- [采用前符合性](../planning/PLAYBOOK_CONFORMITY.md)
+- [R7 evidence](../r7/ACCEPTANCE_EVIDENCE.md)
 - 两组成本明细：`runs/*/logs/R-VLD-003-METRICS.json`
 - 相关提交：`3ee871d`、`22da780`、`8c28f5e`、`82b4489`、`21af7b2`、`a127b79`、`c9003aa`

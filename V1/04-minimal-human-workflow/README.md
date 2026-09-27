@@ -1,6 +1,7 @@
 # Minimal human workflow experiment
 
-This independent follow-up determines the smallest real human-operation sequence
+This experiment was executed as an independent follow-up and is now archived as
+V1 stage 4. It determines the smallest real human-operation sequence
 for a Codex-authored PBIP project containing a semantic model and a data-bound
 PBIR visual.
 
@@ -29,4 +30,4 @@ No Desktop operation may begin before the plan-freeze and pre-open checkpoints.
 - Final outcome: report-only hot pass; TMDL restart pass
 - Final rendered state: `Tripled Total / 180`
 - Final Desktop/model processes: `0 / 0`
-- See `FINAL_RESULT.md` for minimum workflows and claim limits
+- See [Final result](results/FINAL_RESULT.md) for minimum workflows and claim limits. Planning documents are under [planning/](planning/); validation, records and Playbook feedback are under [results/](results/).

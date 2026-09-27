@@ -5,7 +5,15 @@ This focused follow-up confirms that a zero-seed PBIP/TMDL project with the mode
 - Baseline commit: `0d47e512e3b835b9d1aa8580c68c4a853a0d325d`
 - Branch: `codex/auto-date-setting`
 - Scope: one variable—the model-level annotation
-- V1, V0, and `playbook/**` remain unchanged
+- At execution time, V1-zero-seed, V0, and `playbook/**` remained unchanged
 - Result: `Passed`
 
 This experiment is complete at commit `77a188f20f85a614a7a2774ecb64fa6426411fa6` and is integrated into the repository's follow-up history. Its temporary worktree has been removed; the branch and commits are retained.
+
+## Archive map
+
+- [Validation](results/VALIDATION.md)
+- [Final result](results/FINAL_RESULT.md)
+- `project/`: tested PBIP/PBIR/TMDL project
+- `evidence/`: stage evidence and manifests
+- `logs/`: Human and Codex actions

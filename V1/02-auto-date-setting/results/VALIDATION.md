@@ -65,4 +65,4 @@ This proves the explicit model annotation controls the initial Current File chec
 
 In the tested Desktop version, a zero-seed TMDL model can deterministically disable Current File Auto date/time by explicitly writing `annotation __PBI_TimeIntelligenceEnabled = 0`. The setting is effective on first open and persists through save, close, and reopen.
 
-This focused result does not modify the completed V1 conclusion. The subsequent live PBIR generation/reload experiment was completed separately under `followups/live-pbir-reload/`.
+This focused result does not modify the completed zero-seed conclusion. The subsequent live PBIR generation/reload experiment was completed independently and is now archived under `V1/03-live-pbir-reload/`.
