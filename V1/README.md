@@ -7,17 +7,18 @@ V1 验证 Codex 能否从空目录直接生成完整 Power BI Project，并确�
 ## 最短阅读路径
 
 1. 先看本页，了解四项实验如何共同形成 V1 结论。
-2. 看 [04-minimal-human-workflow/results/FINAL_RESULT.md](04-minimal-human-workflow/results/FINAL_RESULT.md)，了解已验证的最少人工流程。
-3. 总结 Playbook v0.2 时，再读取各实验的 `results/`；只有复核具体结论时才进入 `project/`、`evidence/`、`logs/` 和 `manifests/`。
+2. 看 [HANDOFF.md](HANDOFF.md)，获取 V1 综合结论、证据入口和 Playbook v0.2 输入。
+3. 看 [04-minimal-human-workflow/results/FINAL_RESULT.md](experiments/04-minimal-human-workflow/results/FINAL_RESULT.md)，了解已验证的最少人工流程。
+4. 只有复核具体结论时才进入各实验的 `project/`、`evidence/`、`logs/` 和 `manifests/`。
 
 ## 四项实验
 
 | 阶段 | 实验 | 核心问题 | 结果 | 主要结论入口 |
 | --- | --- | --- | --- | --- |
-| 1 | [01-zero-seed](01-zero-seed/) | 是否仍需人工创建空白 PBIP 种子？ | Passed | [VALIDATION](01-zero-seed/results/VALIDATION.md) · [HANDOFF](01-zero-seed/results/HANDOFF.md) |
-| 2 | [02-auto-date-setting](02-auto-date-setting/) | 当前文件的自动日期/时间能否由模型显式关闭？ | Passed | [VALIDATION](02-auto-date-setting/results/VALIDATION.md) · [FINAL_RESULT](02-auto-date-setting/results/FINAL_RESULT.md) |
-| 3 | [03-live-pbir-reload](03-live-pbir-reload/) | Desktop 保持打开时，已加载 PBIR 视觉能否应用外部修改？ | Passed（限定已加载视觉） | [FINAL_RESULT](03-live-pbir-reload/results/FINAL_RESULT.md) · [HANDOFF](03-live-pbir-reload/results/HANDOFF.md) |
-| 4 | [04-minimal-human-workflow](04-minimal-human-workflow/) | 真实模型与数据绑定视觉的最少人工流程是什么？ | Passed（PBIR Apply；TMDL 重开） | [FINAL_RESULT](04-minimal-human-workflow/results/FINAL_RESULT.md) · [HANDOFF](04-minimal-human-workflow/results/HANDOFF.md) |
+| 1 | [01-zero-seed](experiments/01-zero-seed/) | 是否仍需人工创建空白 PBIP 种子？ | Passed | [VALIDATION](experiments/01-zero-seed/results/VALIDATION.md) · [HANDOFF](experiments/01-zero-seed/results/HANDOFF.md) |
+| 2 | [02-auto-date-setting](experiments/02-auto-date-setting/) | 当前文件的自动日期/时间能否由模型显式关闭？ | Passed | [VALIDATION](experiments/02-auto-date-setting/results/VALIDATION.md) · [FINAL_RESULT](experiments/02-auto-date-setting/results/FINAL_RESULT.md) |
+| 3 | [03-live-pbir-reload](experiments/03-live-pbir-reload/) | Desktop 保持打开时，已加载 PBIR 视觉能否应用外部修改？ | Passed（限定已加载视觉） | [FINAL_RESULT](experiments/03-live-pbir-reload/results/FINAL_RESULT.md) · [HANDOFF](experiments/03-live-pbir-reload/results/HANDOFF.md) |
+| 4 | [04-minimal-human-workflow](experiments/04-minimal-human-workflow/) | 真实模型与数据绑定视觉的最少人工流程是什么？ | Passed（PBIR Apply；TMDL 重开） | [FINAL_RESULT](experiments/04-minimal-human-workflow/results/FINAL_RESULT.md) · [HANDOFF](experiments/04-minimal-human-workflow/results/HANDOFF.md) |
 
 ## V1 综合结论
 
@@ -30,7 +31,7 @@ V1 验证 Codex 能否从空目录直接生成完整 Power BI Project，并确�
 
 ## 统一目录规则
 
-每个实验只在根目录保留 `README.md` 和实际产物目录：
+四项实验统一放在 `experiments/` 下；每个实验只在根目录保留 `README.md` 和适用于自身的实际产物目录：
 
 - `planning/`：基线、需求、实验计划、Human Gate 和安全边界。
 - `results/`：Validation、Final Result、Handoff、Decision/Deviation 和 Playbook Feedback。
