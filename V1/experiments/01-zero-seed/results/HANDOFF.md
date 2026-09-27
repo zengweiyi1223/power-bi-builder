@@ -59,7 +59,7 @@ Desktop 首次显式保存确实规范化 9 个文件并新增 6 个默认/平�
 - [VALIDATION](VALIDATION.md)
 - [RECORDS](RECORDS.md)
 - [PLAYBOOK_FEEDBACK](PLAYBOOK_FEEDBACK.md)
-- [R7 evidence](r7/ACCEPTANCE_EVIDENCE.md)
+- [R7 evidence](../r7/ACCEPTANCE_EVIDENCE.md)
 - Playbook 基线：`3ee871d618db84d55b3b2f86a198ac552864317e`
 - 需求冻结：`82b448957ab08a5452df297a7a95d7b6def67bef`
 - Run A/B final：`21af7b278d9be6c40ca7315fb0dd5298e3565506` / `a127b7978990d1d0c6027a72c689704dd5b09a04`

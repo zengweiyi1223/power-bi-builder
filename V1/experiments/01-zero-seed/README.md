@@ -4,7 +4,7 @@
 
 ## 项目定位
 
-V1-zero-seed 是冻结的 Playbook v0.1 的第一个实际验证项目。它只执行固定协议并返回 V1 证据与反馈，不修改 Playbook、不提炼跨项目方法论，也不封装 Skill。
+V1-zero-seed 是冻结的 Playbook v0.1 的第一个实际验证项目，现归档为 V1 的第一阶段。它只执行固定协议并返回零种子实验的证据与反馈，不修改 Playbook、不提炼跨项目方法论，也不封装 Skill。
 
 核心问题是：Codex 能否从经证明为空的目录直接生成可被 Power BI Desktop 打开、保存、关闭并重新打开的 PBIP/PBIR/TMDL 项目，从而判断人工创建空白 PBIP 种子是否仍然必要。
 
@@ -30,14 +30,15 @@ V0 与 `playbook/**` 在实验期间保持冻结。V1 未读取或复制 `V0/see
 
 ## 文档地图
 
-- [BASELINE.md](BASELINE.md)：Git、Playbook、V0 对照和污染边界。
-- [PLAYBOOK_CONFORMITY.md](PLAYBOOK_CONFORMITY.md)：v0.1 采用前符合性与调整分类。
-- [REQUIREMENTS.md](REQUIREMENTS.md)：冻结的 V1 Contract。
-- [EXPERIMENT_PLAN.md](EXPERIMENT_PLAN.md)：冻结的 Execute–Verify 路线。
-- [VALIDATION.md](VALIDATION.md)：跨 Run 最终验证与五维判定。
-- [RECORDS.md](RECORDS.md)：Decision 与 Deviation。
-- [HANDOFF.md](HANDOFF.md)：最终交接、证据入口与回滚点。
-- [PLAYBOOK_FEEDBACK.md](PLAYBOOK_FEEDBACK.md)：Rule conformity 与 utility 的分离评价。
+- [planning/BASELINE.md](planning/BASELINE.md)：Git、Playbook、V0 对照和污染边界。
+- [planning/PLAYBOOK_CONFORMITY.md](planning/PLAYBOOK_CONFORMITY.md)：v0.1 采用前符合性与调整分类。
+- [planning/REQUIREMENTS.md](planning/REQUIREMENTS.md)：冻结的 V1 Contract。
+- [planning/EXPERIMENT_PLAN.md](planning/EXPERIMENT_PLAN.md)：冻结的 Execute–Verify 路线。
+- [results/VALIDATION.md](results/VALIDATION.md)：跨 Run 最终验证与五维判定。
+- [results/RECORDS.md](results/RECORDS.md)：Decision 与 Deviation。
+- [results/HANDOFF.md](results/HANDOFF.md)：最终交接、证据入口与回滚点。
+- [results/PLAYBOOK_FEEDBACK.md](results/PLAYBOOK_FEEDBACK.md)：Rule conformity 与 utility 的分离评价。
+- [templates/](templates/)：正式 Run 使用的历史记录模板。
 - [r7/ACCEPTANCE_EVIDENCE.md](r7/ACCEPTANCE_EVIDENCE.md)：R7 机器复核与最终证据索引。
 - [runs/](runs/)：两组完整运行项目、日志、manifest、截图和逐阶段证据。
 
