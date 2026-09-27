@@ -10,6 +10,8 @@
 - 可选方案：
 - 决定及理由：
 - 对范围、验收、安全和后续阶段的影响：
+- 操作用途：Production / Conditional / Diagnostic / Validation-only / Not applicable。
+- 验证强度：完整往返 / 抽样 / 省略；理由和残余风险。
 - 证据或 Git 提交：
 - 是否需要更新 Contract：
 

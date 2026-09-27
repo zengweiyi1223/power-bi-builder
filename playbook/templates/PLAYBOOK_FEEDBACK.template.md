@@ -21,11 +21,22 @@
 
 ## 3. 采用前规划对比
 
-| 原规划内容 | 采用 v0.1 后的变化 | 分类 | 理由与效果 |
+| 原规划内容 | 采用当前 Playbook 后的变化 | 分类 | 理由与效果 |
 | --- | --- | --- | --- |
 |  |  | Risk Correction / Operational Clarification / Playbook-only Alignment / No Change |  |
 
-## 4. 问题分类
+## 4. v0.2 Provisional Rules
+
+| Rule ID | 实际采用方式 | 成本 | 新发现/避免的错误 | Utility | 建议 |
+| --- | --- | --- | --- | --- | --- |
+| R-VLD-003 | 完整往返 / 抽样 / 省略 |  |  |  | Keep / Change / Retire |
+| R-EXV-003 | 计时 / 不适用 |  |  |  | Keep / Change / Retire |
+| R-VDC-002 | 分类 / 不适用 |  |  |  | Keep / Change / Retire |
+
+- 状态转换表是否减少重复证据且保留了充分因果链：
+- 是否出现因压缩记录而无法复核的内容：
+
+## 5. 问题分类
 
 | 问题 | 初步分类 | 建议处理位置 |
 | --- | --- | --- |
@@ -33,7 +44,7 @@
 
 分类只是实验方建议；最终是否修改 Playbook 由 Maintainer Review 决定。
 
-## 5. 反馈附件
+## 6. 反馈附件
 
 - HANDOFF：
 - VALIDATION：
