@@ -1,8 +1,8 @@
 # 项目画像与生命周期裁剪模型
 
-状态：`Draft for cross-domain validation`  
-依据：[通用开发生命周期来源审查](lifecycle-source-reconciliation.md)  
-固定 Playbook：`v0.2@dff3a717d59935697e310a29caf6b29dff11ff11`
+- 状态：`Draft for cross-domain validation`
+- 依据：[通用开发生命周期来源审查](lifecycle-source-reconciliation.md)
+- 固定 Playbook：`v0.2@dff3a717d59935697e310a29caf6b29dff11ff11`
 
 本文定义下一项非 Power BI 验证项目要测试的项目画像、阶段模块、责任表达和记录策略。它是实验设计，不是 v0.2 规则，也不构成 v1.0。
 
