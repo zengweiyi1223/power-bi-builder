@@ -28,6 +28,7 @@
 | 画像 + 修饰器 | Covered / Gap |  |  |
 | R/C/N/A 裁剪 | Helpful / Burdensome |  |  |
 | 人机责任与 Human Gate | Clear / Ambiguous |  |  |
+| 恢复握手与当前控制状态 | Enforced / Paper-only / Missing |  |  |
 | 目录与 Artifact Map | Recoverable / Confusing |  |  |
 | Requirements / Design / Plan | Sufficient / Missing / Duplicate |  |  |
 | Validation / Handoff 分工 | Clear / Duplicate |  |  |

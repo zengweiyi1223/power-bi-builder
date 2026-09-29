@@ -4,6 +4,7 @@
 - Playbook：`v1.0@<commit>`
 - 项目基线或当前稳定版本：`<commit/version>`
 - 当前滚动状态：[VALIDATION](<path>)
+- 执行恢复入口：[VALIDATION 当前控制状态](<path-to-current-control-state>)
 - 最终交付或最近稳定状态：[HANDOFF](<path>)
 
 ## 1. 项目摘要
@@ -70,4 +71,3 @@
 ```
 
 物理文件可以合并，但 Artifact Map 必须指出对应章节。动态阶段状态不要在本文件和 VALIDATION 中重复维护。
-

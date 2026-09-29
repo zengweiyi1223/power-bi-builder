@@ -11,6 +11,7 @@
 - 当前 Playbook、Contract、release 或实验基线；
 - Artifact Map：逻辑记录分别保存在哪里；
 - 当前滚动状态指向哪个 `VALIDATION`；
+- 当前阶段、允许操作、Blocker、下一 Gate 和 checkpoint 在 `VALIDATION` 的哪个控制区；
 - 最终交付或上一次稳定状态指向哪个 `HANDOFF`；
 - 哪些目录是源码、测试、正式证据、运行副本和可重建临时产物。
 

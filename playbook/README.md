@@ -31,7 +31,7 @@ Profile & Tailor → Discover & Frame → Contract → Design → Plan & Prepare
 2. 用 [PROJECT 模板](templates/PROJECT.template.md)建立根入口、责任和 Artifact Map。
 3. 用 [REQUIREMENTS 模板](templates/REQUIREMENTS.template.md)对齐 Why、范围、验收、安全和 Human Gate。
 4. 存在实质取舍时使用 [TECH_DESIGN 模板](templates/TECH_DESIGN.template.md)；实施型项目使用 [DELIVERY_PLAN 模板](templates/DELIVERY_PLAN.template.md)或把这些逻辑记录合并到已有文档。
-5. 用 [VALIDATION 模板](templates/VALIDATION.template.md)作为唯一滚动状态与证据记录。
+5. 用 [VALIDATION 模板](templates/VALIDATION.template.md)作为唯一滚动状态与证据记录；每次新会话或恢复工作先核对“当前控制状态”，再进行首次修改。
 6. 涉及部署或持续运行时使用 [发布与运行模板](templates/RELEASE_OPERATIONS.template.md)。
 7. 结束时填写 [HANDOFF 模板](templates/HANDOFF.template.md)；重大取舍和偏差写入 [RECORDS 模板](templates/RECORDS.template.md)。
 

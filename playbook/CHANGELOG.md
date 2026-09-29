@@ -7,6 +7,7 @@
 - 将 v0.2 Evidence Gate Kernel 嵌入唯一的十阶段开发生命周期。
 - 增加六种基础画像、八种风险修饰器和 `Required / Conditional / Not Applicable + 理由` 裁剪。
 - 增加人机责任表达、需求原因对齐、条件式方案比较和多视角评审 Guidance。
+- 增加运行控制协议：每次新会话或恢复时先读取并复述唯一当前控制状态；状态冲突时停止，不能依赖聊天记忆继续。
 - 增加项目根入口、Artifact Map、逻辑记录/物理文件分离和按画像目录示例。
 - 增加可验证任务拆分和“风险优先 → 最小闭环 → 逐步扩展”的排序原则。
 - `R-VLD-003` 从 Provisional 升为 Required；`R-VDC-002` 升为条件触发的 Required；`R-EXV-003` 保持 Provisional。
