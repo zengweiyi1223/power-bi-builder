@@ -1,6 +1,6 @@
 # 人机协作开发闭环 Playbook
 
-版本：`v1.0 candidate`（尚未发布）
+版本：`v1.0`
 
 本 Playbook 用于人类与 AI 共同完成可验证、可停止、可恢复、可交付的软件、数据、文档和实验项目。它由一条可裁剪开发生命周期、责任模型、阶段记录和 Evidence Gate Kernel 组成；领域操作放在 adapter，单项目事实留在项目记录和 case study。
 

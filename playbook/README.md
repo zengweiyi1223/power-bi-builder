@@ -1,6 +1,6 @@
 # 人机协作开发闭环 Playbook
 
-状态：`v1.0 candidate`（等待自动验证与人工验收，尚未发布）
+状态：`v1.0`（已通过人工验收并冻结；等待按 v1.0 基线进行后续执行验证）
 
 这套 Playbook 把通用开发生命周期、人机责任、可裁剪阶段、记录模板和证据闸门放在同一条流程中。它适用于实验、文档、数据、组件、应用和服务；项目可以按风险增减阶段，不能静默省略责任、验证或恢复边界。
 
@@ -70,7 +70,7 @@ Profile & Tailor → Discover & Frame → Contract → Design → Plan & Prepare
 
 - v0.1：来自 Power BI Builder V0，基线 `3ee871d618db84d55b3b2f86a198ac552864317e`。
 - v0.2：吸收 Power BI V1，基线 `dff3a717d59935697e310a29caf6b29dff11ff11`。
-- v1.0 candidate：吸收 `data-quality-checker@416ec65453fd280a611065c09272aa5d293a9f33` 的跨领域反馈和 Maintainer Review；正式提交号在人工验收后冻结。
+- v1.0：吸收 `data-quality-checker@416ec65453fd280a611065c09272aa5d293a9f33` 的跨领域反馈和 Maintainer Review，并在补充运行控制协议后通过人工验收；固定基线以最终冻结提交号为准。
 
 只有 Playbook Maintainer 可以修改或发布 Playbook。实验项目固定所用提交，只提交 Validation、Handoff、Decision/Deviation 和 Feedback，不直接修改规范。
 

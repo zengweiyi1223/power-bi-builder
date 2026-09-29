@@ -1,6 +1,6 @@
 # Playbook Changelog
 
-## v1.0 candidate — 2026-09-28
+## v1.0 — 2026-09-28
 
 输入基线：Playbook v0.2 `dff3a717d59935697e310a29caf6b29dff11ff11`；生命周期设计 `2319a6904cd1dba0b696e59b9376889a3179b068`；非 Power BI 实验 `data-quality-checker@416ec65453fd280a611065c09272aa5d293a9f33`。
 
@@ -16,7 +16,7 @@
 - Power BI adapter 区分文件、Desktop、Modeling MCP、Power BI Service 浏览器插件和 API/自动化路线；插件路线标记为未被 V0/V1 验证。
 - 详细处置见 [v1.0 Rule and lifecycle disposition](reviews/v1.0-disposition.md)。
 
-本节随候选版本存在，不代表 v1.0 已发布。人工验收和最终冻结提交完成后移除 candidate 标记并记录正式提交号。
+冻结依据：规则审查 `4dae3f679eddf0b531ed49b3b510cea2e5d98d27`；候选实施 `db7fb5ea946a1eb2a59b60f02f3421f6d33d60db`；运行控制补丁 `adc2c66506184646f9924003a8730ae3e5323fea`；用户于 2026-09-28 完成人工验收。正式 v1.0 基线为包含本条目的最终冻结提交。
 
 ## v0.2 — 2026-09-27
 
