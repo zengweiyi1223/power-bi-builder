@@ -1,66 +1,77 @@
-# AI 项目闭环 Playbook
+# 人机协作开发闭环 Playbook
 
-状态：`v0.2`（已吸收 Power BI Builder V1，等待非 Power BI 项目验证）
+状态：`v1.0 candidate`（等待自动验证与人工验收，尚未发布）
 
-本目录提供一套证据驱动、分阶段、可停止、可归因的 AI 项目闭环。它规范项目如何冻结目标、隔离运行、逐阶段执行与验证、保存证据并完成交接；具体领域操作放在 `adapters/`，历史依据放在 `case-studies/`。
+这套 Playbook 把通用开发生命周期、人机责任、可裁剪阶段、记录模板和证据闸门放在同一条流程中。它适用于实验、文档、数据、组件、应用和服务；项目可以按风险增减阶段，不能静默省略责任、验证或恢复边界。
 
-## 快速入口
-
-1. 阅读 [PLAYBOOK.md](PLAYBOOK.md)，确认核心规则和术语。
-2. 复制 [需求模板](templates/REQUIREMENTS.template.md)，在正式运行前冻结需求与验收契约。
-3. 用 [验证模板](templates/VALIDATION.template.md)逐阶段记录事实。
-4. 用 [记录模板](templates/RECORDS.template.md)登记重大决策和偏差。
-5. 完成后填写 [交接模板](templates/HANDOFF.template.md)与 [Playbook 反馈模板](templates/PLAYBOOK_FEEDBACK.template.md)。
-
-升级依据见 [v0.2 Rule disposition review](reviews/v0.2-rule-disposition.md)。
-
-执行流程：
+## 一分钟理解
 
 ```text
-Frame → Contract → Prepare → Preflight
-                         ↓
-       [ Execute → Verify → Gate → Checkpoint ] × N
-                         ↓
-                    Decide → Handoff & Feedback
+先对齐为什么做、为谁做
+→ 冻结范围和验收
+→ 选择并冻结方案
+→ 拆成可验证任务
+→ 每完成一个增量立即验证、判定和建立回滚点
+→ 完成集成验收、受控交付和必要运维
+→ 形成可复核、可恢复的 HANDOFF
 ```
 
-`Execute` 与 `Verify` 是阶段内循环，不是“全部完成后统一验证”。每个原子变更必须先验证，通过后才能进入下一依赖阶段。
+完整生命周期：
 
-## 规则等级
+```text
+Profile & Tailor → Discover & Frame → Contract → Design → Plan & Prepare
+→ [Implement → Verify → Human Gate → Decide → Checkpoint] × N
+→ Integrated Acceptance → Release / Delivery → Operate / Observe
+→ Handoff / Close / Learn
+```
 
-- `Required`：必须遵守；未遵守时可以继续报告项目结果，但不能声明符合本 Playbook。
-- `Provisional`：必须评估并反馈；可以通过明确记录的不适用或受控偏差证明规则不合理。
-- `Guidance`：建议做法，可按项目情况选择。
+## 开始一个项目
 
-## 角色与维护
+1. 阅读 [主规范](PLAYBOOK.md)，选择基础画像、风险修饰器和阶段 R/C/N/A。
+2. 用 [PROJECT 模板](templates/PROJECT.template.md)建立根入口、责任和 Artifact Map。
+3. 用 [REQUIREMENTS 模板](templates/REQUIREMENTS.template.md)对齐 Why、范围、验收、安全和 Human Gate。
+4. 存在实质取舍时使用 [TECH_DESIGN 模板](templates/TECH_DESIGN.template.md)；实施型项目使用 [DELIVERY_PLAN 模板](templates/DELIVERY_PLAN.template.md)或把这些逻辑记录合并到已有文档。
+5. 用 [VALIDATION 模板](templates/VALIDATION.template.md)作为唯一滚动状态与证据记录。
+6. 涉及部署或持续运行时使用 [发布与运行模板](templates/RELEASE_OPERATIONS.template.md)。
+7. 结束时填写 [HANDOFF 模板](templates/HANDOFF.template.md)；重大取舍和偏差写入 [RECORDS 模板](templates/RECORDS.template.md)。
 
-- **Playbook Maintainer**：唯一有权修改、升级和发布 Playbook 基线的角色。本项目当前由维护本方法论的 Codex 对话担任。
-- **Experiment Owner**：负责某个实验的需求、执行、验证和反馈，不得直接修改固定版本的 `playbook/**`。
-- **Human Approver**：在 Human Gate 提供授权、外部应用操作或主观验收。
+目录和文件不必照抄。先阅读 [项目结构与记录指南](PROJECT_STRUCTURE.md)，再按项目规模映射逻辑记录。
 
-Power BI V0、V1 四项实验和后续非 Power BI 验证均是独立实验。它们只提交结果与反馈，由 Maintainer 决定是否进入下一版本。
+## 文档地图
 
-## 固定版本顺序
+| 文档 | 用途 | 普通执行者是否必读 |
+| --- | --- | --- |
+| [PLAYBOOK.md](PLAYBOOK.md) | 唯一生命周期、规则、责任和 Evidence Gate | 是 |
+| [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | 根目录可读性、Artifact Map 和按画像示例 | 建项时阅读 |
+| [templates/](templates/) | 必需及条件式记录模板 | 按触发条件使用 |
+| [Power BI adapter](adapters/power-bi.md) | Power BI 文件、Desktop、MCP、Service 浏览器插件边界 | 仅 Power BI 项目 |
+| [case-studies/](case-studies/) | V0 和跨领域验证事实 | 不必读，用于溯源 |
+| [reviews/v1.0-disposition.md](reviews/v1.0-disposition.md) | v0.2 到 v1.0 的逐项处置 | Maintainer Review |
+| [CHANGELOG.md](CHANGELOG.md) | 版本变化和基线 | 升级时阅读 |
 
-1. Power BI Builder V0 → Playbook v0.1。`Completed`
-2. V1 按 v0.1 执行并反馈。`Completed`
-3. Maintainer 基于 V1 反馈形成 v0.2。`Current baseline`
-4. 非 Power BI 项目按 v0.2 验证。`Next`
-5. Maintainer 吸收跨领域反馈形成 v1.0。
-6. v1.0 验证完成后再封装 Codex Skill。
+## 记录最小集
 
-在非 Power BI 项目 HANDOFF 返回前，v0.2 不升级为 v1.0。阻塞执行的明显错误只能通过单独 erratum 提交修复，并重新声明实验实际固定的基线提交号。
+所有正式项目至少保留：
 
-## 下一验证阶段
+- `PROJECT`：入口、画像、角色、阶段裁剪和 Artifact Map；
+- `REQUIREMENTS`：需求原因、范围、验收、安全和责任契约；
+- `VALIDATION`：唯一滚动状态、证据、异常、Gate 和 checkpoint；
+- `HANDOFF`：最终入口、结论、限制和恢复。
 
-下一项目必须属于非 Power BI 领域，固定 v0.2 提交后再冻结自身 Contract。它不得修改 `playbook/**`，只提交 Validation、Handoff、Decision/Deviation 和 Playbook Feedback。重点验证 `R-VLD-003`、`R-EXV-003`、`R-VDC-002` 及状态转换证据压缩是否具备跨领域价值。
+`TECH_DESIGN`、`DELIVERY_PLAN`、`UX_SPEC`、`UAT`、`RELEASE_PLAN`、`RUNBOOK`、`PLAYBOOK_FEEDBACK` 按触发条件启用。逻辑记录可以合并，不能丢失或重复维护权威状态。
 
-## 文档边界
+## 人与 AI
 
-- [PLAYBOOK.md](PLAYBOOK.md)：跨领域核心规范。
-- [Power BI adapter](adapters/power-bi.md)：未来 Power BI 项目的领域映射。
-- [V0 case study](case-studies/power-bi-builder-v0.md)：V0 事实、提交和规则来源。
-- [v0.2 review](reviews/v0.2-rule-disposition.md)：V1 反馈、规则处置和未泛化结论。
-- [CHANGELOG.md](CHANGELOG.md)：版本规则变化。
+- 人类负责目标原因、重要取舍、风险接受、外部写入、主观验收和最终授权。
+- AI 可以起草、比较方案、实施、验证和整理证据，但不能自行批准 Human Gate。
+- 高歧义或高风险方案可以使用多个 AI、领域专家或反方提示做独立评审；共识不等于事实证据。
 
-执行者无需阅读 Case Study 才能使用 Playbook。
+## 版本与证据
+
+- v0.1：来自 Power BI Builder V0，基线 `3ee871d618db84d55b3b2f86a198ac552864317e`。
+- v0.2：吸收 Power BI V1，基线 `dff3a717d59935697e310a29caf6b29dff11ff11`。
+- v1.0 candidate：吸收 `data-quality-checker@416ec65453fd280a611065c09272aa5d293a9f33` 的跨领域反馈和 Maintainer Review；正式提交号在人工验收后冻结。
+
+只有 Playbook Maintainer 可以修改或发布 Playbook。实验项目固定所用提交，只提交 Validation、Handoff、Decision/Deviation 和 Feedback，不直接修改规范。
+
+v1.0 发布并完成后续验证前，不封装 Codex Skill。

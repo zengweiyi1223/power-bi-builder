@@ -69,6 +69,8 @@
 
 V0 的种子策略也没有被抽象成“所有项目必须有种子”；Core 只要求可追溯的 Trusted baseline。
 
+V0 使用的是本地 Power BI Desktop 与 Modeling MCP 路线，没有使用面向 Power BI Service 的浏览器插件。该插件的适用边界可以记录在 Adapter，但不能作为 V0 的经验结论或已验证能力。
+
 ## 6. V0 暴露的改进点
 
 - 最终项目名称仍包含 `Seed`；未来应在 Run 初始化 Gate 完成业务命名。

@@ -1,10 +1,10 @@
 # 项目画像与生命周期裁剪模型
 
-- 状态：`Draft for cross-domain validation`
+- 状态：`Historical validation design; experiment complete`
 - 依据：[通用开发生命周期来源审查](lifecycle-source-reconciliation.md)
 - 固定 Playbook：`v0.2@dff3a717d59935697e310a29caf6b29dff11ff11`
 
-本文定义下一项非 Power BI 验证项目要测试的项目画像、阶段模块、责任表达和记录策略。它是实验设计，不是 v0.2 规则，也不构成 v1.0。
+本文定义非 Power BI 验证项目曾测试的项目画像、阶段模块、责任表达和记录策略。它是冻结的实验设计，不是 v0.2 规则，也不直接构成 v1.0；实验结果与正式处置见 [跨领域案例](../case-studies/data-quality-checker.md)和 [v1.0 审查矩阵](v1.0-disposition.md)。
 
 ## 1. 裁剪原则
 

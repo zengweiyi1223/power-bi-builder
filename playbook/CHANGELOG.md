@@ -1,5 +1,22 @@
 # Playbook Changelog
 
+## v1.0 candidate — 2026-09-28
+
+输入基线：Playbook v0.2 `dff3a717d59935697e310a29caf6b29dff11ff11`；生命周期设计 `2319a6904cd1dba0b696e59b9376889a3179b068`；非 Power BI 实验 `data-quality-checker@416ec65453fd280a611065c09272aa5d293a9f33`。
+
+- 将 v0.2 Evidence Gate Kernel 嵌入唯一的十阶段开发生命周期。
+- 增加六种基础画像、八种风险修饰器和 `Required / Conditional / Not Applicable + 理由` 裁剪。
+- 增加人机责任表达、需求原因对齐、条件式方案比较和多视角评审 Guidance。
+- 增加项目根入口、Artifact Map、逻辑记录/物理文件分离和按画像目录示例。
+- 增加可验证任务拆分和“风险优先 → 最小闭环 → 逐步扩展”的排序原则。
+- `R-VLD-003` 从 Provisional 升为 Required；`R-VDC-002` 升为条件触发的 Required；`R-EXV-003` 保持 Provisional。
+- 明确 Rolling Validation 与 Final Handoff 的单一权威边界。
+- 增加 PROJECT、TECH_DESIGN、DELIVERY_PLAN、RELEASE_OPERATIONS 模板，并更新现有模板。
+- Power BI adapter 区分文件、Desktop、Modeling MCP、Power BI Service 浏览器插件和 API/自动化路线；插件路线标记为未被 V0/V1 验证。
+- 详细处置见 [v1.0 Rule and lifecycle disposition](reviews/v1.0-disposition.md)。
+
+本节随候选版本存在，不代表 v1.0 已发布。人工验收和最终冻结提交完成后移除 candidate 标记并记录正式提交号。
+
 ## v0.2 — 2026-09-27
 
 输入基线：Playbook v0.1 `3ee871d618db84d55b3b2f86a198ac552864317e`；V1 main `442b2c3223b2de3eb1c38ca015c4cd84fda66694`。

@@ -1,11 +1,11 @@
-# <项目名> — Run <run-id> 验证记录
+# <项目名> — Run / Change Set <id> 验证记录
 
 - 状态：`Not Started / In Progress / Passed / Passed with Limitations / Blocked / Failed`
 - Playbook 基线：`<commit>`
-- 需求基线：`<commit>`
-- Run 起点：`<commit/hash/path>`
+- Contract 基线：`<commit/version>`
+- 起点与 Rollback point：`<commit/hash/path>`
 
-本记录只写已核实事实；待执行项保持 `Not Started`，不预填成功结论。
+这是当前阶段状态的唯一权威记录。只写已核实事实；待执行项保持 `Not Started`，不预填成功结论。
 
 ## 1. 环境与安全边界
 
@@ -14,21 +14,27 @@
 - 目标系统/项目身份：
 - 权限及外部连接：
 - 敏感信息和脱敏检查：
-- 初始 Git 状态与 Rollback point：
+- 初始 Git/工作区状态：
 
-## 2. 阶段状态
+## 2. 生命周期阶段状态
 
-| 阶段 | 状态 | 执行与验证摘要 | 证据 | DCS/DEV | Checkpoint |
+| Stage | 适用性 | 状态 | 执行与验证摘要 | 证据 | DCS/DEV | Checkpoint |
+| --- | --- | --- | --- | --- | --- | --- |
+| Profile & Tailor | R/C/N/A |  |  |  |  |  |
+
+## 3. 原子增量
+
+| Task ID | 变更 | 自动验证 | 必要人工验证 | Gate 结论 | 证据 | Checkpoint |
+| --- | --- | --- | --- | --- | --- | --- |
+| T-01 |  |  |  |  |  |  |
+
+每个增量按“变更 → 自动验证 → 必要人工验证 → Gate 判定 → checkpoint”更新。失败不得进入依赖任务。
+
+## 4. Human Gate
+
+| ID | 请求与目标 | 目标身份/版本 | 人工确认 | 证据 | 继续授权 |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Not Started |  |  |  |  |
-
-每个阶段按“原子变更 → 自动验证 → 必要人工验证 → Gate 判定 → checkpoint”更新。
-
-## 3. Human Gate
-
-| ID | 用途 | 请求与目标 | 人工确认 | 证据 | 继续授权 |
-| --- | --- | --- | --- | --- | --- |
-| HG-01 | Production / Conditional / Diagnostic / Validation |  |  |  |  |
+| HG-01 |  |  |  |  |  |
 
 仅在 Contract 声明效率或最少人工目标时填写：
 
@@ -36,40 +42,39 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | HG-01 |  |  |  |  |  |  |
 
-## 4. 独立验收
+## 5. 验收条款与独立证据
 
-| 验收条款 | 生成路径结果 | 独立依据 | 差异/容差 | 结论 |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
-
-## 5. 异常与恢复
-
-| 事件 | 类型 | 严重度 | 影响 | 处理 | 是否保留现场 |
+| AC ID | 生成/实现结果 | 独立依据 | 差异/容差 | 证据 | 结论 |
 | --- | --- | --- | --- | --- | --- |
-|  |  | Blocking / Non-blocking / Informational |  | 重试 / 回滚 / 新 Run / 记录后继续 |  |
+| AC-01 |  |  |  |  |  |
 
-## 6. 状态转换与证据压缩
+## 6. 异常、归因与恢复
+
+| Event ID | 类型 | 严重度 | 影响 | 处理 | 恢复/新 Run | 现场证据 |
+| --- | --- | --- | --- | --- | --- | --- |
+| EVT-001 | Validation / Environment / Safety-Permission / Governance / Evidence Gap / Expected Negative / Warning | Blocking / Non-blocking / Informational |  |  |  |  |
+
+## 7. 状态转换与证据压缩
 
 相同方法下重复的无变化观察可以合并；首态、末态、首次转换、Blocking 和异常必须保留完整证据。
 
-| 转换 | 前态 | 动作 | 后态 | 重复次数 | 证据 | 异常 |
+| 转换 | 前态 | 动作 | 后态 | 重复次数 | 证据 | 异常/残余风险 |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  |
 
-## 7. 操作用途
+## 8. 操作用途
 
 | 操作 | Production 必需 | Conditional | Diagnostic | Validation-only | 说明 |
 | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |
 
-## 8. 最终判定
+## 9. 当前或最终判定
 
 - 功能结果：
 - Contract 符合度：
 - 证据完整度：
-- 持久化/重启状态：
+- 构建/发布/运行/持久化状态：
 - 安全与权限状态：
+- 当前 Blocker 或下一 Gate：
 - 已知限制和不能声称的内容：
-- 最小生产流程：
-- 诊断及验证专用附加步骤：
-- 最终验收提交：
+- 当前/最终验收提交：

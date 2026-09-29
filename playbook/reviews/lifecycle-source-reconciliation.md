@@ -1,9 +1,9 @@
 # 通用开发生命周期来源审查
 
-- 状态：`Draft for cross-domain validation`
+- 状态：`Historical design input; cross-domain validation complete`
 - 工作分支：`codex/lifecycle-validation-design`
 
-本文是 Playbook v1.0 的研究输入，不是 v0.2 的增补规范。它整理 Playbook v0.2、历史 AI-System 和常见开发生命周期之间的重合、缺口与候选抽象；候选内容只有经过非 Power BI 项目验证和 Maintainer Review 后，才可能进入 v1.0。
+本文是 Playbook v1.0 的历史研究输入，不是 v0.2 的增补规范。它整理 Playbook v0.2、历史 AI-System 和常见开发生命周期之间的重合、缺口与候选抽象。跨领域实验已经完成，正式处置见 [v1.0 审查矩阵](v1.0-disposition.md)；本文件保留设计时口径，不作为当前规则。
 
 ## 1. 固定基线
 
