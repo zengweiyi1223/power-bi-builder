@@ -48,6 +48,7 @@ Profile & Tailor → Discover & Frame → Contract → Design → Plan & Prepare
 | [case-studies/](case-studies/) | V0 和跨领域验证事实 | 不必读，用于溯源 |
 | [reviews/v1.0-disposition.md](reviews/v1.0-disposition.md) | v0.2 到 v1.0 的逐项处置 | Maintainer Review |
 | [v1.0.1 来源融合审查](reviews/v1.0.1-source-reconciliation.md) | AI-System、DQT、对话候选的采纳/降级/拒绝与归档建议 | Maintainer Review |
+| [XHS 图文底稿](sharing/xhs-playbook-v1.0.1-draft.md) | 面向人类的 12 张卡片解释层；用于可理解性验收，不是规范 | Human Review |
 | [CHANGELOG.md](CHANGELOG.md) | 版本变化和基线 | 升级时阅读 |
 
 ## 记录最小集

@@ -13,6 +13,7 @@
 - 模板补充实际 Git 状态、验证对象、单文件检查、跨文件一致性检查和阶段收口摘要。
 - Power BI adapter 统一“浏览器 Skill/插件能力”称谓，继续标记为 V0/V1 未验证路线。
 - 新增 [DQT MVP-0 案例](case-studies/data-query-tool-mvp0.md)与[来源融合审查](reviews/v1.0.1-source-reconciliation.md)。
+- 增加 [XHS 图文底稿](sharing/xhs-playbook-v1.0.1-draft.md)，用 12 张卡片覆盖完整模块并作为人类可理解性验收；该底稿不构成第二套规范。
 
 候选尚未冻结；需通过自动检查和 Human Review 后再更新正式版本与提交号。
 
