@@ -11,6 +11,7 @@
 - Provisional Rules 处理：
 - Playbook 实际发现或避免的问题：
 - 最大摩擦、重复或无价值记录：
+- 哪些规则可以降级、合并、自动化或删除：
 - 未被画像、修饰器或阶段覆盖的情况：
 
 ## 2. Rule 反馈
@@ -33,14 +34,22 @@
 | Requirements / Design / Plan | Sufficient / Missing / Duplicate |  |  |
 | Validation / Handoff 分工 | Clear / Duplicate |  |  |
 | Release / Operate / Close | Helpful / N/A / Missing |  |  |
+| Human Relay / Automatic Orchestration | Helpful / Costly / N/A |  |  |
+| Reference Scan | Helpful / Distracting / N/A |  |  |
 
-## 4. 采用前规划对比
+## 4. 规则负担检查
+
+| 候选规则/做法 | 解决的真实问题 | 不采用的影响 | 执行成本 | 更轻替代 | 建议层级 |
+| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  | Required / Provisional / Guidance / Template / Adapter / Case Study |
+
+## 5. 采用前规划对比
 
 | 原规划内容 | 采用 Playbook 后的变化 | 分类 | 理由与实际效果 |
 | --- | --- | --- | --- |
 |  |  | Risk Correction / Operational Clarification / Playbook-only Alignment / No Change |  |
 
-## 5. Provisional 与待验证内容
+## 6. Provisional 与待验证内容
 
 | Rule/假设 | 实际采用方式 | 成本 | 新发现/避免的问题 | Utility | 建议 |
 | --- | --- | --- | --- | --- | --- |
@@ -49,8 +58,10 @@
 - 多视角或多 AI 方案评审是否使用，实际增益是什么：
 - 持续运维、多团队、高风险或监管场景是否触发：
 - 是否出现因压缩证据而无法复核的内容：
+- 外部参考调研是否减少了返工，还是引入了无关复杂度：
+- 跨会话协调方式的 Token/等待收益是否值得：
 
-## 6. 问题分类与附件
+## 7. 问题分类与附件
 
 | 问题 | 初步分类 | 建议处理位置 |
 | --- | --- | --- |

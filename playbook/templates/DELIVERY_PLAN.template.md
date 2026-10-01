@@ -45,3 +45,14 @@
 - 必须记录 Decision 的调整：
 - 必须回到 Contract / Design 的调整：
 - Blocking 后原地重试、回滚或新 Run 的判断：
+
+## 6. 跨会话转移
+
+- 协调模式：`Human Relay / Automatic Orchestration`
+- 仓库与路径：
+- 固定基线、分支与 HEAD：
+- 当前 Gate 与权威文档入口：
+- 验证结果、Decision/Deviation/Blocker：
+- 下一项唯一动作：
+
+只传递紧凑摘要；详细日志和事实由后续执行者从仓库回读。

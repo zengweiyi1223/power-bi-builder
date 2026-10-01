@@ -1,5 +1,21 @@
 # Playbook Changelog
 
+## v1.0.1-candidate — 2026-09-30
+
+输入基线：Playbook v1.0 `3e5051b6159193bd430dbd85060fd04062dfd00e`；AI-System `5dc740a14a8bcd3557f5619708909be5ce3da395`；DQT `bbe253661a18abfde60d04337ff3dce17367208f`。
+
+- 保留 v1.0 的全部 32 条 Rule ID，不新增强制规则；增加 Maintainer 轻量性审查，防止把旧流程机械搬入 Core。
+- Contract 扩展交付形态或风险时，重新检查画像、修饰器、阶段和记录映射。
+- 增加 README/AGENTS 分工和短小 `AGENTS.md` 模板；README 仍是人类入口，Contract/Validation 仍是事实权威。
+- 增加 `Human Relay` 与 `Automatic Orchestration` 两种协调模式，以及低 Token 紧凑转移包。
+- 将 GitHub/官方实现调研定义为风险触发、限时的 `Reference Scan` Guidance，不作为每个任务的固定 Gate。
+- 增加原始表达、批准 Contract 与 Backlog 的轻量区分，以及 Normative/Baseline/Record 文档职责。
+- 模板补充实际 Git 状态、验证对象、单文件检查、跨文件一致性检查和阶段收口摘要。
+- Power BI adapter 统一“浏览器 Skill/插件能力”称谓，继续标记为 V0/V1 未验证路线。
+- 新增 [DQT MVP-0 案例](case-studies/data-query-tool-mvp0.md)与[来源融合审查](reviews/v1.0.1-source-reconciliation.md)。
+
+候选尚未冻结；需通过自动检查和 Human Review 后再更新正式版本与提交号。
+
 ## v1.0 — 2026-09-28
 
 输入基线：Playbook v0.2 `dff3a717d59935697e310a29caf6b29dff11ff11`；生命周期设计 `2319a6904cd1dba0b696e59b9376889a3179b068`；非 Power BI 实验 `data-quality-checker@416ec65453fd280a611065c09272aa5d293a9f33`。
