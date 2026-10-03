@@ -1,6 +1,6 @@
 # 人机协作开发闭环 Playbook
 
-状态：`v1.0.1-candidate`（v1.0 已冻结；本候选吸收 DQT MVP-0 与 AI-System 来源，等待人工验收）
+状态：`v1.0.1`（2026-10-03 人工验收通过并冻结；吸收 DQT MVP-0 与 AI-System 来源）
 
 这套 Playbook 把通用开发生命周期、人机责任、可裁剪阶段、记录模板和证据闸门放在同一条流程中。它适用于实验、文档、数据、组件、应用和服务；项目可以按风险增减阶段，不能静默省略责任、验证或恢复边界。
 
@@ -37,6 +37,8 @@ Profile & Tailor → Discover & Frame → Contract → Design → Plan & Prepare
 
 目录和文件不必照抄。先阅读 [项目结构与记录指南](PROJECT_STRUCTURE.md)，再按项目规模映射逻辑记录。
 
+AI 在开工、阶段边界或重复异常时按需提醒会话、模型/强度与最小权限是否适配，详见主规范 §4.3；人类决定是否调整，不新增每阶段审批。
+
 ## 文档地图
 
 | 文档 | 用途 | 普通执行者是否必读 |
@@ -48,7 +50,7 @@ Profile & Tailor → Discover & Frame → Contract → Design → Plan & Prepare
 | [case-studies/](case-studies/) | V0 和跨领域验证事实 | 不必读，用于溯源 |
 | [reviews/v1.0-disposition.md](reviews/v1.0-disposition.md) | v0.2 到 v1.0 的逐项处置 | Maintainer Review |
 | [v1.0.1 来源融合审查](reviews/v1.0.1-source-reconciliation.md) | AI-System、DQT、对话候选的采纳/降级/拒绝与归档建议 | Maintainer Review |
-| [XHS 图文底稿](sharing/xhs-playbook-v1.0.1-draft.md) | 面向人类的 12 张卡片解释层；用于可理解性验收，不是规范 | Human Review |
+| [XHS 图文定稿](sharing/xhs-v1.0.1/FINAL.md) | 已冻结的图文解释层，不替代全部执行细则；旧底稿仅供历史追溯 | Human Review |
 | [CHANGELOG.md](CHANGELOG.md) | 版本变化和基线 | 升级时阅读 |
 
 ## 记录最小集
@@ -73,8 +75,8 @@ Profile & Tailor → Discover & Frame → Contract → Design → Plan & Prepare
 - v0.1：来自 Power BI Builder V0，基线 `3ee871d618db84d55b3b2f86a198ac552864317e`。
 - v0.2：吸收 Power BI V1，基线 `dff3a717d59935697e310a29caf6b29dff11ff11`。
 - v1.0：吸收 `data-quality-checker@416ec65453fd280a611065c09272aa5d293a9f33` 的跨领域反馈和 Maintainer Review，并在补充运行控制协议后通过人工验收；固定基线以最终冻结提交号为准。
-- v1.0.1 candidate：吸收 `AI-System@5dc740a14a8bcd3557f5619708909be5ce3da395` 与 `data-query-tool@bbe253661a18abfde60d04337ff3dce17367208f`，重点补充轻量性治理、AI 入口、低 Token 交接、Reference Scan 和重新裁剪；不新增 Rule ID。
+- v1.0.1：吸收 `AI-System@5dc740a14a8bcd3557f5619708909be5ce3da395` 与 `data-query-tool@bbe253661a18abfde60d04337ff3dce17367208f`，重点补充轻量性治理、AI 入口、低 Token 交接、Reference Scan、重新裁剪、证据化异常归因和会话/资源/权限适配提醒。
 
 只有 Playbook Maintainer 可以修改或发布 Playbook。实验项目固定所用提交，只提交 Validation、Handoff、Decision/Deviation 和 Feedback，不直接修改规范。
 
-v1.0.1 经人工验收并完成计划中的方法验证前，不封装 Codex Skill。
+v1.0.1 已通过人工验收，允许新对话基于固定冻结提交制作 Codex Skill；仅封装执行入口、裁剪、恢复与记录机制，不顺带改写 Playbook。封装后须用独立小项目验证，不把允许封装视为 Skill 已验证。[冻结与 Skill 交接](reviews/v1.0.1-acceptance-summary.md)。

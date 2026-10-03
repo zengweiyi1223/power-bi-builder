@@ -1,10 +1,15 @@
 # Playbook Changelog
 
-## v1.0.1-candidate — 2026-09-30
+## v1.0.1 — 2026-10-03（冻结；候选始于 2026-09-30）
 
 输入基线：Playbook v1.0 `3e5051b6159193bd430dbd85060fd04062dfd00e`；AI-System `5dc740a14a8bcd3557f5619708909be5ce3da395`；DQT `bbe253661a18abfde60d04337ff3dce17367208f`。
 
-- 保留 v1.0 的全部 32 条 Rule ID，不新增强制规则；增加 Maintainer 轻量性审查，防止把旧流程机械搬入 Core。
+2026-10-02 补充：经人工审查加入证据化异常归因 `R-STP-002`，同步更新 Validation / Records 模板及六图解释稿。
+
+2026-10-02 后续补充：新增 `R-CTL-003 · Guidance` 与 §4.3 会话、计算资源和权限适配提醒；复用现有交接/决策记录，不新增强制 Gate。提醒效果待验证，不改变安全 Required 边界。已冻结 XHS 图片和发布正文保持不变，本项属于执行细则，不声明分享逐条覆盖全部规范。
+
+- 保留 v1.0 规则并补充 `R-STP-002`：影响 Gate 或需要恢复的异常必须以证据说明现象、可能原因状态、影响、处置和复验；原因排查按风险裁剪，不确定时不得猜测。
+- 增加 Maintainer 轻量性审查，防止把旧流程机械搬入 Core。
 - Contract 扩展交付形态或风险时，重新检查画像、修饰器、阶段和记录映射。
 - 增加 README/AGENTS 分工和短小 `AGENTS.md` 模板；README 仍是人类入口，Contract/Validation 仍是事实权威。
 - 增加 `Human Relay` 与 `Automatic Orchestration` 两种协调模式，以及低 Token 紧凑转移包。
@@ -13,9 +18,9 @@
 - 模板补充实际 Git 状态、验证对象、单文件检查、跨文件一致性检查和阶段收口摘要。
 - Power BI adapter 统一“浏览器 Skill/插件能力”称谓，继续标记为 V0/V1 未验证路线。
 - 新增 [DQT MVP-0 案例](case-studies/data-query-tool-mvp0.md)与[来源融合审查](reviews/v1.0.1-source-reconciliation.md)。
-- 增加 [XHS 图文底稿](sharing/xhs-playbook-v1.0.1-draft.md)，用 12 张卡片覆盖完整模块并作为人类可理解性验收；该底稿不构成第二套规范。
+- 增加 [XHS 图文底稿](sharing/xhs-playbook-v1.0.1-draft.md)，用精简图文解释 Playbook 主要模块并作为人类可理解性验收；该底稿不构成第二套规范。
 
-候选尚未冻结；需通过自动检查和 Human Review 后再更新正式版本与提交号。
+2026-10-03 自动校验和 Human Review 通过，用户明确授权冻结、独立提交、合并 main 并 push。正式基线为包含本条目的 `docs: freeze Playbook v1.0.1` 提交；后续合并保留该提交，不改写历史。Skill 封装边界见验收摘要；本次未封装 Skill。
 
 ## v1.0 — 2026-09-28
 

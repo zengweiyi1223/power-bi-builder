@@ -1,0 +1,16 @@
+# Keep local visual iterations; track only the approved publication assets.
+/*
+!/.gitignore
+!/FINAL.md
+!/FREEZE.md
+!/preview-v3.html
+!/render_xhs_v3.py
+!/images-v3/
+/images-v3/*
+!/images-v3/ai-project-loop-01.png
+!/images-v3/ai-project-loop-02.png
+!/images-v3/ai-project-loop-03.png
+!/images-v3/ai-project-loop-04.png
+!/images-v3/ai-project-loop-05.png
+!/images-v3/ai-project-loop-06.png
+!/images-v3/contact-sheet.png
