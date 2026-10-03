@@ -1,11 +1,12 @@
 # <项目名> — 项目入口与裁剪
 
 - 状态：`Draft / Active / Complete / Archived`
-- Playbook：`v1.0@<commit>`
+- Playbook：`v1.0.1@<commit>`
 - 项目基线或当前稳定版本：`<commit/version>`
 - 当前滚动状态：[VALIDATION](<path>)
 - 执行恢复入口：[VALIDATION 当前控制状态](<path-to-current-control-state>)
 - 最终交付或最近稳定状态：[HANDOFF](<path>)
+- AI 指令入口：`<AGENTS.md / equivalent / N/A + reason>`
 
 ## 1. 项目摘要
 
@@ -54,6 +55,7 @@
 | 逻辑记录/资产 | 实际路径或系统 | 权威内容 | 生命周期 |
 | --- | --- | --- | --- |
 | PROJECT |  | 画像、角色、阶段裁剪、导航 | 稳定入口 |
+| AI 指令入口 |  | 阅读顺序、权限边界和已验证命令 | 条件式稳定入口 |
 | REQUIREMENTS |  | Why、范围、验收、安全、Gate | 冻结版本 |
 | TECH_DESIGN |  | 方案、接口、风险与验证设计 | 条件式冻结版本 |
 | DELIVERY_PLAN |  | 任务、依赖、完成定义和 checkpoint | 实施前及受控更新 |
@@ -64,7 +66,13 @@
 | Evidence |  |  |  |
 | 临时/可重建内容 |  | 不作为唯一证据 |  |
 
-## 6. 根目录导航
+## 6. 协调模式
+
+- 默认模式：`Human Relay / Automatic Orchestration`
+- 选择理由与成本边界：
+- 最小转移包位置：`<通常为 VALIDATION 当前控制状态或 HANDOFF 摘要>`
+
+## 7. 根目录导航
 
 ```text
 <只列真实使用的目录与用途；不要为了模板预建空目录>

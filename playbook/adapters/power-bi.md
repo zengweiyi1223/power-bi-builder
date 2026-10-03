@@ -1,6 +1,6 @@
 # Power BI Adapter
 
-本文件把 Playbook v1.0 映射到未来 Power BI 项目。它不替代项目自己的 Contract，也不把 V0/V1 的单版本观察、当前工具说明或未执行路线冒充为普遍规律。
+本文件把 Playbook v1.0.1 映射到未来 Power BI 项目。它不替代项目自己的 Contract，也不把 V0/V1 的单版本观察、当前工具说明或未执行路线冒充为普遍规律。
 
 ## 1. Trusted baseline 与项目生成
 
@@ -12,7 +12,7 @@
 
 ## 2. Contract 应冻结的 Power BI 边界
 
-- Desktop、PBIP/PBIR/TMDL、可选 Modeling MCP、Power BI Service 和浏览器插件的实际版本与适用范围。
+- Desktop、PBIP/PBIR/TMDL、可选 Modeling MCP、Power BI Service 和浏览器 Skill/插件能力的实际版本与适用范围。
 - 数据源、编码、区域、类型、凭据和刷新边界。
 - 表、列、关系、度量值、格式和字段绑定名称。
 - 页面、视觉对象、布局和交互要求。
@@ -20,7 +20,7 @@
 - 目标对象在当前 Desktop 会话中是否已存在并加载。
 - Desktop 是否可能持有未保存的内存修改。
 - 打开、首次保存、关闭—重开、Apply external changes 和视觉确认的 Human Gate。
-- Service、发布/分享、跨机器迁移、网关、浏览器插件和 MCP mutation 是否属于范围。
+- Service、发布/分享、跨机器迁移、网关、浏览器 Skill/插件能力和 MCP mutation 是否属于范围。
 
 ## 3. Desktop 生命周期状态
 
@@ -90,16 +90,16 @@ V1 的一个 measure 修改没有随 Apply 热加载，但重开后生效。因�
 
 ## 7. 工具路线选择
 
-不要把“Power BI 插件”当成覆盖所有 Power BI 对象的统一能力。先按工作对象选路线：
+不要把“Power BI 浏览器 Skill/插件能力”当成覆盖所有 Power BI 对象的统一能力。先按工作对象选路线：
 
 | 工作对象 | 适用路线 | 能力边界 | 证据状态 |
 | --- | --- | --- | --- |
 | 本地文件、PBIP、PBIR、TMDL | 文件、代码、Schema 和版本控制工具 | 生成、修改和静态验证磁盘项目；不能单独证明 Desktop 或 Service 已接受 | V0/V1 observed |
 | Power BI Desktop 内存模型与本地产品回读 | Desktop 人工操作；可选 Modeling MCP | 本地会话、模型对象、DAX 与保存边界；必须区分内存和磁盘状态 | V0/V1 部分 observed |
-| Power BI Service 报告、视觉对象、dashboard、workspace、app 和分享 | Power BI 浏览器插件，在受支持的本地浏览器运行环境中执行 | 面向浏览器 Service；不编辑本地 PBIX/PBIR，不等同于 API 或 Desktop 自动化 | 当前工具说明；V0/V1 未验证 |
+| Power BI Service 报告、视觉对象、dashboard、workspace、app 和分享 | Power BI 浏览器 Skill/插件能力，在受支持的浏览器运行环境中执行 | 面向浏览器 Service；不编辑本地 PBIX/PBIR，不等同于 API 或 Desktop 自动化 | 当前工具说明；V0/V1 未验证 |
 | REST API、后台集成、网关或本地应用自动控制 | 对应 API、CLI 或专用工具 | 必须单独核实认证、权限、幂等、费用和回滚 | 本 Playbook 未验证 |
 
-使用 Power BI 浏览器插件时：
+使用 Power BI 浏览器 Skill/插件能力时：
 
 1. 先确认这是 Power BI Service，而不是 Desktop 或 Report Server。
 2. 在读取或修改前核对可见账号、tenant、workspace、对象类型和权限；拒绝访问不等于空结果。
@@ -108,7 +108,7 @@ V1 的一个 measure 修改没有随 Apply 热加载，但重开后生效。因�
 5. 保存或发布后重开精确对象并验证版本、内容、筛选和可见状态；不要因结果不明确而重复创建。
 6. `Publish to web` 会形成公开暴露，不能作为普通组织内分享使用。
 
-以上是能力路由和安全边界，不是 V0/V1 的实验成功结论。首次正式使用时必须建立独立 Validation 和反馈。
+以上是能力路由和安全边界，不是 V0/V1 的实验成功结论。能力是否已安装、已连接和获授权必须在项目 Preflight 核实；首次正式使用时建立独立 Validation 和反馈。
 
 ## 8. Modeling MCP 定位
 

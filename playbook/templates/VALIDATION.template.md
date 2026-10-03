@@ -15,6 +15,9 @@
 - 权限及外部连接：
 - 敏感信息和脱敏检查：
 - 初始 Git/工作区状态：
+- 实际仓库根、分支与 HEAD：
+- staged / unstaged / untracked：
+- 本轮验证对象：`工作树 / staged snapshot / commit <hash> / artifact <id>`
 
 ## 2. 当前控制状态
 
@@ -28,6 +31,7 @@
 - 最新有效证据：
 - 最新 Rollback point：
 - 恢复握手：`已读取 Playbook 基线、根入口、Contract 和本记录；状态一致 / 存在冲突`
+- 协调模式：`Human Relay / Automatic Orchestration`
 
 新会话、恢复或执行者切换时，必须在首次修改前核对并复述本节。信息缺失、冲突或过期时先记录 `Evidence Gap` / `Governance Failure`，不得凭聊天记忆继续。
 
@@ -65,9 +69,11 @@
 
 ## 7. 异常、归因与恢复
 
-| Event ID | 类型 | 严重度 | 影响 | 处理 | 恢复/新 Run | 现场证据 |
+| Event ID | 类型 / 严重度 | 受影响 Gate / 现象 | 原因状态与可能原因 | 依据 / 影响 | 下一动作 / 复验 | 恢复 / 新 Run |
 | --- | --- | --- | --- | --- | --- | --- |
-| EVT-001 | Validation / Environment / Safety-Permission / Governance / Evidence Gap / Expected Negative / Warning | Blocking / Non-blocking / Informational |  |  |  |  |
+| EVT-001 | Validation / Environment / Safety-Permission / Governance / Evidence Gap / Expected Negative / Warning；Blocking / Non-blocking / Informational |  | Confirmed / Suspected / Unknown： |  |  |  |
+
+原因可以是已确认、待验证或未知。只记录与当前风险相称的排查；未有证据支持时不要把可能原因写成根因。恢复后复验受影响的 Gate。
 
 ## 8. 状态转换与证据压缩
 
@@ -93,3 +99,16 @@
 - 当前 Blocker 或下一 Gate：
 - 已知限制和不能声称的内容：
 - 当前/最终验收提交：
+
+## 11. 阶段收口与转移包
+
+- 本阶段目标：
+- 已完成及证据：
+- 单文件检查：
+- 跨文件一致性检查：
+- Decision / Deviation / Blocker：
+- Gate 结论与 Human 决定：
+- 分支、HEAD、工作树和远端状态：
+- 下一项唯一动作：
+
+本节应保持紧凑，供 Human Relay 或后续会话恢复；完整过程证据仍保留在前述章节和仓库产物中。

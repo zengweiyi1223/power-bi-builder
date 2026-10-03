@@ -4,6 +4,16 @@
 
 HANDOFF 只保存最终稳定摘要；执行过程和滚动状态以 VALIDATION 为准。
 
+## 0. 紧凑转移包
+
+- 仓库与路径：
+- 固定基线、最终分支与 HEAD：
+- 最终 Gate：
+- 权威文档入口：
+- 验证结果：
+- Decision / Deviation / Blocker：
+- 下一项唯一动作或关闭结论：
+
 ## 1. 最终结论
 
 - 功能结果：
@@ -54,6 +64,7 @@ HANDOFF 只保存最终稳定摘要；执行过程和滚动状态以 VALIDATION 
 - 已获授权的后续动作：
 - 需要重新确认或新 Contract 的动作：
 - 建议但未授权的方向：
+- 会话/资源建议（可选，仅必要时）：`<继续或先交接再新开；模型/强度/最小权限建议及理由、影响与待人决定项；未知配置明确未知>`
 
 ## 8. 复核入口
 
@@ -65,3 +76,4 @@ HANDOFF 只保存最终稳定摘要；执行过程和滚动状态以 VALIDATION 
 - RELEASE / RUNBOOK：`<path or N/A>`
 - PLAYBOOK_FEEDBACK：`<path or N/A>`
 - 最终提交/版本：`<commit/version>`
+- staged / unstaged / untracked 与远端分歧：
